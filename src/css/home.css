@@ -178,11 +178,11 @@
 .sidebar {
     position: fixed;
     left: 0;
-    top: 60px;
+    top: 60px; /* Height of your top bar */
     padding-top: 30px;
     background-color: white;
     width: 21%;
-    height: 100vh;
+    height: calc(100vh - 60px); /* Subtract top bar height */
     border-right: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -192,10 +192,11 @@
     overflow-y: auto;
 }
 
+/* Ensure sidebar content can grow */
 .sidebar ul {
-    list-style: none;
-    padding: 0;
+    flex-grow: 1;
     width: 100%;
+    overflow-y: auto;
 }
 
 .sidebar-section {

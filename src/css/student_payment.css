@@ -1,0 +1,77 @@
+.student-payment-home{
+   width: 79%;
+   position: absolute;
+   right: 0;
+   padding: 2rem;
+}
+.sp-title{
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: 55px;
+	background-color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    padding: 0 1rem;
+
+    p{
+    	margin-left: 75%;
+    	font-size: 12px;
+	}
+}
+.reciept-home{
+	margin-top: 3rem;
+	width: 100%;
+	min-height: 105vh;
+	background-color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+.reciept{
+	padding: 1.5rem;
+}
+.reciept-title{
+	border-bottom: 1px solid rgba(220, 220, 220, 1);
+	width: 100%;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	padding-left: 3rem;
+
+	p{
+		font-size: 13px;
+	}
+}
+#reciept-p{
+	padding-left: 78%;
+}
+.reciept-address{
+	display: flex;
+	margin-top: 4rem;
+	margin-bottom: 4rem;
+
+	p{
+		font-size: 13px;
+	}
+}
+.address-to{
+	padding-left: 47%;
+}
+#total-p{
+	font-size: 14px;
+	float: right;
+	padding-right: 2rem;
+	margin-top: 2rem;
+}
+.reciept button{
+	margin-left: 45%;
+	margin-top: 120px;
+	width: 150px;
+	height: 40px;
+	border-radius: 5px;
+	outline: none;
+	border: none;
+	background-color: rgba(15, 1, 122);
+	color: white;
+}

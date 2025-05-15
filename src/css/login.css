@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body{
+  width: 100%;
+  min-height: 100vh;
+}
+
+.login-container {
+  background-image: url('https://i.pinimg.com/736x/61/ef/2c/61ef2c2bf2306fa92c6c91034bea6014.jpg');
+  height: 100vh;
+  background-repeat: repeat;
+  animation: moveBackground 20s linear infinite;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes moveBackground {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+.glass-card {
+  color: white;
+  width: 500px;
+  padding: 30px;
+  border-radius: 15px;
+  background: transparent;
+  backdrop-filter: blur(50px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  text-align: center;
+}
+
+.glass-card h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.glass-card p {
+  font-size: 1em;
+  margin-bottom: 20px;
+}
+.text2{
+display: flex;
+}
+.text2 label{
+  top: 10px;
+  position: relative;
+  padding-left: 5px;
+}
+.text2 input{
+  top: -5px;
+  position: relative;
+}
+.text3{
+  padding-top: 40px;
+}
+.text3 span{
+  padding-left: 5px;
+  font-weight: bold;
+  transition: 0.5s;
+}
+.text3 span:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.input-field {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1em;
+}
+
+.input-field:focus {
+  outline: none;
+  border: 1px solid #1e90ff;
+}
+
+.forgot {
+  margin-top: 10px;
+  padding-left: 175px;
+}
+
+.forgot a {
+  text-decoration: none;
+  color: white;
+  font-size: 0.9em;
+  transition: 0.5s;
+}
+
+.forgot a:hover {
+  text-decoration: underline;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: rgba(30, 100, 240, 1);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color:rgb(15, 1, 230);
+}

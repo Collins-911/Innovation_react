@@ -41,7 +41,7 @@ export default function Profile() {
           </button>
           <button className="tab">
             <FaHistory className="icon" />
-            <span>Activity Log</span>
+            <span>Activity log</span>
           </button>
         </div>
 

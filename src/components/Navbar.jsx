@@ -5,7 +5,7 @@ import '../css/home.css';
 
 export default function Navbar(){
 
-	const { dashboardClick, studentClick, registerClick, paymentClick, staffClick, coursesClick, reportClick } = Navigation();
+	const { dashboardClick, studentClick, registerClick, paymentClick, staffClick, coursesClick, reportClick, profileClick} = Navigation();
 
 	const navItems = [
 		{
@@ -31,7 +31,7 @@ export default function Navbar(){
 		{
 			menuTitle: "My Profile",
 			menuItems: [
-				{name: "Profile"},
+				{name: "Profile", onClick: profileClick},
 				{name: "Settings"},
 			]
 		},

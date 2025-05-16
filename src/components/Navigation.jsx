@@ -36,6 +36,10 @@ export default function Navigation() {
         console.log('Navigating to Report');
         navigate('/report')
     };
+      const profileClick = () => {
+        console.log('Navigating to Profile');
+        navigate('/profile')
+    };
 
   return {
     dashboardClick,
@@ -45,5 +49,6 @@ export default function Navigation() {
     staffClick,
     coursesClick,
     reportClick,
+    profileClick,
   };
 }

@@ -11,8 +11,7 @@ import Student_payment from './pages/Student_payment.jsx'
 import Staff from './pages/Staff.jsx'
 import Courses from './pages/Courses.jsx'
 import Report from './pages/Report.jsx'
-
-
+import Profile from './pages/profile.jsx'
 import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
@@ -28,6 +27,7 @@ createRoot(document.getElementById('root')).render(
       <Route path ='/staff' element={<Staff/>}/>
       <Route path ='/courses' element={<Courses/>}/>
       <Route path ='/report' element={<Report/>}/>
+       <Route path ='/profile' element={<Profile/>}/>
     </Routes>
   </BrowserRouter>,
 )

@@ -29,21 +29,23 @@ export default function Student(){
 			           				<thead>
 			           					<tr>
 				           					<th>Profile</th>
-				           					<th>Name</th>
-				           					<th>Course</th>
-				           					<th>Mobile</th>
-				           					<th>Email</th>
-				           					<th>Admission Date</th>
+				           					<th>Student Name</th>
+				           					<th>Course Name</th>
+				           					<th>Phone Number</th>
+				           					<th>Email Address</th>
+				           					<th>Admission</th>
+				           					<th>Action</th>
 				           				</tr>
 			           				</thead>
 			           				<tbody>
 			           					<tr>
 				           					<td>image</td>
-				           					<td>person1</td>
-				           					<td>course1</td>
-				           					<td>123456789</td>
-				           					<td>email address</td>
-				           					<td>12222222</td>
+				           					<td>Jacinta Ada Bisong</td>
+				           					<td>Web Development</td>
+				           					<td>12345678900</td>
+				           					<td>emailaddress@gmail.com</td>
+				           					<td>12/10/2024</td>
+				           					<td><button>Delete</button></td>
 				           				</tr>
 				           				<tr>
 				           					<td>image</td>
@@ -52,6 +54,7 @@ export default function Student(){
 				           					<td>123456789</td>
 				           					<td>email address</td>
 				           					<td>12222222</td>
+				           					<td><button>Delete</button></td>
 				           				</tr>
 				           				<tr>
 				           					<td>image</td>
@@ -60,6 +63,7 @@ export default function Student(){
 				           					<td>123456789</td>
 				           					<td>email address</td>
 				           					<td>12222222</td>
+				           					<td><button>Delete</button></td>
 				           				</tr>
 				           				<tr>
 				           					<td>image</td>
@@ -68,6 +72,7 @@ export default function Student(){
 				           					<td>123456789</td>
 				           					<td>email address</td>
 				           					<td>12222222</td>
+				           					<td><button>Delete</button></td>
 				           				</tr>
 				           				<tr>
 				           					<td>image</td>
@@ -76,6 +81,7 @@ export default function Student(){
 				           					<td>123456789</td>
 				           					<td>email address</td>
 				           					<td>12222222</td>
+				           					<td><button>Delete</button></td>
 				           				</tr>
 				           				<tr>
 				           					<td>image</td>
@@ -84,6 +90,7 @@ export default function Student(){
 				           					<td>123456789</td>
 				           					<td>email address</td>
 				           					<td>12222222</td>
+				           					<td><button>Delete</button></td>
 				           				</tr>
 				           				<tr>
 				           					<td>image</td>
@@ -92,6 +99,7 @@ export default function Student(){
 				           					<td>123456789</td>
 				           					<td>email address</td>
 				           					<td>12222222</td>
+				           					<td><button>Delete</button></td>
 				           				</tr>
 				           				<tr>
 				           					<td>image</td>
@@ -100,6 +108,7 @@ export default function Student(){
 				           					<td>123456789</td>
 				           					<td>email address</td>
 				           					<td>12222222</td>
+				           					<td><button>Delete</button></td>
 				           				</tr>
 				           				<tr>
 				           					<td>image</td>
@@ -108,6 +117,7 @@ export default function Student(){
 				           					<td>123456789</td>
 				           					<td>email address</td>
 				           					<td>12222222</td>
+				           					<td><button>Delete</button></td>
 				           				</tr>
 				           				<tr>
 				           					<td>image</td>
@@ -116,6 +126,7 @@ export default function Student(){
 				           					<td>123456789</td>
 				           					<td>email address</td>
 				           					<td>12222222</td>
+				           					<td><button>Delete</button></td>
 				           				</tr>
 			           				</tbody>
 			           			</table>

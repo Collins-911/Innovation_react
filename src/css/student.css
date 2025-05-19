@@ -27,7 +27,8 @@
 	color: black !important;
 	margin-top: 3rem;
 	width: 100%;
-	min-height: 105vh;
+	min-height: 100vh;
+	padding-bottom: 4rem;
 	background-color: white;
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
@@ -52,7 +53,7 @@ table th{
 	padding-left: 8px;
 }
 table td{
-	padding: 10px 0 10px 10px;
+	padding: 10px 10px 10px 10px;
 	border-bottom: 1px solid grey !important;
 	color: grey;
 	font-size: 14px;
@@ -68,4 +69,104 @@ table td{
 	margin-right: 8px;
 	outline: none;
 	border: none;
+}
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 768px){
+	/* Responsive styles for screens 768px and smaller */
+  .student-home {
+    width: 100%; /* Take full width on smaller screens */
+    position: static; /* No longer absolutely positioned */
+    right: auto; /* Reset right positioning */
+    padding: 1rem; /* Adjust padding for smaller screens */
+  }
+
+  .student-title {
+    display: flex;
+    flex-direction: column; /* Stack title and breadcrumb */
+    align-items: flex-start; /* Align items to the start */
+    height: 60px; /* Adjust height based on content */
+    padding: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem; /* Add some margin below the title */
+  }
+
+  .student-title h4 {
+    font-size: 1em; /* Slightly smaller main title */
+    margin-bottom: 0.5rem; /* Add space between title and breadcrumb */
+  }
+
+  .student-title p {
+    display: none;
+  }
+
+  .student-list {
+    margin-top: 2rem; /* Adjust top margin */
+    padding-bottom: 2rem; /* Adjust bottom padding */
+  }
+
+  .list-title {
+    height: 50px; /* Slightly smaller title bar */
+    padding-left: 0.5rem; /* Adjust padding */
+  }
+
+  .list-title h3 {
+    font-size: 1em; /* Smaller list title */
+  }
+
+  .student-table {
+    padding: 1rem 0.75rem; /* Adjust padding */
+    overflow-x: auto; /* Enable horizontal scrolling for the table */
+  }
+
+  table {
+    width: 100%;
+  }
+
+  table th {
+    text-align: left;
+    padding-left: 6px;
+    font-size: 0.9em; /* Slightly smaller header text */
+    white-space: nowrap; /* Prevent header text from wrapping */
+  }
+
+  table td {
+    padding: 8px 6px; /* Adjust cell padding */
+    font-size: 0.85em; /* Slightly smaller cell text */
+    white-space: nowrap; /* Prevent cell text from wrapping */
+  }
+
+  
+
+  .list-btn {
+    margin-top: 1rem;
+    float: none !important; /* Reset float */
+    display: flex; /* Arrange buttons in a row */
+    justify-content: center; /* Center the buttons */
+  }
+
+  .list-btn button {
+    width: 80px; /* Slightly smaller buttons */
+    height: 30px; /* Slightly smaller buttons */
+    margin-right: 5px; /* Adjust button spacing */
+    font-size: 0.8em; /* Smaller button text */
+  }
+  .sidebar{
+  	display: none !important;
+  }
+  body{
+  	overflow-y: auto !important;
+  }
+
+  .home {
+   margin-right: 1rem;
+  }
 }

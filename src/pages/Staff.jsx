@@ -29,19 +29,21 @@ export default function Staff(){
 			           				<thead>
 			           					<tr>
 				           					<th>Profile</th>
-				           					<th>Name</th>
-				           					<th>Course</th>
-				           					<th>Mobile</th>
-				           					<th>Email</th>
+				           					<th>Staff Name</th>
+				           					<th>Course Name</th>
+				           					<th>Phone Number</th>
+				           					<th>Email Address</th>
+				           					<th>Action</th>
 				           				</tr>
 			           				</thead>
 			           				<tbody>
 			           					<tr>
 			           					<td>image</td>
-			           					<td>person1</td>
-			           					<td>course1</td>
-			           					<td>123456789</td>
-			           					<td>email address</td>
+			           					<td>Jacinta Ada Bisong</td>
+			           					<td>Web Development</td>
+			           					<td>12345678900</td>
+			           					<td>emailaddress@gmail.com</td>
+			           					<td><button>Delete</button></td>
 			           				</tr>
 			           				<tr>
 			           					<td>image</td>
@@ -49,6 +51,7 @@ export default function Staff(){
 			           					<td>course2</td>
 			           					<td>123456789</td>
 			           					<td>email address</td>
+			           					<td><button>Delete</button></td>
 			           				</tr>
 			           				<tr>
 			           					<td>image</td>
@@ -56,6 +59,7 @@ export default function Staff(){
 			           					<td>course3</td>
 			           					<td>123456789</td>
 			           					<td>email address</td>
+			           					<td><button>Delete</button></td>
 			           				</tr>
 			           				<tr>
 			           					<td>image</td>
@@ -63,6 +67,7 @@ export default function Staff(){
 			           					<td>course4</td>
 			           					<td>123456789</td>
 			           					<td>email address</td>
+			           					<td><button>Delete</button></td>
 			           				</tr>
 			           				<tr>
 			           					<td>image</td>
@@ -70,6 +75,7 @@ export default function Staff(){
 			           					<td>course5</td>
 			           					<td>123456789</td>
 			           					<td>email address</td>
+			           					<td><button>Delete</button></td>
 			           				</tr>
 			           				<tr>
 			           					<td>image</td>
@@ -77,6 +83,7 @@ export default function Staff(){
 			           					<td>course6</td>
 			           					<td>123456789</td>
 			           					<td>email address</td>
+			           					<td><button>Delete</button></td>
 			           				</tr>
 			           				<tr>
 			           					<td>image</td>
@@ -84,6 +91,7 @@ export default function Staff(){
 			           					<td>course7</td>
 			           					<td>123456789</td>
 			           					<td>email address</td>
+			           					<td><button>Delete</button></td>
 			           				</tr>
 			           				<tr>
 			           					<td>image</td>
@@ -91,6 +99,7 @@ export default function Staff(){
 			           					<td>course8</td>
 			           					<td>123456789</td>
 			           					<td>email address</td>
+			           					<td><button>Delete</button></td>
 			           				</tr>
 			           				<tr>
 			           					<td>image</td>
@@ -98,6 +107,7 @@ export default function Staff(){
 			           					<td>course9</td>
 			           					<td>123456789</td>
 			           					<td>email address</td>
+			           					<td><button>Delete</button></td>
 			           				</tr>
 			           				<tr>
 			           					<td>image</td>
@@ -105,6 +115,7 @@ export default function Staff(){
 			           					<td>course10</td>
 			           					<td>123456789</td>
 			           					<td>email address</td>
+			           					<td><button>Delete</button></td>
 			           				</tr>
 			           				</tbody>
 			           			</table>

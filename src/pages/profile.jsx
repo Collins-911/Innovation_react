@@ -27,22 +27,22 @@ export default function Profile() {
             <FaEdit className="icon" />
             <span>Edit Profile</span>
           </button>
-          <button className="tab">
+          {/* <button className="tab">
             <FaPhone className="icon" />
             <span>Phone Verification</span>
-          </button>
-          <button className="tab">
+          </button> */}
+          {/* <button className="tab">
             <FaIdCard className="icon" />
             <span>ID Verification</span>
-          </button>
+          </button> */}
           <button className="tab">
             <FaRedoAlt className="icon" />
             <span>Reset Password</span>
           </button>
-          <button className="tab">
+          {/* <button className="tab">
             <FaHistory className="icon" />
             <span>Activity log</span>
-          </button>
+          </button> */}
         </div>
 
         

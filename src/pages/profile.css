@@ -14,7 +14,8 @@
 .profile-tabs {
   display: flex;
   border-bottom: 1px solid #eee;
-  padding: 0 1rem;
+  padding: o 1rem;
+  justify-content: space-between;
 }
 
 .tab {

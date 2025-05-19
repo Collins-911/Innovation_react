@@ -1,0 +1,52 @@
+.assignment-form-container {
+  width: 900px;
+  margin: 40px auto;
+  margin-left: 315px;
+  align-items: center;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  font-family: 'Poppins', sans-serif;
+}
+
+.assignment-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.assignment-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.assignment-form input[type="text"],
+.assignment-form textarea,
+.assignment-form input[type="date"],
+.assignment-form input[type="file"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.assignment-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: royalblue;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.assignment-form button:hover {
+  background-color: #0f017a;
+}
+input{
+    background-color:#fff;
+    border: 2px solid #0f017a;
+}

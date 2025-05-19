@@ -13,6 +13,8 @@ import Courses from './pages/Courses.jsx'
 import Report from './pages/Report.jsx'
 import Profile from './pages/profile.jsx'
 import App from './App.jsx'
+import { MdAssignment } from 'react-icons/md'
+import Assignment from './pages/assignment.jsx'
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -28,6 +30,7 @@ createRoot(document.getElementById('root')).render(
       <Route path ='/courses' element={<Courses/>}/>
       <Route path ='/report' element={<Report/>}/>
        <Route path ='/profile' element={<Profile/>}/>
+        <Route path ='/assignment' element={<Assignment/>}/>
     </Routes>
   </BrowserRouter>,
 )

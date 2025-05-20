@@ -3,6 +3,7 @@
    position: absolute;
    right: 0;
    padding: 2rem;
+   top: 50px;
 }
 .student-title{
 	display: flex;
@@ -87,6 +88,7 @@ table td{
     position: static; /* No longer absolutely positioned */
     right: auto; /* Reset right positioning */
     padding: 1rem; /* Adjust padding for smaller screens */
+    margin-top: 3rem;
   }
 
   .student-title {
@@ -167,6 +169,12 @@ table td{
   }
 
   .home {
-   margin-right: 1rem;
+   margin-right: 8px;
+  }
+  .top{
+    display: none;
+  }
+  .mobile-top{
+    display: block !important;
   }
 }

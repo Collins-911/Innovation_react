@@ -1,0 +1,129 @@
+/* Container wrapper */
+.topnav-container {
+	width: 100%;
+}
+
+/* Desktop topbar */
+.top {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 20px;
+	background-color: rgba(15, 1, 122);
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* LOGO aligned to the left */
+.logo {
+	font-size: 1.5em;
+	font-weight: bold;
+	color: #1e1e1e;
+}
+
+/* Right section: search + profile */
+.right-section {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+.w3{
+	
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	cursor: pointer;
+
+
+	img{
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	cursor: pointer;
+	border: 1px solid white;
+	
+	}
+}
+
+/* Search bar */
+.searchInput {
+	display: flex;
+	align-items: center;
+	background-color: #f0f0f0;
+	border-radius: 25px;
+	overflow: hidden;
+	border: 1px solid #ccc;
+}
+
+.searchInput .search {
+	border: none;
+	outline: none;
+	padding: 10px 12px;
+	background-color: transparent;
+	width: 180px;
+	font-size: 0.95em;
+}
+
+.searchBtn {
+	border: none;
+	padding: 8px 12px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.searchBtn img {
+	width: 16px;
+	height: 16px;
+	filter: invert(1);
+}
+
+/* Profile picture */
+.pfp {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	object-fit: cover;
+	cursor: pointer;
+}
+
+/* Mobile view hidden by default */
+.mobile-top {
+	display: none;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 20px;
+	background-color: #fff;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-logo {
+	font-weight: bold;
+	font-size: 1.2em;
+	color: #333;
+}
+
+.mobile-icons {
+	display: flex;
+	gap: 15px;
+	align-items: center;
+}
+
+.mobile-icon {
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	object-fit: cover;
+	cursor: pointer;
+}
+
+/* Responsive Behavior */
+@media screen and (max-width: 768px) {
+	.top {
+		display: none;
+	}
+
+	.mobile-top {
+		display: flex;
+	}
+}

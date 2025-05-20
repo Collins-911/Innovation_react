@@ -7,7 +7,7 @@
   font-family: 'Poppins', sans-serif;
 }
 
-body{
+body {
   width: 100%;
   min-height: 100vh;
 }
@@ -15,14 +15,15 @@ body{
 .login-container {
   background-image: url('https://i.pinimg.com/736x/61/ef/2c/61ef2c2bf2306fa92c6c91034bea6014.jpg');
   height: 100vh;
-  background-repeat: repeat;
-  animation: moveBackground 20s linear infinite;
   width: 100%;
   background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
+  animation: moveBackground 20s linear infinite;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
 }
 
 @keyframes moveBackground {
@@ -36,75 +37,71 @@ body{
 
 .glass-card {
   color: white;
-  width: 500px;
+  width: 100%;
+  max-width: 450px;
   padding: 30px;
   border-radius: 15px;
-  background: transparent;
-  backdrop-filter: blur(50px);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   text-align: center;
 }
 
 .glass-card h1 {
   font-size: 2rem;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .glass-card p {
   font-size: 1em;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  color: white;
 }
-.text2{
-display: flex;
-}
-.text2 label{
-  top: 10px;
-  position: relative;
-  padding-left: 5px;
-}
-.text2 input{
-  top: -5px;
-  position: relative;
-}
-.text3{
-  padding-top: 40px;
-}
-.text3 span{
-  padding-left: 5px;
-  font-weight: bold;
-  transition: 0.5s;
-}
-.text3 span:hover {
-  text-decoration: underline;
-  cursor: pointer;
-}
+
 .input-field {
   width: 100%;
   padding: 12px;
   margin: 10px 0;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: none;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.1);
   color: white;
   font-size: 1em;
 }
-
+.input-field ::placeholder{
+  color: white;
+}
 .input-field:focus {
   outline: none;
   border: 1px solid #1e90ff;
 }
 
+.text2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0 20px;
+}
+
+.text2 label {
+  font-size: 0.95em;
+  padding-left: 5px;
+}
+
+.text2 input {
+  margin-right: 5px;
+  transform: scale(1.1);
+}
+
 .forgot {
-  margin-top: 10px;
-  padding-left: 175px;
+  font-size: 0.9em;
 }
 
 .forgot a {
   text-decoration: none;
   color: white;
-  font-size: 0.9em;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 
 .forgot a:hover {
@@ -125,5 +122,36 @@ display: flex;
 }
 
 .submit-btn:hover {
-  background-color:rgb(15, 1, 230);
+  background-color: rgb(15, 1, 230);
+}
+
+.text3 {
+  padding-top: 20px;
+}
+
+.text3 span {
+  padding-left: 5px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.text3 span:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 500px) {
+  .glass-card {
+    padding: 20px;
+  }
+
+  .text2 {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .forgot {
+    padding-left: 0;
+  }
 }

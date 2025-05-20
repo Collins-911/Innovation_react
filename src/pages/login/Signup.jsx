@@ -24,8 +24,8 @@ export default function Signup(){
 					</div>
 					<h1>Sign up</h1>
 					<div className="sign-btn">
-						<button>Admin</button>
-						<button className="student">Student</button>
+						<button className="admin-btn">Admin</button>
+						<button className="student-btn">Student</button>
 					</div>
 					<form action="/signup" method="post">
 						<div className="form-group">

@@ -1,10 +1,6 @@
-.student-payment-home{
-   width: 79%;
-   position: absolute;
-   right: 0;
-   padding: 2rem;
-}
+
 .sp-title{
+	margin-top: 1rem;
 	display: flex;
 	align-items: center;
 	width: 100%;
@@ -16,7 +12,7 @@
     padding: 0 1rem;
 
     p{
-    	margin-left: 75%;
+    	margin-left: 70%;
     	font-size: 12px;
 	}
 }

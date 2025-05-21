@@ -11,11 +11,11 @@ export default function Staff(){
 
 	return(
 		<>
-			<div className="home-container">
-		       <Topnav/>
-		        <div className="home">
-			       <Navbar/>
-		          	<section className="staff-home">
+			<div className="home-content">
+		       <Navbar/>
+		        <div className="top-content">
+			       <Topnav/>
+		          	<section className="content">
 		          		<div className="staff-title">
 			           		<h4>All Staffs</h4>
 			           		<p>Staffs / <span>All staffs</span></p>

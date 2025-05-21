@@ -1,10 +1,6 @@
-.staff-home{
-   width: 79%;
-   position: absolute;
-   right: 0;
-   padding: 2rem;
-}
+
 .staff-title{
+	margin-top: 1rem;
 	display: flex;
 	align-items: center;
 	width: 100%;

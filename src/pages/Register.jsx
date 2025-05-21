@@ -38,11 +38,11 @@ export default function Register(){
 
 	return(
 		<>
-			<div className="home-container">
-				<Topnav/>
-		        <div className="home">
-		          	<Navbar/>
-			        <section className="register-home">
+			<div className="home-content">
+				<Navbar/>
+		        <div className="top-content">
+		          	<Topnav/>
+			        <section className="content">
 			        	<div className="register-title">
 			           		<h4>Register Student</h4>
 			           		<p>Students / <span>Register student</span></p>

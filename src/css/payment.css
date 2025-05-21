@@ -1,11 +1,7 @@
-.payment-home{
-   width: 79%;
-   position: absolute;
-   right: 0;
-   padding: 2rem;
-}
+
 
 .payment-title{
+  margin-top: 1rem;
   display: flex;
   align-items: center;
   width: 100%;
@@ -17,7 +13,7 @@
     padding: 0 1rem;
 
     p{
-      margin-left: 80%;
+      margin-left: 77%;
       font-size: 12px;
   }
 }

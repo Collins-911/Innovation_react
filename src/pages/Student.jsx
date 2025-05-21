@@ -11,11 +11,11 @@ export default function Student(){
 
 	return (
 		<>
-			<div className="home-container">
-		     	<Topnav/>
-		        <div className="home">
-		           <Navbar/>
-			        <section className="student-home">
+			<div className="home-content">
+		     	<Navbar/>
+		        <div className="top-content">
+		           <Topnav/>
+			        <section className="content">
 			           	<div className="student-title">
 			           		<h4>All Students</h4>
 			           		<p>Students / <span>All students</span></p>

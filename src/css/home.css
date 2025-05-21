@@ -5,6 +5,12 @@
 }
 .top-content{
 	width: 80%;
+	min-height: 100vh;
+	position: absolute;
+	right: 0;
+}
+.content{
+	padding: 1rem;
 }
 
 .logo {
@@ -20,8 +26,10 @@
 .sidebar {
 	padding: 20px;
 	width: 20%;
-	min-height: 100vh;
+	height: 100vh;
 	border-right: 1px solid rgba(15, 1, 122);
+	position: fixed;
+	left: 0;
 }
 
 .sidebar-section {

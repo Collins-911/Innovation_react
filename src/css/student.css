@@ -1,10 +1,6 @@
-.student-home{
-   width: 79%;
-   position: absolute;
-   right: 0;
-   padding: 2rem;
-}
+
 .student-title{
+  margin-top: 1rem;
 	display: flex;
 	align-items: center;
 	width: 100%;
@@ -16,7 +12,7 @@
     padding: 0 1rem;
 
     p{
-    	margin-left: 76%;
+    	margin-left: 72%;
     	font-size: 12px;
 	}
 }
@@ -82,27 +78,27 @@ table td{
 
 @media only screen and (max-width: 768px){
 	/* Responsive styles for screens 768px and smaller */
-  .student-home {
-    width: 100%; /* Take full width on smaller screens */
-    position: static; /* No longer absolutely positioned */
-    right: auto; /* Reset right positioning */
-    padding: 1rem; /* Adjust padding for smaller screens */
+  .top-content {
+    width: 100%; 
+    position: static;
+    right: auto;
+    padding: 1rem; 
     margin-top: 3rem;
   }
 
   .student-title {
     display: flex;
-    flex-direction: column; /* Stack title and breadcrumb */
-    align-items: flex-start; /* Align items to the start */
-    height: 60px; /* Adjust height based on content */
+    flex-direction: column;
+    align-items: flex-start; 
+    height: 60px; 
     padding: 1rem;
     margin-top: 1rem;
-    margin-bottom: 1rem; /* Add some margin below the title */
+    margin-bottom: 1rem; 
   }
 
   .student-title h4 {
-    font-size: 1em; /* Slightly smaller main title */
-    margin-bottom: 0.5rem; /* Add space between title and breadcrumb */
+    font-size: 1em; 
+    margin-bottom: 0.5rem; 
   }
 
   .student-title p {
@@ -110,22 +106,22 @@ table td{
   }
 
   .student-list {
-    margin-top: 2rem; /* Adjust top margin */
-    padding-bottom: 2rem; /* Adjust bottom padding */
+    margin-top: 2rem; 
+    padding-bottom: 2rem; 
   }
 
   .list-title {
-    height: 50px; /* Slightly smaller title bar */
-    padding-left: 0.5rem; /* Adjust padding */
+    height: 50px; 
+    padding-left: 0.5rem; 
   }
 
   .list-title h3 {
-    font-size: 1em; /* Smaller list title */
+    font-size: 1em; 
   }
 
   .student-table {
-    padding: 1rem 0.75rem; /* Adjust padding */
-    overflow-x: auto; /* Enable horizontal scrolling for the table */
+    padding: 1rem 0.75rem; 
+    overflow-x: auto; 
   }
 
   table {
@@ -135,30 +131,30 @@ table td{
   table th {
     text-align: left;
     padding-left: 6px;
-    font-size: 0.9em; /* Slightly smaller header text */
-    white-space: nowrap; /* Prevent header text from wrapping */
+    font-size: 0.9em; 
+    white-space: nowrap; 
   }
 
   table td {
-    padding: 8px 6px; /* Adjust cell padding */
-    font-size: 0.85em; /* Slightly smaller cell text */
-    white-space: nowrap; /* Prevent cell text from wrapping */
+    padding: 8px 6px; 
+    font-size: 0.85em; 
+    white-space: nowrap; 
   }
 
   
 
   .list-btn {
     margin-top: 1rem;
-    float: none !important; /* Reset float */
-    display: flex; /* Arrange buttons in a row */
-    justify-content: center; /* Center the buttons */
+    float: none !important; 
+    display: flex; 
+    justify-content: center; 
   }
 
   .list-btn button {
-    width: 80px; /* Slightly smaller buttons */
-    height: 30px; /* Slightly smaller buttons */
-    margin-right: 5px; /* Adjust button spacing */
-    font-size: 0.8em; /* Smaller button text */
+    width: 80px; 
+    height: 30px; 
+    margin-right: 5px; 
+    font-size: 0.8em; 
   }
   .sidebar{
   	display: none !important;
@@ -167,13 +163,18 @@ table td{
   	overflow-y: auto !important;
   }
 
-  .home {
-   margin-right: 8px;
-  }
   .top{
-    display: none;
+    display: none !important;
   }
   .mobile-top{
-    display: block !important;
+    display: flex !important;
+    top: 0;
+    position: fixed;
+	  align-items: center;
+    height: 50px;
+   background-color: rgba(15, 1, 122);
+   width: 100% !important;
+   margin: 0 !important;
+    
   }
 }

@@ -12,11 +12,11 @@ export default function Student_payment(){
 
 	return(
 		<>
-			<div className="home-container">
-				<Topnav/>
-		        <div className="home">
-			       <Navbar/> 
-			        <section className="student-payment-home">
+			<div className="home-content">
+				<Navbar/>
+		        <div className="top-content">
+			       <Topnav/> 
+			        <section className="content">
 			        	<div className="sp-title">
 			           		<h4>Fees Reciept</h4>
 			           		<p>Students / <span>Fees Receipt</span></p>

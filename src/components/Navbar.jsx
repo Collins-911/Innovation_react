@@ -25,6 +25,8 @@ export default function Navbar() {
 		coursesClick,
 		reportClick,
 		profileClick,
+		curriculumClick,
+		assignmentClick,
 	} = Navigation();
 
 	const navItems = [
@@ -34,7 +36,7 @@ export default function Navbar() {
 				{ name: "Dashboard", onClick: dashboardClick, icon: <FaHome /> },
 				{ name: "Students", onClick: studentClick, icon: <FaUserGraduate /> },
 				{ name: "Courses", onClick: coursesClick, icon: <FaBook /> },
-				{ name: "Curriculum", icon: <FaClipboardList /> },
+				{ name: "Curriculum", onClick: curriculumClick, icon: <FaClipboardList /> },
 				{ name: "Staffs", onClick: staffClick, icon: <FaChalkboardTeacher /> },
 			],
 		},
@@ -43,7 +45,7 @@ export default function Navbar() {
 			menuItems: [
 				{ name: "Register Students", onClick: registerClick, icon: <FaUserPlus /> },
 				{ name: "Add Courses", icon: <FaBook /> },
-				{ name: "Assignment", icon: <FaTasks /> },
+				{ name: "Assignment", onClick: assignmentClick, icon: <FaTasks /> },
 				{ name: "Report", onClick: reportClick, icon: <FaFileAlt /> },
 				{ name: "Payment", onClick: paymentClick, icon: <FaMoneyBill /> },
 			],

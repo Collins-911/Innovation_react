@@ -40,6 +40,14 @@ export default function Navigation() {
         console.log('Navigating to Profile');
         navigate('/profile')
     };
+     const assignmentClick = () => {
+        console.log('Navigating to Assignment');
+        navigate('/assignment')
+    };
+    const curriculumClick = () => {
+        console.log('Navigating to Curriculum');
+        navigate('/curriculum')
+    };
 
   return {
     dashboardClick,
@@ -50,5 +58,7 @@ export default function Navigation() {
     coursesClick,
     reportClick,
     profileClick,
+    assignmentClick,
+    curriculumClick
   };
 }

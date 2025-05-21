@@ -87,9 +87,39 @@
 	object-fit: cover;
 	cursor: pointer;
 }
+.section-one-home{
+	display: flex;
+}
+.info-home {
+  width: 74%;
+
+
+  span{
+	color: black;
+		transition: 0.5s;
+  }
+
+  span:hover{
+	display: none;
+	transition: 0.5s;
+  }
+  .two span{
+	display: none;
+  }
+}
+
+.info-home h4 {
+  text-align: left;
+  margin-left: 20px;
+  margin-top: 50px;
+  font-size: 25px;
+}
+
+
+
 
 .miniplayer {
-  width: 25%;
+  width: 26%;
   background: rgba(15, 1, 122);
   color: white;
   border-radius: 15px;

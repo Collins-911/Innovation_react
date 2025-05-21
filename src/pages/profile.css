@@ -34,6 +34,27 @@
   font-size: 0.9rem;
   transition: all 0.3s ease;
   white-space: nowrap;
+  
+}
+
+
+
+.tab-red {
+    padding: 1rem 0.5rem;
+    display: flex
+;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: red;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #666;
+    font-size: 0.9rem;
+    font-weight: 600px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    height: 30px;
+    align-self: anchor-center;
 }
 
 .tab:hover {
@@ -110,7 +131,7 @@
   }
   
   .profile-tabs {
-    gap: 40px;
+    gap: 134px;
   }
   
   .tab {

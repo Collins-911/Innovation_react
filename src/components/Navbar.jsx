@@ -67,7 +67,7 @@ export default function Navbar() {
 
 	return (
 		<div className="sidebar">
-			<div className="logo">LOGO</div>
+		<div className="logo"></div>
 			
 			{navItems.map((item, index) => (
 				<div className="sidebar-section" key={index}>

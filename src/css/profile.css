@@ -40,21 +40,18 @@
 
 
 .tab-red {
-    padding: 1rem 0.5rem;
-    display: flex
-;
-    align-items: center;
-    gap: 0.5rem;
-    background-color: red;
-    border-radius: 5px;
-    cursor: pointer;
-    color: #666;
-    font-size: 0.9rem;
-    font-weight: 600px;
-    transition: all 0.3s ease;
-    white-space: nowrap;
-    height: 30px;
-    align-self: anchor-center;
+     padding: 1rem 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ff0000;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  
 }
 
 .tab:hover {

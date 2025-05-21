@@ -84,8 +84,13 @@
 	width: 40px;
 	height: 40px;
 	border-radius: 50%;
-	object-fit: cover;
 	cursor: pointer;
+	transition: 0.5s;
+}
+.pfp:hover{
+	transform: translateY(-5px);
+	transition: 0.5s;
+	box-shadow: 0 0 20px blue	;
 }
 .section-one-home{
 	display: flex;

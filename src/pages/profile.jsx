@@ -1,8 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import  '../css/profile.css';
-import { FaUser, FaEdit, FaPhone, FaIdCard, FaRedoAlt, FaHistory } from 'react-icons/fa';
-
+import '../css/profile.css'
+import {
+  FaUser,
+  FaEdit,
+  FaPhone,
+  FaIdCard,
+  FaRedoAlt,
+  FaHistory,
+  FaArrowLeft
+} from 'react-icons/fa';
 
 export default function Profile() {
   const userData = {
@@ -15,46 +22,33 @@ export default function Profile() {
     verified: false
   };
 
-return (
+  return (
     <div className="profile-container">
       <div className="profile-card">
         
         <div className="profile-tabs">
           <Link to="/">
-           <button className='tab'>
-           ← Go back
-          </button>
+            <button className="tab">
+              <FaArrowLeft className="icon" />
+              <span>Go back</span>
+            </button>
           </Link>
-         <button className="tab active">
+
+          <button className="tab active">
             <FaUser className="icon" />
             <span>Profile</span>
           </button>
-          {/* <button className="tab">
-            <FaEdit className="icon" />
-            <span>Edit Profile</span>
-          </button> */}
-          {/* <button className="tab">
-            <FaPhone className="icon" />
-            <span>Phone Verification</span>
-          </button> */}
-          {/* <button className="tab">
-            <FaIdCard className="icon" />
-            <span>ID Verification</span>
-          </button> */}
+
           <button className="tab">
             <FaRedoAlt className="icon" />
             <span>Reset Password</span>
           </button>
-          {/* <button className="tab">
-            <FaHistory className="icon" />
-            <span>Activity log</span>
-          </button> */}
-             <button className='tab-red'>
+
+          <button className="tab-red">
             LOGOUT
           </button>
         </div>
 
-        
         <div className="profile-content">
           <div className="profile-info">
             <div className="avatar-section">
@@ -98,6 +92,7 @@ return (
             </div>
           </div>
         </div>
+        
       </div>
     </div>
   );

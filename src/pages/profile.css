@@ -1,5 +1,10 @@
+* {
+  box-sizing: border-box;
+  align-content: center;
+}
+
 .profile-container {
-  padding: 2rem;
+  padding: 1rem;
   max-width: 935px;
   margin: 0 auto;
 }
@@ -14,12 +19,14 @@
 .profile-tabs {
   display: flex;
   border-bottom: 1px solid #eee;
-  padding: o 1rem;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 0 1rem;
 }
 
 .tab {
-  padding: 1rem 1.5rem;
+  padding: 1rem 0.5rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -29,6 +36,7 @@
   color: #666;
   font-size: 0.9rem;
   transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
 .tab:hover {
@@ -45,42 +53,45 @@
 }
 
 .profile-content {
-  padding: 2rem;
+  padding: 1.5rem;
 }
 
 .profile-info {
   display: flex;
-  gap: 3rem;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .avatar-section {
-  width: 30%;
+  width: 100%;
   text-align: center;
 }
 
 .avatar {
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 1rem;
 }
 
 .details-section {
-  width: 70%;
-  padding-top: 1rem;
+  width: 100%;
+  padding-top: 0;
 }
 
 .detail-row {
   display: flex;
-  margin-bottom: 1.2rem;
+  flex-direction: column;
+  margin-bottom: 1rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid #f5f5f5;
 }
 
 .detail-row span {
-  width: 180px;
+  width: 100%;
   color: #666;
+  margin-bottom: 0.5rem;
 }
 
 .verified {
@@ -93,4 +104,58 @@
 
 .active {
   color: #28a745;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .profile-container {
+    padding: 2rem;
+  }
+  
+  .profile-tabs {
+    gap: 40px;
+  }
+  
+  .tab {
+    padding: 1rem 1.5rem;
+  }
+  
+  .profile-info {
+    flex-direction: row;
+    gap: 3rem;
+  }
+  
+  .avatar-section {
+    width: 30%;
+  }
+  
+  .avatar {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .details-section {
+    width: 70%;
+    padding-top: 1rem;
+  }
+  
+  .detail-row {
+    flex-direction: row;
+  }
+  
+  .detail-row span {
+    width: 180px;
+    margin-bottom: 0;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .profile-tabs {
+    gap: 69px;
+  }
+
+  .profile-content {
+    padding: 6.5rem;
+}
 }

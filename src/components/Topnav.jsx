@@ -5,6 +5,7 @@ import '../css/top.css';
 export default function TopNav() {
 	const w3School = 'https://www.w3schools.com/';
 	const nugi = 'https://nugitech.com/';
+	const front = 'https://www.frontendmentor.io/home'
 
 	return (
 		<div className="topnav-container">
@@ -19,6 +20,12 @@ export default function TopNav() {
 					<a href={nugi}>
 						<div className="w3">
 							<img src="https://nugigroup.s3.us-west-1.amazonaws.com/nugi-website/public/assets/icons/logo.svg" alt="" />
+						</div>
+					</a>
+
+					<a href={nugi}>
+						<div className="w3">
+							<img src="data:image/jpeg;base64,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" alt="" />
 						</div>
 					</a>
 

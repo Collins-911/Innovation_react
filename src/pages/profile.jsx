@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './profile.css';
+import  '../css/profile.css';
 import { FaUser, FaEdit, FaPhone, FaIdCard, FaRedoAlt, FaHistory } from 'react-icons/fa';
 
 

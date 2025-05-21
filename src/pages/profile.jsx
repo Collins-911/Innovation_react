@@ -27,13 +27,12 @@ export default function Profile() {
       <div className="profile-card">
         
         <div className="profile-tabs">
-          <Link to="/">
-            <button className="tab">
-              <FaArrowLeft className="icon" />
-              <span>Go back</span>
-            </button>
-          </Link>
-
+          <Link to="/" className="clean-link">
+  <button className="tab">
+    <FaArrowLeft className="icon" />
+    <span>Go back</span>
+  </button>
+</Link>
           <button className="tab active">
             <FaUser className="icon" />
             <span>Profile</span>

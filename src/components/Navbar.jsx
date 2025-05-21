@@ -1,9 +1,21 @@
 import { useState } from 'react';
 import Navigation from './Navigation.jsx';
 import '../css/home.css';
+import {
+	FaHome,
+	FaUserGraduate,
+	FaChalkboardTeacher,
+	FaBook,
+	FaMoneyBill,
+	FaUserPlus,
+	FaClipboardList,
+	FaTasks,
+	FaFileAlt,
+	FaCog,
+	FaUser
+} from 'react-icons/fa';
 
 export default function Navbar() {
-
 	const {
 		dashboardClick,
 		studentClick,
@@ -19,28 +31,28 @@ export default function Navbar() {
 		{
 			menuTitle: "General",
 			menuItems: [
-				{ name: "Dashboard", onClick: dashboardClick },
-				{ name: "Students", onClick: studentClick },
-				{ name: "Courses", onClick: coursesClick },
-				{ name: "Curriculum" },
-				{ name: "Staffs", onClick: staffClick },
+				{ name: "Dashboard", onClick: dashboardClick, icon: <FaHome /> },
+				{ name: "Students", onClick: studentClick, icon: <FaUserGraduate /> },
+				{ name: "Courses", onClick: coursesClick, icon: <FaBook /> },
+				{ name: "Curriculum", icon: <FaClipboardList /> },
+				{ name: "Staffs", onClick: staffClick, icon: <FaChalkboardTeacher /> },
 			],
 		},
 		{
 			menuTitle: "Tools",
 			menuItems: [
-				{ name: "Register Students", onClick: registerClick },
-				{ name: "Add Courses" },
-				{ name: "Assignment" },
-				{ name: "Report", onClick: reportClick },
-				{ name: "Payment", onClick: paymentClick },
+				{ name: "Register Students", onClick: registerClick, icon: <FaUserPlus /> },
+				{ name: "Add Courses", icon: <FaBook /> },
+				{ name: "Assignment", icon: <FaTasks /> },
+				{ name: "Report", onClick: reportClick, icon: <FaFileAlt /> },
+				{ name: "Payment", onClick: paymentClick, icon: <FaMoneyBill /> },
 			],
 		},
 		{
 			menuTitle: "My Profile",
 			menuItems: [
-				{ name: "Profile", onClick: profileClick },
-				{ name: "Settings" },
+				{ name: "Profile", onClick: profileClick, icon: <FaUser /> },
+				{ name: "Settings", icon: <FaCog /> },
 			],
 		},
 	];
@@ -52,7 +64,6 @@ export default function Navbar() {
 	};
 
 	return (
-
 		<div className="sidebar">
 			<div className="logo">LOGO</div>
 			
@@ -69,8 +80,9 @@ export default function Navbar() {
 							<li key={subIndex}>
 								<a
 									onClick={menuItem.onClick}
-									style={{ cursor: 'pointer' }}
+									style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '10px' }}
 								>
+									{menuItem.icon}
 									{menuItem.name}
 								</a>
 							</li>

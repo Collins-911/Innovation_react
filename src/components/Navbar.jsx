@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Navigation from './Navigation.jsx';
 import '../css/home.css';
+import NI_Blue from '../assets/NI_Blue.png'
 import {
 	FaHome,
 	FaUserGraduate,
@@ -67,7 +68,9 @@ export default function Navbar() {
 
 	return (
 		<div className="sidebar">
-		<div className="logo"></div>
+		<div className="logo">
+			<img src={NI_Blue} alt="" />
+		</div>
 			
 			{navItems.map((item, index) => (
 				<div className="sidebar-section" key={index}>

@@ -11,17 +11,24 @@
 	top: 0;
 	left: 0;
 	position: absolute;
-	background-color: #007bff;
 	height: 66px;
 	width: 20%;
+
+
+
+	img{
+		width: 100px;
+		margin-left: 90px;
+	}
 }
+
 
 .sidebar {
 	padding: 20px;
 	width: 20%;
 	min-height: 100vh;
 	border-right: 1px solid rgba(15, 1, 122);
-	margin-top: 60px;
+	margin-top: 65px;
 }
 
 .sidebar-section {

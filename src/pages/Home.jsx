@@ -7,11 +7,22 @@ import Topnav from '../components/Topnav.jsx';
 export default function Home() {
   return (
     <>
+  <div className="home-content">
+      <Navbar/>
 
-    <div className="home-flex">
-        <Navbar/>
-        <Topnav/> 
-    </div>
+      <div className="top-content">
+         <Topnav/>
+         <div className="content">
+          jenjjn
+         </div>
+      </div>
+  </div>
+ 
+
+   
+        
+       
+  
        
     </>
   )

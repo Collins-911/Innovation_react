@@ -3,52 +3,43 @@ import icon7 from '../assets/icon7.jpg';
 import '../css/top.css';
 
 export default function TopNav() {
-
-		const w3School = 'https://www.w3schools.com/'
-		const nugi = 'https://nugitech.com/'
+	const w3School = 'https://www.w3schools.com/';
+	const nugi = 'https://nugitech.com/';
 
 	return (
-		<>
-			<div className="topnav-container">
-				{/* Desktop view */}
-				<div className="top">
-					<div className="logo">LOGO</div>
-	
-					<div className="right-section">
-
-							
-			<a href={w3School}>
-				<div className="w3">
-					<img src="data:image/png;base64,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" alt="" />
-				</div>
-			</a>
-
-			<a href={nugi}>
-				<div className="w3">
-					<img src="https://nugigroup.s3.us-west-1.amazonaws.com/nugi-website/public/assets/icons/logo.svg" alt="" />
-				</div>
-			</a>
-					
-
-						<div className="searchInput">
-							<input type="text" placeholder="Search..." className="search" />
-							<button className="searchBtn">
-								<img src={icon2} alt="Search" />
-							</button>
+		<div className="topnav-container">
+			<div className="top">
+				<div className="right-section">
+					<a href={w3School}>
+						<div className="w3">
+							<img src="data:image/png;base64,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" alt="" />
 						</div>
-						<img src={icon7} alt="Profile" className="pfp" />
-					</div>
-				</div>
+					</a>
 
-				{/* Mobile view */}
-				<div className="mobile-top">
-					<div className="mobile-logo">LOGO</div>
-					<div className="mobile-icons">
-						<img src={icon2} alt="Search" className="mobile-icon" />
-						<img src={icon7} alt="Profile" className="mobile-icon" />
+					<a href={nugi}>
+						<div className="w3">
+							<img src="https://nugigroup.s3.us-west-1.amazonaws.com/nugi-website/public/assets/icons/logo.svg" alt="" />
+						</div>
+					</a>
+
+					<div className="searchInput">
+						<input type="text" placeholder="Search..." className="search" />
+						<button className="searchBtn">
+							<img src={icon2} alt="Search" />
+						</button>
 					</div>
+
+					<img src={icon7} alt="Profile" className="pfp" />
 				</div>
 			</div>
-		</>
+
+			<div className="mobile-top">
+				<div className="mobile-logo">LOGO</div>
+				<div className="mobile-icons">
+					<img src={icon2} alt="Search" className="mobile-icon" />
+					<img src={icon7} alt="Profile" className="mobile-icon" />
+				</div>
+			</div>
+		</div>
 	);
 }

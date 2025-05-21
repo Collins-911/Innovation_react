@@ -1,17 +1,28 @@
-/* Sidebar structure */
-.sidebar {
-	padding: 20px;
-	width: 250px;
-	min-height: 100vh;
-	
+.home-flex {
+	display: flex;
 }
 
-/* Each section wrapper */
+.logo {
+	font-size: 1.5em;
+	font-weight: bold;
+	color: #1e1e1e;
+	padding: 10px 15px;
+	margin-bottom: 20px;
+	text-align: center;
+	border-bottom: 1px solid rgba(15, 1, 122);
+}
+
+.sidebar {
+	padding: 20px;
+	width: 20%;
+	min-height: 100vh;
+	border-right: 1px solid rgba(15, 1, 122);
+}
+
 .sidebar-section {
 	margin-bottom: 20px;
 }
 
-/* Section title with arrow */
 .sidebar-heading {
 	font-size: 1.1em;
 	color: rgba(15, 1, 122);
@@ -25,10 +36,9 @@
 	cursor: pointer;
 	position: relative;
 	transition: background-color 0.3s ease;
-    top: 0;
+	top: 0;
 }
 
-/* Arrow after section title */
 .sidebar-heading::after {
 	content: "▼";
 	font-size: 0.8em;
@@ -37,12 +47,10 @@
 	transition: transform 0.3s ease;
 }
 
-/* Rotate arrow when dropdown is open */
 .sidebar-heading.open::after {
 	transform: rotate(-180deg);
 }
 
-/* Dropdown list base (collapsed) */
 .dropdown-list {
 	max-height: 0;
 	overflow: hidden;
@@ -52,13 +60,11 @@
 	transition: max-height 0.3s ease;
 }
 
-/* Dropdown list when open */
 .dropdown-list.open {
 	max-height: 500px;
 	margin-top: 5px;
 }
 
-/* Dropdown item styles */
 .dropdown-list li a {
 	display: block;
 	padding: 10px 20px;
@@ -69,7 +75,6 @@
 	transition: background-color 0.2s ease;
 }
 
-/* Hover effect */
 .dropdown-list li a:hover {
 	background-color: rgba(15, 1, 122, 0.1);
 }

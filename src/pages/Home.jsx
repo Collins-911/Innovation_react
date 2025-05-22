@@ -17,6 +17,7 @@ const summaryData = {
   avgWeekly: '92%',
 };
 
+
 const attendanceTrend = [
   { date: 'Mon', attendance: 110 },
   { date: 'Tue', attendance: 112 },
@@ -75,6 +76,7 @@ export default function Dashboard() {
           </h2>
         </header> */}
       <TopNav/>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi obcaecati debitis maiores ipsa, doloremque aut voluptate perspiciatis dolor numquam architecto magni, esse delectus ratione cupiditate. Illum eum modi voluptatibus repellendus?</p>
         <div className="dashb-cont">  
               <div className="hello">
                   <h3> Welcome to the dashboard, {User}</h3>

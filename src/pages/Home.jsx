@@ -72,9 +72,7 @@ export default function Dashboard() {
           </h2>
         </header>
 
-       
         <div className="dashb-cont">
-    
           <div className="dash-cards">
             <div className="card frosted">Total Students: {summaryData.totalStudents}</div>
             <div className="card frosted">Present Today: {summaryData.presentToday}</div>

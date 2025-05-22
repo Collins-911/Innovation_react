@@ -1,24 +1,133 @@
-/* Navbar container */
-.navbar {
-  display: flex;
-  gap: 1rem;
-  padding: 1rem;
-  background: #fff;
-  box-shadow: 0 2px 4px rgb(0 0 0 / 0.1);
-  border-radius: 8px;
+
+
+.top {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	padding: 10px 20px;
+	background-color: rgba(15, 1, 122);
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	width: 100% !important;
+	
 }
 
-/* Each nav item */
-.nav-item {
-  background: #f9f9f9;
-  padding: 0.75rem 1.25rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgb(0 0 0 / 0.05);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  user-select: none;
-  font-weight: 600;
-  color: #333;
+.right-section {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+.w3 {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.w3 img {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	cursor: pointer;
+	border: 2px solid #ccc	;
+	transition: 0.5s;
+}
+.w3 img:hover{
+	transform: translateY(-5px);
+	transition: 0.5s;
+	box-shadow: 0 0 20px blue	;
+}
+
+.searchInput {
+	display: flex;
+	align-items: center;
+	background-color: #f0f0f0;
+	border-radius: 25px;
+	overflow: hidden;
+	border: 1px solid #ccc;
+}
+.search::placeholder {
+  color: transparent;
+  transition: color 0.3s ease;
+}
+
+.search:hover::placeholder {
+  color: black;
+}
+
+
+.searchInput .search {
+	border: none;
+	outline: none;
+	padding: 10px 12px;
+	background-color: transparent;
+	width: 180px;
+	font-size: 0.95em;
+}
+
+.searchBtn {
+	border: none;
+	padding: 8px 12px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.searchBtn img {
+	width: 16px;
+	height: 16px;
+	filter: invert(1);
+}
+
+.pfp {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	cursor: pointer;
+	transition: 0.5s;
+}
+.pfp:hover{
+	transform: translateY(-5px);
+	transition: 0.5s;
+	box-shadow: 0 0 20px blue	;
+}
+.section-one-home{
+	display: flex;
+}
+.info-home {
+  width: 74%;
+
+
+  span{
+	color: black;
+		transition: 0.5s;
+  }
+
+  span:hover{
+	display: none;
+	transition: 0.5s;
+  }
+  .two span{
+	display: none;
+  }
+}
+
+.info-home h4 {
+  text-align: left;
+  margin-left: 20px;
+  margin-top: 50px;
+  font-size: 25px;
+}
+
+
+
+
+.miniplayer {
+  width: 26%;
+  background: rgba(15, 1, 122);
+  color: white;
+  border-radius: 15px;
   display: flex;
   align-items: center;
   gap: 0.5rem; /* for icons/text spacing */
@@ -40,9 +149,27 @@
   transform: translateY(-2px);
 }
 
-/* Optional: Icon inside nav item */
-.nav-item svg {
-  width: 20px;
-  height: 20px;
-  fill: currentColor;
+.mobile-icons {
+	display: flex;
+	gap: 15px;
+	align-items: center;
+}
+
+.mobile-icon {
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	object-fit: cover;
+	cursor: pointer;
+}
+
+
+@media screen and (max-width: 768px) {
+	.top {
+		display: none;
+	}
+
+	.mobile-top {
+		display: flex;
+	}
 }

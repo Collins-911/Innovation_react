@@ -3,38 +3,25 @@
   min-height: 100vh;
   display: flex;
 }
-
-.top-content {
-  margin-left: 0;
-  flex-grow: 1;
-  transition: margin-left 0.3s ease;
-  overflow-y: auto;
-  height: 100vh;
+.top-content{
+	width: 80%;
 }
 
-.top-content.with-sidebar {
-  margin-left: 250px;
+.logo {
+	top: 0;
+	left: 0;
+	position: absolute;
+	background-color: #007bff;
+	height: 66px;
+	width: 20%;
 }
-
 
 .sidebar {
-  position: fixed;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 250px;
-  background: #e7ebf9;
-  border-right: 1px solid rgba(15, 1, 122, 0.3);
-  padding: 20px;
-  box-sizing: border-box;
-  overflow-y: auto;
-  transform: translateX(-100%);
-  transition: transform 0.3s ease;
-  z-index: 1000;
-}
-
-.sidebar.open {
-  transform: translateX(0);
+	padding: 20px;
+	width: 20%;
+	min-height: 100vh;
+	border-right: 1px solid rgba(15, 1, 122);
+	margin-top: 60px;
 }
 
 .sidebar-section {

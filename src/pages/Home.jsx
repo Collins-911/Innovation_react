@@ -17,6 +17,7 @@ const summaryData = {
   avgWeekly: '92%',
 };
 
+
 const attendanceTrend = [
   { date: 'Mon', attendance: 110 },
   { date: 'Tue', attendance: 112 },

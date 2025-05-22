@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import icon2 from '../assets/icon2.svg';
 import icon7 from '../assets/icon7.jpg';
-import NI_Blue from '../assets/NI_Blue.png'
 import '../css/top.css';
 
 export default function TopNav() {

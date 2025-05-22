@@ -120,19 +120,6 @@
   font-size: 25px;
 }
 
-
-
-
-.miniplayer {
-  width: 26%;
-  background: rgba(15, 1, 122);
-  color: white;
-  border-radius: 15px;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem; /* for icons/text spacing */
-}
-
 /* Hover effect */
 .nav-item:hover {
   background: #fff;
@@ -172,4 +159,9 @@
 	.mobile-top {
 		display: flex;
 	}
+}
+@media screen and (min-width: 1504px){
+  .mobile-top{
+    display: none;
+  }
 }

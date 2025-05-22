@@ -8,6 +8,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts';
+import TopNav from '../components/Topnav';
 
 const summaryData = {
   totalStudents: 120,
@@ -31,6 +32,8 @@ const recentAttendance = [
   { name: 'Bob Brown', date: '2025-05-21', status: 'Absent' },
 ];
 
+const User = 'Collins'
+
 export default function Dashboard() {
   const Username = 'Nathan';
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -41,7 +44,7 @@ export default function Dashboard() {
     <div className="home-content">
       <Navbar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
       <div className={`top-content ${sidebarOpen ? 'with-sidebar' : ''}`}>
-        <header
+        {/* <header
           style={{
             padding: '15px 20px',
             background: '#e7ebf9',
@@ -70,9 +73,12 @@ export default function Dashboard() {
           <h2 style={{ marginLeft: '15px' }}>
             Welcome to the dashboard, <span className="username">{Username}</span> 😜
           </h2>
-        </header>
-
-        <div className="dashb-cont">
+        </header> */}
+      <TopNav/>
+        <div className="dashb-cont">  
+              <div className="hello">
+                  <h3> Welcome to the dashboard, {User}</h3>
+              </div>
           <div className="dash-cards">
             <div className="card frosted">Total Students: {summaryData.totalStudents}</div>
             <div className="card frosted">Present Today: {summaryData.presentToday}</div>

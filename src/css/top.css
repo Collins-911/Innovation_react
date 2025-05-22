@@ -1,243 +1,48 @@
-
-
-.top {
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
-	padding: 10px 20px;
-	background-color: rgba(15, 1, 122);
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-	width: 100% !important;
-	
+/* Navbar container */
+.navbar {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  background: #fff;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 0.1);
+  border-radius: 8px;
 }
 
-.right-section {
-	display: flex;
-	align-items: center;
-	gap: 20px;
-}
-
-.w3 {
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-	cursor: pointer;
-}
-
-.w3 img {
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-	cursor: pointer;
-	border: 2px solid #ccc	;
-	transition: 0.5s;
-}
-.w3 img:hover{
-	transform: translateY(-5px);
-	transition: 0.5s;
-	box-shadow: 0 0 20px blue	;
-}
-
-.searchInput {
-	display: flex;
-	align-items: center;
-	background-color: #f0f0f0;
-	border-radius: 25px;
-	overflow: hidden;
-	border: 1px solid #ccc;
-}
-.search::placeholder {
-  color: transparent;
-  transition: color 0.3s ease;
-}
-
-.search:hover::placeholder {
-  color: black;
-}
-
-
-.searchInput .search {
-	border: none;
-	outline: none;
-	padding: 10px 12px;
-	background-color: transparent;
-	width: 180px;
-	font-size: 0.95em;
-}
-
-.searchBtn {
-	border: none;
-	padding: 8px 12px;
-	cursor: pointer;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.searchBtn img {
-	width: 16px;
-	height: 16px;
-	filter: invert(1);
-}
-
-.pfp {
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-	cursor: pointer;
-	transition: 0.5s;
-}
-.pfp:hover{
-	transform: translateY(-5px);
-	transition: 0.5s;
-	box-shadow: 0 0 20px blue	;
-}
-.section-one-home{
-	display: flex;
-}
-.info-home {
-  width: 74%;
-
-
-  span{
-	color: black;
-		transition: 0.5s;
-  }
-
-  span:hover{
-	display: none;
-	transition: 0.5s;
-  }
-  .two span{
-	display: none;
-  }
-}
-
-.info-home h4 {
-  text-align: left;
-  margin-left: 20px;
-  margin-top: 50px;
-  font-size: 25px;
-}
-
-
-
-
-.miniplayer {
-  width: 26%;
-  background: rgba(15, 1, 122);
-  color: white;
-  border-radius: 15px;
+/* Each nav item */
+.nav-item {
+  background: #f9f9f9;
+  padding: 0.75rem 1.25rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgb(0 0 0 / 0.05);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+  font-weight: 600;
+  color: #333;
   display: flex;
   align-items: center;
-  padding: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  margin-top: 10px;
-  margin-left: 10px;
-  transition: 1s;
-  height: 120px;
-}
-.miniplayer:hover{
-	background: linear-gradient(40deg, yellowgreen, gold, yellow);
-
-	transition: 1s;
-
-
-	
-
-	h4{
-		color: black;
-		transition: 2s;
-		text-shadow: 10px 5px 10px black;
-	}
-
-	p{
-		color: black;
-		transition: 3s !important;
-		text-shadow: 10px 5px 10px black;
-	}
+  gap: 0.5rem; /* for icons/text spacing */
 }
 
-.cover {
-  width: 60px;
-  height: 60px;
-  border-radius: 10px;
-  object-fit: cover;
+/* Hover effect */
+.nav-item:hover {
+  background: #fff;
+  box-shadow: 0 6px 10px rgb(0 0 0 / 0.12);
+  color: #0070f3; /* primary blue */
+  transform: translateY(-2px);
 }
 
-.track-info {
-  flex: 1;
+/* Active nav item */
+.nav-item.active {
+  background: #0070f3;
+  color: #fff;
+  box-shadow: 0 6px 10px rgb(0 112 243 / 0.4);
+  transform: translateY(-2px);
 }
 
-.track-info h4 {
-  margin-left: 10px;
-  font-size: 16px;
-}
-
-.track-info p {
-  margin: 2px 0 0;
-  font-size: 12px;
-  color: #ccc;
-}
-
-.controls button {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 18px;
-  cursor: pointer;
-}
-
-.controls button:hover {
-  color: #1db954;
-}
-
-
-
-
-
-
-
-
-
-
-
-.mobile-top {
-	display: none;
-	justify-content: space-between;
-	align-items: center;
-	padding: 10px 20px;
-	background-color: #fff;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.mobile-logo {
-	font-weight: bold;
-	font-size: 1.2em;
-	color: #333;
-}
-
-.mobile-icons {
-	display: flex;
-	gap: 15px;
-	align-items: center;
-}
-
-.mobile-icon {
-	width: 24px;
-	height: 24px;
-	border-radius: 50%;
-	object-fit: cover;
-	cursor: pointer;
-}
-
-
-@media screen and (max-width: 768px) {
-	.top {
-		display: none;
-	}
-
-	.mobile-top {
-		display: flex;
-	}
+/* Optional: Icon inside nav item */
+.nav-item svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
 }

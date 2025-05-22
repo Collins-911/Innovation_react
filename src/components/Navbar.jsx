@@ -2,96 +2,103 @@ import { useState } from 'react';
 import Navigation from './Navigation.jsx';
 import '../css/home.css';
 import {
-	FaHome,
-	FaUserGraduate,
-	FaChalkboardTeacher,
-	FaBook,
-	FaMoneyBill,
-	FaUserPlus,
-	FaClipboardList,
-	FaTasks,
-	FaFileAlt,
-	FaCog,
-	FaUser
+  FaHome,
+  FaUserGraduate,
+  FaChalkboardTeacher,
+  FaBook,
+  FaMoneyBill,
+  FaUserPlus,
+  FaClipboardList,
+  FaTasks,
+  FaFileAlt,
+  FaCog,
+  FaUser,
 } from 'react-icons/fa';
 
-export default function Navbar() {
-	const {
-		dashboardClick,
-		studentClick,
-		registerClick,
-		paymentClick,
-		staffClick,
-		coursesClick,
-		reportClick,
-		profileClick,
-		curriculumClick,
-		assignmentClick,
-	} = Navigation();
+export default function Navbar({ isOpen, onClose }) {
+  const {
+    dashboardClick,
+    studentClick,
+    registerClick,
+    paymentClick,
+    staffClick,
+    coursesClick,
+    reportClick,
+    profileClick,
+    curriculumClick,
+    assignmentClick,
+  } = Navigation();
 
-	const navItems = [
-		{
-			menuTitle: "General",
-			menuItems: [
-				{ name: "Dashboard", onClick: dashboardClick, icon: <FaHome /> },
-				{ name: "Students", onClick: studentClick, icon: <FaUserGraduate /> },
-				{ name: "Courses", onClick: coursesClick, icon: <FaBook /> },
-				{ name: "Curriculum", onClick: curriculumClick, icon: <FaClipboardList /> },
-				{ name: "Staffs", onClick: staffClick, icon: <FaChalkboardTeacher /> },
-			],
-		},
-		{
-			menuTitle: "Tools",
-			menuItems: [
-				{ name: "Register Students", onClick: registerClick, icon: <FaUserPlus /> },
-				{ name: "Add Courses", icon: <FaBook /> },
-				{ name: "Assignment", onClick: assignmentClick, icon: <FaTasks /> },
-				{ name: "Report", onClick: reportClick, icon: <FaFileAlt /> },
-				{ name: "Payment", onClick: paymentClick, icon: <FaMoneyBill /> },
-			],
-		},
-		{
-			menuTitle: "My Profile",
-			menuItems: [
-				{ name: "Profile", onClick: profileClick, icon: <FaUser /> },
-				{ name: "Settings", icon: <FaCog /> },
-			],
-		},
-	];
+  const navSections = [
+    {
+      title: 'General',
+      items: [
+        { name: 'Dashboard', icon: <FaHome />, onClick: dashboardClick },
+        { name: 'Students', icon: <FaUserGraduate />, onClick: studentClick },
+        { name: 'Courses', icon: <FaBook />, onClick: coursesClick },
+        { name: 'Curriculum', icon: <FaClipboardList />, onClick: curriculumClick },
+        { name: 'Staffs', icon: <FaChalkboardTeacher />, onClick: staffClick },
+      ],
+    },
+    {
+      title: 'Tools',
+      items: [
+        { name: 'Register Students', icon: <FaUserPlus />, onClick: registerClick },
+        { name: 'Add Courses', icon: <FaBook /> },
+        { name: 'Assignment', icon: <FaTasks />, onClick: assignmentClick },
+        { name: 'Report', icon: <FaFileAlt />, onClick: reportClick },
+        { name: 'Payment', icon: <FaMoneyBill />, onClick: paymentClick },
+      ],
+    },
+    {
+      title: 'My Profile',
+      items: [
+        { name: 'Profile', icon: <FaUser />, onClick: profileClick },
+        { name: 'Settings', icon: <FaCog /> },
+      ],
+    },
+  ];
 
-	const [openIndex, setOpenIndex] = useState(null);
+  const [openSectionIndex, setOpenSectionIndex] = useState(null);
 
-	const toggleDropdown = (index) => {
-		setOpenIndex(openIndex === index ? null : index);
-	};
+  const toggleSection = (index) => {
+    setOpenSectionIndex(openSectionIndex === index ? null : index);
+  };
 
-	return (
-		<div className="sidebar">
-		<div className="logo"></div>
-			
-			{navItems.map((item, index) => (
-				<div className="sidebar-section" key={index}>
-					<p
-						className={`sidebar-heading ${openIndex === index ? 'open' : ''}`}
-						onClick={() => toggleDropdown(index)}
-					>
-						{item.menuTitle}
-					</p>
-					<ul className={`dropdown-list ${openIndex === index ? 'open' : ''}`}>
-						{item.menuItems.map((menuItem, subIndex) => (
-							<li key={subIndex}>
-								<a
-									onClick={menuItem.onClick}
-									style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '10px' }}
-								>
-									{menuItem.icon}
-									{menuItem.name}
-								</a>
-							</li>
-						))}
-					</ul>
-				</div>
-			))}
-		</div>
-	);
+  return (
+    <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
+      <div className="logo"></div>
+
+      {navSections.map((section, index) => (
+        <section className="sidebar-section" key={index}>
+          <h3
+            className={`sidebar-heading ${openSectionIndex === index ? 'open' : ''}`}
+            onClick={() => toggleSection(index)}
+            role="button"
+            tabIndex={0}
+            onKeyPress={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') toggleSection(index);
+            }}
+          >
+            {section.title}
+          </h3>
+
+          <ul className={`dropdown-list ${openSectionIndex === index ? 'open' : ''}`}>
+            {section.items.map((item, i) => (
+              <li key={i}>
+                <a
+                  href="#!"
+                  onClick={item.onClick}
+                  style={{ cursor: item.onClick ? 'pointer' : 'default', display: 'flex', alignItems: 'center', gap: '10px' }}
+                >
+                  {item.icon}
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+    </aside>
+  );
 }

@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import Navigation from './Navigation.jsx';
 import '../css/home.css';
-import NI from '../assets/NI.png'
+
+import NI_Blue from '../assets/NI_Blue.png'
 import {
   FaHome,
   FaUserGraduate,
@@ -69,7 +70,7 @@ export default function Navbar({ isOpen, onClose }) {
   return (
     <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
       <div className="logo">
-			<img src={NI} alt="" />
+			<img src={NI_Blue} alt="" />
 		</div>
 
       {navSections.map((section, index) => (

@@ -6,6 +6,7 @@ import cybersecurity from '../assets/cybersecurity.jpg';
 import Dbase from '../assets/Dbase.jpg';
 import Dmarket from '../assets/Dmarket.jpg';
 import Dscience from '../assets/Dscience.jpg';
+import { MdMargin } from "react-icons/md";
 
 
 
@@ -14,19 +15,19 @@ import Dscience from '../assets/Dscience.jpg';
 
 export default function Courses() {
   return (
-    <div className="home-container">
-       <Topnav/>
-      <div className="home">
-        <Navbar/>
-        <section className="courses-home">
-          <div className="courses-title">
-            <h3>Courses</h3>
-            <p>Dashboard / <span>All Courses</span></p>
-          </div>
+    <div className="home-content">
+            <Navbar/>
+              <div className="top-content">
+                 <Topnav/>
+                <section className="content">
+                    <div className="courses-title">
+                      <h4>All Students</h4>
+                      <p>Students / <span>All students</span></p>
+                    </div>
 
             <div className="courses-grid">
             <div className="course-contain">
-              <div className="course-item">
+              <div className="course-item" >
                 <div className="course-content">
                   <h4>Front-end web development</h4>
                   <p>Lessons: 163</p>
@@ -36,7 +37,7 @@ export default function Courses() {
               </div>
 
               <div className="course-item">
-                <div className="course-content">
+                < div className="course-content">
                   <h4>Back-end web development</h4>
                   <p>Lessons: 41</p>
                   <p>Duration: 4 months</p>
@@ -59,7 +60,7 @@ export default function Courses() {
                   <p>Lessons: 30</p>
                   <p>Duration: 2 months</p>
                 </div>
-                <img src="https://images.pexels.com/photos/323645/pexels-photo-323645.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Product Design" className="course-image" />
+                <img src="https://i.pinimg.com/736x/1f/f7/3c/1ff73c0e87d459565017d07fdfa3725c.jpg" alt="Product Design" className="course-image" />
               </div>
 
               <div className="course-item">

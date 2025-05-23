@@ -1,5 +1,6 @@
 import React from "react";
 import '../css/curriculum.css';
+import '../css/course.css';
 import '../css/home.css';
 import Navbar from '../components/Navbar.jsx';
 import Topnav from '../components/Topnav.jsx';
@@ -33,8 +34,8 @@ export default function Curriculum() {
 
         <section className="content">
           <div className="courses-title">
-            <h4>Email Reports</h4>
-            <p>Reports / <span>Email</span></p>
+            <h4>Our Curriculum</h4>
+            <p>Student / <span>Curriculum</span></p>
           </div>
 
           {/* First Row */}

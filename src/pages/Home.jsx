@@ -45,38 +45,9 @@ export default function Dashboard() {
     <div className="home-content">
       <Navbar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
       <div className={`top-content ${sidebarOpen ? 'with-sidebar' : ''}`}>
-        {/* <header
-          style={{
-            padding: '15px 20px',
-            background: '#e7ebf9',
-            borderBottom: '1px solid #007bff',
-            display: 'flex',
-            alignItems: 'center',
-            position: 'relative',
-            zIndex: 10,
-          }}
-        >
-          <button
-            onClick={toggleSidebar}
-            className="slide-btn"
-            aria-label="Toggle sidebar"
-            style={{
-              fontSize: 24,
-              background: 'none',
-              border: 'none',
-              cursor: 'pointer',
-              color: '#007bff',
-              userSelect: 'none',
-            }}
-          >
-            ☰
-          </button>
-          <h2 style={{ marginLeft: '15px' }}>
-            Welcome to the dashboard, <span className="username">{Username}</span> 😜
-          </h2>
-        </header> */}
+      
       <TopNav/>
-      <p>car</p>
+    
         <div className="dashb-cont">  
               <div className="hello">
                   <h3> Welcome to the dashboard, {User}</h3>

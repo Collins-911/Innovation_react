@@ -71,3 +71,44 @@
 	background-color: rgba(15, 1, 122);
 	color: white;
 }
+
+
+
+@media only screen and (max-width: 768px){
+	.reciept button{
+		margin-left: auto !important;
+	}
+	#total-p{
+		position: relative;
+		left: 35px !important;
+	}
+	.reciept-address p{
+		font-size: 10px !important;
+	}
+	.address-to{
+		padding-left: 5% !important;
+	}
+	#reciept-p{
+		padding-left: 38% !important;
+	}
+	.reciept-title{
+		padding-left: 1rem !important;
+	}
+	.sp-title p{
+		display: none !important;
+	}
+}
+
+
+
+@media only screen and (min-width: 820px) and (max-width: 1180px){
+	.sp-title p{
+		display: none !important;
+	}
+	#reciept-p{
+		padding-left: 70% !important;
+	}
+	.reciept button{
+	margin-left: 40% !important;
+	}
+}

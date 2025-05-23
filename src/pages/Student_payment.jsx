@@ -16,8 +16,8 @@ export default function Student_payment(){
 				<Navbar/>
 		        <div className="top-content">
 			       <Topnav/> 
-			        <section className="content">
-			        	<div className="sp-title">
+			        <section className="content" style={{padding: "1rem"}}>
+			        	<div className="sp-title" style={{marginTop: "4rem"}}>
 			           		<h4>Fees Reciept</h4>
 			           		<p>Students / <span>Fees Receipt</span></p>
 			           	</div>

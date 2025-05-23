@@ -77,14 +77,6 @@ table td{
 
 
 @media only screen and (max-width: 768px){
-	/* Responsive styles for screens 768px and smaller */
-  .top-content {
-    width: 100%; 
-    position: static;
-    right: auto;
-    padding: 1rem; 
-    margin-top: 3rem;
-  }
 
   .student-title {
     display: flex;
@@ -156,25 +148,23 @@ table td{
     margin-right: 5px; 
     font-size: 0.8em; 
   }
-  .sidebar{
-  	display: none !important;
-  }
-  body{
-  	overflow-y: auto !important;
-  }
+ 
+} 
 
-  .top{
-    display: none !important;
+
+@media only screen and (min-width: 820px) and (max-width: 1180px){
+  table td button{
+   width: 60px !important;
+   text-align: center !important;
+   padding: 5px 0 !important;
   }
-  .mobile-top{
-    display: flex !important;
-    top: 0;
-    position: fixed;
-	  align-items: center;
-    height: 50px;
-   background-color: rgba(15, 1, 122);
-   width: 100% !important;
-   margin: 0 !important;
-    
+  .student-list{
+    padding-right: 1rem !important;
   }
-}
+  .student-table table th{
+    padding-right: 0;
+  }
+  .student-title p {
+    display: none;
+  }
+};

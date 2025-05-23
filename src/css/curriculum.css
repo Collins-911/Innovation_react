@@ -1,9 +1,5 @@
 
 
-
-
-
-
 .Curriculum-container{
     height: fit-content;
     width: 100%;
@@ -18,7 +14,7 @@
 }
 .row1{
     height:30vh;
-    width: 24%;
+  width: 30%;
     margin: 20px 10px 10px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -26,7 +22,7 @@
 
 .row2{
     height: 30vh;
-    width: 24%;
+ width: 30%;
     margin: 20px 10px 10px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -34,7 +30,7 @@
 
 .row3{
     height: 30vh;
-    width: 24%;
+   width: 30%;
     margin: 20px 10px 10px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -58,7 +54,7 @@ img{
 }
 .row1-title{
     height: 23vh;
-    width: 24%;
+    width: 30%;
     margin: -10px 10px 10px;
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -67,7 +63,7 @@ img{
 }
 .row2-title{
     height: 23vh;
-    width: 24%;
+    width: 30%;
     margin: -10px 10px 10px;
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -76,7 +72,7 @@ img{
 }
 .row3-title{
     height: 23vh;
-    width: 24%;
+    width: 30%;
     margin: -10px 10px 10px;
     background-color:white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -87,7 +83,7 @@ img{
 /* second row */
 .row4,.row5,.row6{
     height:30vh;
-    width: 24%;
+     width: 30%;
     margin: 20px 10px 10px;
     background-color: none;
     border-top-left-radius: 10px;
@@ -95,7 +91,7 @@ img{
 }
 .row4-title,.row5-title,.row6-title{
     height: 23vh;
-    width: 24%;
+     width: 30%;
     margin: -10px 10px 10px;
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -116,7 +112,7 @@ img{
 /* third row */
 .row7,.row8,.row9{
     height:30vh;
-    width: 24%;
+     width: 30%;
     margin: 20px 10px 10px;
     background-color: none;
     border-top-left-radius: 10px;
@@ -124,7 +120,7 @@ img{
 }
 .row7-title,.row8-title,.row9-title{
     height: 23vh;
-    width: 24%;
+     width: 30%;
     margin: -10px 10px 10px;
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

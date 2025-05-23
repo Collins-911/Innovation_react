@@ -15,8 +15,8 @@ export default function Staff(){
 		       <Navbar/>
 		        <div className="top-content">
 			       <Topnav/>
-		          	<section className="content">
-		          		<div className="staff-title">
+		          	<section className="content" style={{padding: "1rem"}}>
+		          		<div className="staff-title" style={{marginTop: "4rem"}}>
 			           		<h4>All Staffs</h4>
 			           		<p>Staffs / <span>All staffs</span></p>
 			           	</div>

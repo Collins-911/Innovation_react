@@ -3,6 +3,10 @@ import icon2 from '../assets/icon2.svg';
 import icon7 from '../assets/icon7.jpg';
 import '../css/top.css';
 
+import { FaReact } from 'react-icons/fa';
+import { CiMenuFries } from "react-icons/ci";
+
+
 export default function TopNav() {
 	const w3School = 'https://www.w3schools.com/';
 	const nugi = 'https://nugitech.com/';
@@ -12,6 +16,13 @@ export default function TopNav() {
 	  return (
         <div className="topnav-container">
             <div className="top">
+               <div className="hamburger">
+      <CiMenuFries size={30} color="#fff" style={{ cursor: 'pointer' }} />
+
+
+
+         
+        </div>
                 <div className="right-section">
                     <a href={w3School} target="_blank" rel="noopener noreferrer">
                         <div className="w3">
@@ -51,15 +62,7 @@ export default function TopNav() {
                 </div>
             </div>
 
-            <div className="mobile-top">
-                <div className="mobile-logo">LOGO</div>
-                <div className="mobile-icons">
-                    <img src={icon2} alt="Search" className="mobile-icon" />
-                    <Link to="/profile">
-                        <img src={icon7} alt="Profile" className="mobile-icon" />
-                    </Link>
-                </div>
-            </div>
+            
         </div>
     );
 }

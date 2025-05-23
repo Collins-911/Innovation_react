@@ -1,5 +1,4 @@
-
-
+/* --- TOP BAR --- */
 .top {
 	display: flex;
 	justify-content: flex-end;
@@ -7,8 +6,12 @@
 	padding: 10px 20px;
 	background-color: rgba(15, 1, 122);
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-	width: 100% !important;
-	
+	width: 80%;
+	position: fixed;
+	top: 0;
+	right: 0;
+	z-index: 1000;
+	transition: width 0.3s ease, left 0.3s ease;
 }
 
 .right-section {
@@ -17,27 +20,32 @@
 	gap: 20px;
 }
 
+/* --- PROFILE IMAGE --- */
+.pfp,
 .w3 {
 	width: 40px;
 	height: 40px;
 	border-radius: 50%;
 	cursor: pointer;
+	transition: 0.5s;
 }
 
+.pfp:hover,
+.w3 img:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 0 20px blue;
+}
+
+/* --- IMAGE WRAPPER --- */
 .w3 img {
 	width: 40px;
 	height: 40px;
 	border-radius: 50%;
-	cursor: pointer;
-	border: 2px solid #ccc	;
+	border: 2px solid #ccc;
 	transition: 0.5s;
-}
-.w3 img:hover{
-	transform: translateY(-5px);
-	transition: 0.5s;
-	box-shadow: 0 0 20px blue	;
 }
 
+/* --- SEARCH --- */
 .searchInput {
 	display: flex;
 	align-items: center;
@@ -46,15 +54,6 @@
 	overflow: hidden;
 	border: 1px solid #ccc;
 }
-.search::placeholder {
-  color: transparent;
-  transition: color 0.3s ease;
-}
-
-.search:hover::placeholder {
-  color: black;
-}
-
 
 .searchInput .search {
 	border: none;
@@ -63,6 +62,15 @@
 	background-color: transparent;
 	width: 180px;
 	font-size: 0.95em;
+}
+
+.search::placeholder {
+	color: transparent;
+	transition: color 0.3s ease;
+}
+
+.search:hover::placeholder {
+	color: black;
 }
 
 .searchBtn {
@@ -80,88 +88,124 @@
 	filter: invert(1);
 }
 
-.pfp {
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-	cursor: pointer;
-	transition: 0.5s;
-}
-.pfp:hover{
-	transform: translateY(-5px);
-	transition: 0.5s;
-	box-shadow: 0 0 20px blue	;
-}
-.section-one-home{
+
+
+/* --- SECTION STRUCTURE --- */
+.section-one-home {
 	display: flex;
 }
+
 .info-home {
-  width: 74%;
-
-
-  span{
-	color: black;
-		transition: 0.5s;
-  }
-
-  span:hover{
-	display: none;
-	transition: 0.5s;
-  }
-  .two span{
-	display: none;
-  }
+	width: 74%;
 }
 
 .info-home h4 {
-  text-align: left;
-  margin-left: 20px;
-  margin-top: 50px;
-  font-size: 25px;
+	text-align: left;
+	margin-left: 20px;
+	margin-top: 50px;
+	font-size: 25px;
 }
 
-/* Hover effect */
+.info-home span {
+	color: black;
+	transition: 0.5s;
+}
+
+.info-home span:hover {
+	display: none;
+	transition: 0.5s;
+}
+
+.info-home .two span {
+	display: none;
+}
+
+/* --- NAV HOVER EFFECTS --- */
 .nav-item:hover {
-  background: #fff;
-  box-shadow: 0 6px 10px rgb(0 0 0 / 0.12);
-  color: #0070f3; /* primary blue */
-  transform: translateY(-2px);
+	background: #fff;
+	box-shadow: 0 6px 10px rgb(0 0 0 / 0.12);
+	color: #0070f3;
+	transform: translateY(-2px);
 }
 
-/* Active nav item */
 .nav-item.active {
-  background: #0070f3;
-  color: #fff;
-  box-shadow: 0 6px 10px rgb(0 112 243 / 0.4);
-  transform: translateY(-2px);
+	background: #0070f3;
+	color: #fff;
+	box-shadow: 0 6px 10px rgb(0 112 243 / 0.4);
+	transform: translateY(-2px);
 }
 
-.mobile-icons {
-	display: flex;
-	gap: 15px;
-	align-items: center;
+/* --- RESPONSIVE STYLES --- */
+@media screen and (max-width: 3008px){
+	.top{
+		right: 0 !important;
+		width: 80%;
+		position: fixed;
+	}
+	.hamburger{
+		display: none;
+	}
 }
-
-.mobile-icon {
-	width: 24px;
-	height: 24px;
-	border-radius: 50%;
-	object-fit: cover;
-	cursor: pointer;
-}
-
-
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
 	.top {
+		
+		width: 100%;
+		position: fixed;
+	}
+	.w3{
+		display: none;
+	}
+	.hamburger{
 		display: none;
 	}
 
-	.mobile-top {
+	
+}
+
+@media screen and (max-width: 768px) {
+	.top {
+		width: 100%;
+		position: fixed;
+	}
+
+	.right-section {
 		display: flex;
+		gap: 10px;
+		align-items: center;
+		margin-left: auto; /* Push it to the right */
+	}
+
+	.searchInput .search {
+		width: 120px;
+		font-size: 0.85em;
+	}
+
+	.w3 {
+		display: none;
+	}
+	.hamburger{
+		display: block;
 	}
 }
-@media screen and (min-width: 1504px){
-  .mobile-top{
-    display: none;
-  }
+
+@media screen and (max-width: 480px) {
+	.top {
+		justify-content: flex-end;
+		padding: 10px;
+	}
+
+	.right-section {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		margin-left: auto; /* Keeps it aligned right */
+	}
+
+	.searchInput {
+		display: flex;
+	}
+
+	.w3 {
+		display: none;
+	}
 }

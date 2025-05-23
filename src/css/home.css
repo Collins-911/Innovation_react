@@ -1,29 +1,78 @@
+/* --- BASE LAYOUT --- */
 .home-content {
+  display: flex;
   width: 100%;
   min-height: 100vh;
-  display: flex;
-}
-.top-content{
-	width: 80%;
 }
 
+.top-content {
+  width: 80%;
+  margin-left: 20%;
+  transition: margin-left 0.3s ease;
+}
+
+/* --- LOGO / HEADER --- */
 .logo {
-	top: 0;
-	left: 0;
-	position: absolute;
-	background-color: rgba(15, 1, 122);
-	height: 66px;
-	width: 20%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 66px;
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
 }
 
+.logo img {
+  max-height: 50px;
+  width: auto;
+  object-fit: contain;
+}
+
+header {
+  padding: 15px 20px;
+  background: #e7ebf9;
+  border-bottom: 1px solid #007bff;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 66px;
+  left: 20%;
+  right: 0;
+  z-index: 10;
+  transition: left 0.3s ease;
+}
+
+/* --- SIDEBAR --- */
 .sidebar {
-	padding: 20px;
-	width: 20%;
-	min-height: 100vh;
-	border-right: 1px solid rgba(15, 1, 122);
-	margin-top: 60px;
+  position: fixed;
+  top: 66px;
+  left: 0;
+  width: 20%;
+  height: calc(100vh - 66px);
+  padding: 20px;
+  background: white;
+  overflow-y: auto;
+  border-right: 1px solid rgba(15, 1, 122);
+  z-index: 100;
+  transition: transform 0.3s ease;
 }
 
+.sidebar.hidden {
+  transform: translateX(-100%);
+}
+
+.toggle-sidebar-btn {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #007bff;
+  margin-right: 10px;
+}
+
+/* --- SIDEBAR NAV --- */
 .sidebar-section {
   margin-bottom: 20px;
 }
@@ -32,16 +81,13 @@
   font-size: 1.1em;
   color: rgba(15, 1, 122);
   padding: 10px 15px;
-  margin: 0;
   border-left: 4px solid #007bff;
   background-color: #e7ebf9;
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  position: relative;
   transition: background-color 0.3s ease;
-  top: 0;
 }
 
 .sidebar-heading::after {
@@ -71,47 +117,26 @@
 }
 
 .dropdown-list li a {
-  display: block;
-  padding: 10px 20px;
-  font-size: 0.95em;
-  color: rgba(15, 1, 122);
-  text-decoration: none;
-  border-radius: 4px;
-  transition: background-color 0.2s ease;
   display: flex;
   align-items: center;
   gap: 10px;
+  padding: 10px 20px;
+  color: rgba(15, 1, 122);
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 0.95em;
+  transition: background-color 0.2s ease;
 }
 
 .dropdown-list li a:hover {
   background-color: rgba(15, 1, 122, 0.1);
 }
 
-
-header {
-  padding: 15px 20px;
-  background: #e7ebf9;
-  border-bottom: 1px solid #007bff;
-  display: flex;
-  align-items: center;
-  position: relative;
-  z-index: 10;
-}
-
-
-.toggle-sidebar-btn {
-  font-size: 24px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #007bff;
-  user-select: none;
-}
-
-
+/* --- CONTENT AREA --- */
 .dashb-cont {
-  width: 80%;
-  margin: 20px auto;
+  width: 100%;
+  margin-top: 130px;
+  padding: 20px;
   color: #0f017a;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -125,21 +150,17 @@ h2 {
 .username {
   color: #007bff;
 }
-.hello{
-    background: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(10px);
-    border-radius: 12px;
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    margin-bottom: 10px;
-    height: 100px;
-    font-size: 30px;
-    width: 700px;
-    
-    
-   
+
+.hello {
+  font-size: 30px;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 40px;
+  margin-top: -50px;
 }
 
+/* --- CARDS --- */
 .dash-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -158,13 +179,16 @@ h2 {
 
 .frosted {
   background: rgba(255, 255, 255, 0.3);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border-radius: 12px;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.chart-cont {
+/* --- CHART & TABLE --- */
+.chart-cont,
+.table-cont {
   padding: 20px;
   margin-bottom: 40px;
 }
@@ -174,20 +198,13 @@ h2 {
   font-weight: 600;
 }
 
-.table-cont{
-  overflow-x: auto;
-  margin-bottom: 40px;
-  padding: 20px;
-}
-
 table {
   width: 100%;
   border-collapse: collapse;
   font-size: 1rem;
 }
 
-th,
-td {
+th, td {
   padding: 12px 15px;
   text-align: left;
 }
@@ -211,6 +228,7 @@ tbody tr:nth-child(even) {
   font-weight: 600;
 }
 
+/* --- QUICK ACTIONS --- */
 .quick-actions {
   display: flex;
   flex-wrap: wrap;
@@ -236,11 +254,20 @@ tbody tr:nth-child(even) {
   color: white;
 }
 
-
-/* Ensure .home-content stacks vertically on small screens */
+/* --- RESPONSIVE BREAKPOINTS --- */
 @media screen and (max-width: 1024px) {
-  .home-content {
-    flex-direction: column;
+  .sidebar {
+    transform: translateX(-100%);
+    width: 250px;
+  }
+
+  .sidebar.show {
+    transform: translateX(0);
+  }
+
+  header {
+    left: 0;
+    width: 100%;
   }
 
   .top-content {
@@ -248,46 +275,16 @@ tbody tr:nth-child(even) {
     margin-left: 0;
   }
 
-  .sidebar {
-    width: 100%;
-    min-height: auto;
-    border-right: none;
-    margin-top: 0;
-    position: relative;
-  }
-
   .logo {
     width: 100%;
-    position: relative;
-  }
-
-  .dashb-cont {
-    width: 100%;
-    padding: 10px;
-  }
-
-  .hello {
-    width: 100%;
-    font-size: 24px;
-    text-align: center;
-    height: auto;
-    padding: 20px;
-  }
-
-  .chart-cont,
-  .table-cont {
-    padding: 10px;
+    padding-left: 20px;
+    justify-content: flex-start;
   }
 }
 
-/* Medium screens */
 @media screen and (max-width: 768px) {
   .dash-cards {
     grid-template-columns: 1fr 1fr;
-  }
-
-  .table-cont table {
-    font-size: 0.9rem;
   }
 
   .quick-actions {
@@ -300,7 +297,6 @@ tbody tr:nth-child(even) {
   }
 }
 
-/* Small screens (mobile) */
 @media screen and (max-width: 480px) {
   .dash-cards {
     grid-template-columns: 1fr;
@@ -315,20 +311,16 @@ tbody tr:nth-child(even) {
     font-size: 0.85rem;
   }
 
-  .top-content {
-    padding: 0 10px;
-  }
-
-  .toggle-sidebar-btn {
-    font-size: 20px;
-  }
-
-  h2 {
-    font-size: 1.2rem;
-  }
-
   .card {
     font-size: 1rem;
     padding: 15px;
+  }
+
+  .logo {
+    height: 60px;
+  }
+
+  .logo img {
+    max-height: 40px;
   }
 }

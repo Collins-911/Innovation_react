@@ -42,8 +42,8 @@ export default function Register(){
 				<Navbar/>
 		        <div className="top-content">
 		          	<Topnav/>
-			        <section className="content">
-			        	<div className="register-title">
+			        <section className="content" style={{padding: "1rem"}}>
+			        	<div className="register-title" style={{marginTop: "4rem"}}>
 			           		<h4>Register Student</h4>
 			           		<p>Students / <span>Register student</span></p>
 			           	</div>

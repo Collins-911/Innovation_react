@@ -30,3 +30,23 @@
 	width: 100%;
 	padding: 2rem 1.5rem;
 }
+
+
+
+@media only screen and (max-width: 768px){
+	.staff-table {
+    padding: 1rem 0.75rem; 
+    overflow-x: auto; 
+  }
+   .staff-title p {
+    display: none;
+   }
+   .staff-table table td button{
+	width: 60px !important;
+	text-align: center !important;
+	padding: 5px 0 !important;
+  }
+  .staff-table table th{
+    padding-right: 0;
+  }
+}

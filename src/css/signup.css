@@ -130,3 +130,17 @@
 .box-2 p span:hover {
   text-decoration: underline;
 }
+
+
+
+@media only screen and (max-width: 768px){
+  .box-1{
+    display: none !important;
+  }
+  .box-2{
+    width: 100% !important;
+    margin-left: 0;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}

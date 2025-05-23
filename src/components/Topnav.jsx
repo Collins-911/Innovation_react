@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import icon2 from '../assets/icon2.svg';
 import icon7 from '../assets/icon7.jpg';
 import '../css/top.css';
+import { FaReact } from 'react-icons/fa';
+
 
 export default function TopNav() {
 	const w3School = 'https://www.w3schools.com/';
@@ -12,6 +14,9 @@ export default function TopNav() {
 	  return (
         <div className="topnav-container">
             <div className="top">
+               <div className="hamburger">
+          <FaReact size={24} color="#61DAFB" /> {/* React icon with size and color */}
+        </div>
                 <div className="right-section">
                     <a href={w3School} target="_blank" rel="noopener noreferrer">
                         <div className="w3">
@@ -51,15 +56,7 @@ export default function TopNav() {
                 </div>
             </div>
 
-            <div className="mobile-top">
-                <div className="mobile-logo">LOGO</div>
-                <div className="mobile-icons">
-                    <img src={icon2} alt="Search" className="mobile-icon" />
-                    <Link to="/profile">
-                        <img src={icon7} alt="Profile" className="mobile-icon" />
-                    </Link>
-                </div>
-            </div>
+            
         </div>
     );
 }

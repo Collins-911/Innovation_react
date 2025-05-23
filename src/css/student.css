@@ -75,9 +75,9 @@ table td{
 
 
 
-
+/* 
 @media only screen and (max-width: 768px){
-	/* Responsive styles for screens 768px and smaller */
+
   .top-content {
     width: 100%; 
     position: static;
@@ -177,4 +177,4 @@ table td{
    margin: 0 !important;
     
   }
-}
+} */

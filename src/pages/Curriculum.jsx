@@ -3,17 +3,6 @@ import '../css/curriculum.css';
 import '../css/home.css';
 import Navbar from '../components/Navbar.jsx';
 import Topnav from '../components/Topnav.jsx';
-
-// import icon2 from '../assets/icon2.svg';
-// import icon7 from '../assets/icon7.jpg';
-// import dashboard from '../assets/dashboard.png';
-// import assignment from '../assets/assignment.png';
-// import book from '../assets/book.png';
-// import student from '../assets/student.png';
-// import report from '../assets/report.png';
-// import assessments from '../assets/assessments.png';
-// import setting from '../assets/setting.png';
-// import logout from '../assets/logout.png';
 import payment from '../assets/payment.png';
 import cybersecurity from '../assets/cybersecurity.jpg';
 import Dbase from '../assets/Dbase.jpg';
@@ -39,7 +28,7 @@ export default function Curriculum() {
   return (
     <div className="home-container">
       {/* Top Bar */}
-        <Topnav />
+        {/* <Topnav /> */}
 
       {/* Sidebar */}
       <div className="home">

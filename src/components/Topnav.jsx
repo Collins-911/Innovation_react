@@ -3,6 +3,7 @@ import icon2 from '../assets/icon2.svg';
 import icon7 from '../assets/icon7.jpg';
 import '../css/top.css';
 import { FaReact } from 'react-icons/fa';
+import { CiMenuFries } from "react-icons/ci";
 
 
 export default function TopNav() {
@@ -15,7 +16,11 @@ export default function TopNav() {
         <div className="topnav-container">
             <div className="top">
                <div className="hamburger">
-          <FaReact size={24} color="#61DAFB" /> {/* React icon with size and color */}
+      <CiMenuFries size={30} color="#fff" style={{ cursor: 'pointer' }} />
+
+
+
+         
         </div>
                 <div className="right-section">
                     <a href={w3School} target="_blank" rel="noopener noreferrer">

@@ -142,6 +142,9 @@
 		width: 80%;
 		position: fixed;
 	}
+	.hamburger{
+		display: none;
+	}
 }
 @media screen and (max-width: 1024px) {
 	.top {
@@ -150,6 +153,9 @@
 		position: fixed;
 	}
 	.w3{
+		display: none;
+	}
+	.hamburger{
 		display: none;
 	}
 
@@ -176,6 +182,9 @@
 
 	.w3 {
 		display: none;
+	}
+	.hamburger{
+		display: block;
 	}
 }
 

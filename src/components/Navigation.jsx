@@ -48,6 +48,10 @@ export default function Navigation() {
         console.log('Navigating to Curriculum');
         navigate('/curriculum')
     };
+     const entryClick = () => {
+        console.log('Navigating to Entry');
+        navigate('/entry')
+    };
 
   return {
     dashboardClick,
@@ -59,6 +63,7 @@ export default function Navigation() {
     reportClick,
     profileClick,
     assignmentClick,
-    curriculumClick
+    curriculumClick,
+    entryClick,
   };
 }

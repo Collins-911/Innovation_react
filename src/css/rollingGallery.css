@@ -118,6 +118,7 @@
   color: #ffffff;
   margin-bottom: 2rem;
   text-align: center;
+  padding-top: 20px;
   font-family: 'Arial', sans-serif;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -206,7 +207,7 @@
   display: flex;
   justify-content: center;
   gap: 1.5rem;
-  margin-top: -1rem;
+  margin-top: -2rem;
   
 }
 
@@ -223,17 +224,19 @@
 .login-btn {
   background-color: #fff;
   color: #333;
-  border: 2px solid #333;
+  border: 2px solid #031c42;
 }
 
 .signup-btn {
-  background-color: #333;
-  color: #fff;
-  border: 2px solid #333;
+  background-color: #fff;
+  color: #333;
+  border: 2px solid #031c42;
 }
 
 .auth-btn:hover {
   transform: scale(1.05);
+  background-color: #031c42;
+  color:#fff;
 }
 
 

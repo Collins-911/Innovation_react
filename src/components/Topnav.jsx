@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import icon2 from '../assets/icon2.svg';
 import icon7 from '../assets/icon7.jpg';
 import '../css/top.css';
+
 import { FaReact } from 'react-icons/fa';
 import { CiMenuFries } from "react-icons/ci";
 

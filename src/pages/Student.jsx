@@ -15,8 +15,8 @@ export default function Student(){
 		     	<Navbar/>
 		        <div className="top-content">
 		           <Topnav/>
-			        <section className="content">
-			           	<div className="student-title">
+			        <section className="content" style={{padding: "1rem"}}>
+			           	<div className="student-title" style={{marginTop: "4rem"}}>
 			           		<h4>All Students</h4>
 			           		<p>Students / <span>All students</span></p>
 			           	</div>

@@ -21,8 +21,8 @@ export default function Courses() {
                  <Topnav/>
                 <section className="content">
                     <div className="courses-title">
-                      <h4>All Students</h4>
-                      <p>Students / <span>All students</span></p>
+                      <h4>All Courses</h4>
+                      <p>Courses / <span>All courses</span></p>
                     </div>
 
             <div className="courses-grid">

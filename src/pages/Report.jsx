@@ -1,57 +1,76 @@
 import '../css/report.css';
-import icon2 from '../assets/icon2.svg';
-import icon7 from '../assets/icon7.jpg';
-import dashboard from '../assets/dashboard.png';
-import assignment from '../assets/assignment.png';
-import book from '../assets/book.png';
-import student from '../assets/student.png';
-import report from '../assets/report.png';
-import assessments from '../assets/assessments.png';
-import setting from '../assets/setting.png';
-import logout from '../assets/logout.png';
-import payment from '../assets/payment.png';
-import Navbar from '../components/Navbar.jsx';
-import Topnav from '../components/Topnav.jsx';
+import Navbar from "../components/Navbar";
+import TopNav from "../components/Topnav";
 
-export default function Reports() {
-
-
-  
-
+const EmailReports = () => {
   return (
-    <div className="home-container">
-      <Topnav/>
-      <div className="home">
-        <Navbar/>
-        <div className="main-content">
-          <div className="email-wrapper">
-            <div className="email-header">
-              <h1>✉️ Compose Report Email</h1>
-              <p>Academic Session: 2024/2025</p>
+    <div className="home-content">
+      <Navbar />
+
+      <div className="top-content">
+        <TopNav />
+
+        <section className="content">
+          <div className="courses-title">
+            <h4>Email Reports</h4>
+            <p>Reports / <span>Email</span></p>
+          </div>
+
+          <div className="main-content">
+            {/* Left Side - Compose */}
+            <div className="compose-section">
+              <h4>Compose Email</h4>
+              <form id="emailForm" className="email-form">
+                <label htmlFor="to">To:</label>
+                <input type="text" id="to" name="to" placeholder="recipient@example.com" required />
+
+                <label htmlFor="subject">Subject:</label>
+                <input type="text" id="subject" name="subject" placeholder="Email Subject" required />
+
+                <label htmlFor="message">Message:</label>
+                <textarea id="message" name="message" rows="6" placeholder="Write your message here..." required></textarea>
+
+                <label htmlFor="attachment">Attachment:</label>
+                <input type="file" name="attachment" />
+                <div id="file-name">No file selected</div>
+
+                <button type="submit" className="report-button">Send</button>
+              </form>
             </div>
 
-            <div className="email-body">
-              <label><strong>Student Name:</strong></label>
-              <input type="text" className="text-area" rows="2" readOnly/>
+            {/* Right Side - Inbox (Static) */}
+            <div className="inbox-section">
+              <h4>Inbox/Outbox</h4>
+              <div className="email-box">
+                <div className="email-item">
+                  <h4>Welcome!</h4>
+                  <p>admin@example.com</p>
+                </div>
+                <div className="email-item">
+                  <h4>Report Feedback</h4>
+                  <p>teacher@example.com</p>
+                </div>
+              </div>
 
-              <label><strong>Teacher’s Comment:</strong></label>
-              <textarea
-                rows="6"
-                className="text-area"
-                placeholder="Type your comment here..."
-                
-              />
-
-              <button className="send-btn" >Send Email</button>
-            
-            </div>
-
-            <div className="email-footer">
-              <p>&copy; 2025 NugiTech</p>
+              {/* Static Email Details */}
+              <div className="inbox-view">
+                <h4>Email Details</h4>
+                <div className="email-details">
+                  <p><strong>From:</strong> admin@example.com</p>
+                  <p><strong>Subject:</strong> Welcome!</p>
+                  <p><strong>Date:</strong> May 23, 2025</p>
+                  <p><strong>Message:</strong></p>
+                  <p>Hello Student,
+                    <br />Welcome to the new term! Please check the portal for updates.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
       </div>
     </div>
   );
-}
+};
+
+export default EmailReports;

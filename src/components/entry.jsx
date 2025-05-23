@@ -79,25 +79,24 @@ const RollingGallery = ({
         />
       </video>
 
-      <h1 className="welcome-text">Welcome to Nugi</h1>
+      <h1 className="welcome-text">Welcome to Nugi Innovations</h1>
 
       <div className="gallery-container">
         <div className="gallery-gradient gallery-gradient-left"></div>
         <div className="gallery-gradient gallery-gradient-right"></div>
         <div className="gallery-content">
           <motion.div
-            drag="x"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            className="gallery-track"
-            style={{
-              rotateY: rotation,
-              width: cylinderWidth,
-              transformStyle: "preserve-3d",
-            }}
-            onDrag={handleDrag}
-            onDragEnd={handleDragEnd}
-          >
+  // drag="x"
+  className="gallery-track"
+  style={{
+    rotateY: rotation,
+    width: cylinderWidth,
+    transformStyle: "preserve-3d",
+  }}
+  onDrag={handleDrag}
+  onDragEnd={handleDragEnd}
+>
+
             {images.map((url, i) => (
               <div
                 key={i}

@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue } from "framer-motion";
 import FadeContent from "./FadeContent";
 import "../css/rollingGallery.css";
+import { useNavigate } from 'react-router-dom';
 
 const IMAGES = [
   "https://raw.githubusercontent.com/IdaraNnamso/my-images/main/WhatsApp%20Image%202025-05-23%20at%2015.50.44_8edbda70.jpg",
@@ -67,6 +68,15 @@ const RollingGallery = ({
 
   const handleMouseLeave = () => {
     if (autoplay && pauseOnHover) isPaused.current = false;
+  };
+
+  const navigate = useNavigate();
+  
+  const loginClick = () => {
+    navigate('/login')
+  };
+  const signupClick = () => {
+    navigate('/signup')
   };
 
   return (
@@ -137,8 +147,8 @@ const RollingGallery = ({
 
       {/* AUTH BUTTONS BELOW GALLERY */}
       <div className="auth-buttons">
-        <button className="auth-btn login-btn">LOGIN</button>
-        <button className="auth-btn signup-btn">SIGNUP</button>
+        <button onClick={loginClick} className="auth-btn login-btn">LOGIN</button>
+        <button onClick={signupClick} className="auth-btn signup-btn">SIGNUP</button>
       </div>
     </div>
   );

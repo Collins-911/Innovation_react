@@ -5,8 +5,8 @@ import { useNavigate } from 'react-router-dom';
 export default function Login() {
     const navigate = useNavigate();
 
-    const click = () => navigate('/Signup');
-    const move = () => navigate('/');
+    const click = () => navigate('/signup');
+    const move = () => navigate('/dashboard');
 
     return (
         <div className="login-container">

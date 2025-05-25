@@ -5,7 +5,7 @@ export default function Navigation() {
 
    const dashboardClick = () => {
         console.log('Navigating to Dashboard');
-        navigate('/')
+        navigate('/dashboard')
     };
 
     const studentClick = () => {
@@ -50,7 +50,7 @@ export default function Navigation() {
     };
      const entryClick = () => {
         console.log('Navigating to Entry');
-        navigate('/entry')
+        navigate('/')
     };
 
   return {

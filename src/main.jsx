@@ -20,9 +20,9 @@ import Entry from './components/entry.jsx'
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
    	 <Routes>
-   	  <Route path ='/' element={<Home/>}/>
+   	  <Route path ='/dashboard' element={<Home/>}/>
       <Route path ='/login' element={<Login/>}/>
-      <Route path ='/Signup' element={<Signup/>}/>
+      <Route path ='/signup' element={<Signup/>}/>
       <Route path ='/student' element={<Student/>}/>
       <Route path ='/register' element={<Register/>}/>
       <Route path ='/payment' element={<Payment/>}/>
@@ -33,7 +33,7 @@ createRoot(document.getElementById('root')).render(
        <Route path ='/profile' element={<Profile/>}/>
         <Route path ='/assignment' element={<Assignment/>}/>
       <Route path ='/curriculum' element={<Curriculum/>}/>
-     <Route path ='/entry' element={<Entry/>}/>
+     <Route path ='/' element={<Entry/>}/>
     </Routes>
   </BrowserRouter>,
 )

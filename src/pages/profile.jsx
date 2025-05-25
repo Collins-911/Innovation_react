@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../css/profile.css'
+import Change from "../pages/login/change";
 import {
   FaUser,
   FaEdit,
@@ -27,7 +28,7 @@ export default function Profile() {
       <div className="profile-card">
         
         <div className="profile-tabs">
-          <Link to="/" className="clean-link">
+          <Link to="/dashboard" className="clean-link">
   <button className="tab">
     <FaArrowLeft className="icon" />
     <span>Go back</span>
@@ -38,10 +39,13 @@ export default function Profile() {
             <span>Profile</span>
           </button>
 
-          <button className="tab">
+<Link to="/change" className="clean-link">
+ <button className="tab">
             <FaRedoAlt className="icon" />
             <span>Reset Password</span>
           </button>
+</Link>
+         
 
           <button className="tab-red">
             LOGOUT

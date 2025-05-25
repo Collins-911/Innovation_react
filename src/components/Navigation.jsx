@@ -52,6 +52,10 @@ export default function Navigation() {
         console.log('Navigating to Entry');
         navigate('/')
     };
+     const changeClick = () => {
+        console.log('Navigating to Change');
+        navigate('/')
+    };
 
   return {
     dashboardClick,
@@ -65,5 +69,6 @@ export default function Navigation() {
     assignmentClick,
     curriculumClick,
     entryClick,
+    changeClick,
   };
 }

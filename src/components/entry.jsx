@@ -107,15 +107,15 @@ const RollingGallery = ({
   onDragEnd={handleDragEnd}
 >
 
-            {images.map((url, i) => (
-              <div
-                key={i}
-                className="gallery-item"
-                style={{
-                  width: `${faceWidth}px`,
-                  height: "100%",
-                  transform: `rotateY(${i * (360 / faceCount)}deg) translateZ(${radius}px)`,
-                }}
+                {images.map((url, i) => (
+                  <div
+                    key={i}
+                    className="gallery-item"
+                    style={{
+                      width: `${faceWidth}px`,
+                      height: "100%",
+                      transform: `rotateY(${i * (360 / faceCount)}deg) translateZ(${radius}px)`,
+                    }}
               >
                 <FadeContent
                   blur={true}
@@ -145,7 +145,7 @@ const RollingGallery = ({
         </div>
       </div>
 
-      {/* AUTH BUTTONS BELOW GALLERY */}
+
       <div className="auth-buttons">
         <button onClick={loginClick} className="auth-btn login-btn">LOGIN</button>
         <button onClick={signupClick} className="auth-btn signup-btn">SIGNUP</button>

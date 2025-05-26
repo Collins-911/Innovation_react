@@ -1,0 +1,46 @@
+/* Button styling */
+.addCourse {
+    background-color: blue;
+    color: white;
+    width: 200px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    position: relative;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+/* Hide text on hover */
+.addCourse:hover {
+    color: transparent;
+}
+
+/* Show + sign in center */
+.addCourse::after {
+    content: '+';
+    color: white;
+    font-size: 24px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.addCourse:hover::after {
+    opacity: 1;
+}
+
+/* Center the button horizontally */
+.addCourse-header {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+}

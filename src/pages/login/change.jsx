@@ -63,7 +63,7 @@ export default function ChangePassword() {
                 />
               </div>
 <Link to="/profile"className="clean-link">
-<button type="submit" className="submit-btn">
+<button type="submit" className="btn-sub">
                 Change Password
               </button>
 </Link>

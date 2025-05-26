@@ -17,10 +17,10 @@ export default function Profile() {
     name: "Akpan Idara",
     email: "excellencennamso@gmail.com",
     role: "Student",
-    contact: "09092651280",
-    location: "United States",
+    contact: "09092631280",
+    location: "Nigeria",
     status: "Active",
-    verified: false
+    verified: true
   };
 
   return (

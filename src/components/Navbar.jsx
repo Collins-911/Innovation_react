@@ -29,6 +29,7 @@ export default function Navbar({ isOpen, onClose }) {
     profileClick,
     curriculumClick,
     assignmentClick,
+    settingsClick,
   } = Navigation();
 
   const navSections = [
@@ -53,10 +54,10 @@ export default function Navbar({ isOpen, onClose }) {
       ],
     },
     {
-      title: 'My Profile',
-      items: [
+      title: 'Profile',
+         items: [
         { name: 'Profile', icon: <FaUser />, onClick: profileClick },
-        { name: 'Settings', icon: <FaCog /> },
+        { name: 'Settings', icon: <FaCog />, onClick: settingsClick },  
       ],
     },
   ];

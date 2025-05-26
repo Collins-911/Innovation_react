@@ -4,6 +4,7 @@ import '../css/staff.css';
 import '../css/student.css';
 import Navbar from '../components/Navbar.jsx';
 import Topnav from '../components/Topnav.jsx';
+import dummy from '../assets/dummy.webp'
 
 
 
@@ -38,7 +39,7 @@ export default function Staff(){
 			           				</thead>
 			           				<tbody>
 			           					<tr>
-			           					<td>image</td>
+			           					<td><img src={dummy} /></td>
 			           					<td>Jacinta Ada Bisong</td>
 			           					<td>Web Development</td>
 			           					<td>12345678900</td>
@@ -46,7 +47,7 @@ export default function Staff(){
 			           					<td><button>Delete</button></td>
 			           				</tr>
 			           				<tr>
-			           					<td>image</td>
+			           					<td><img src={dummy} /></td>
 			           					<td>person2</td>
 			           					<td>course2</td>
 			           					<td>123456789</td>
@@ -54,7 +55,7 @@ export default function Staff(){
 			           					<td><button>Delete</button></td>
 			           				</tr>
 			           				<tr>
-			           					<td>image</td>
+			           					<td><img src={dummy} /></td>
 			           					<td>person3</td>
 			           					<td>course3</td>
 			           					<td>123456789</td>
@@ -62,7 +63,7 @@ export default function Staff(){
 			           					<td><button>Delete</button></td>
 			           				</tr>
 			           				<tr>
-			           					<td>image</td>
+			           					<td><img src={dummy} /></td>
 			           					<td>person4</td>
 			           					<td>course4</td>
 			           					<td>123456789</td>
@@ -70,7 +71,7 @@ export default function Staff(){
 			           					<td><button>Delete</button></td>
 			           				</tr>
 			           				<tr>
-			           					<td>image</td>
+			           					<td><img src={dummy} /></td>
 			           					<td>person5</td>
 			           					<td>course5</td>
 			           					<td>123456789</td>
@@ -78,7 +79,7 @@ export default function Staff(){
 			           					<td><button>Delete</button></td>
 			           				</tr>
 			           				<tr>
-			           					<td>image</td>
+			           					<td><img src={dummy} /></td>
 			           					<td>person6</td>
 			           					<td>course6</td>
 			           					<td>123456789</td>
@@ -86,7 +87,7 @@ export default function Staff(){
 			           					<td><button>Delete</button></td>
 			           				</tr>
 			           				<tr>
-			           					<td>image</td>
+			           					<td><img src={dummy} /></td>
 			           					<td>person7</td>
 			           					<td>course7</td>
 			           					<td>123456789</td>
@@ -94,7 +95,7 @@ export default function Staff(){
 			           					<td><button>Delete</button></td>
 			           				</tr>
 			           				<tr>
-			           					<td>image</td>
+			           					<td><img src={dummy} /></td>
 			           					<td>person8</td>
 			           					<td>course8</td>
 			           					<td>123456789</td>
@@ -102,7 +103,7 @@ export default function Staff(){
 			           					<td><button>Delete</button></td>
 			           				</tr>
 			           				<tr>
-			           					<td>image</td>
+			           					<td><img src={dummy} /></td>
 			           					<td>person9</td>
 			           					<td>course9</td>
 			           					<td>123456789</td>
@@ -110,7 +111,7 @@ export default function Staff(){
 			           					<td><button>Delete</button></td>
 			           				</tr>
 			           				<tr>
-			           					<td>image</td>
+			           					<td><img src={dummy} /></td>
 			           					<td>person10</td>
 			           					<td>course10</td>
 			           					<td>123456789</td>

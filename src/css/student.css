@@ -68,6 +68,15 @@ table td{
 }
 
 
+  table td img{
+    width: 30px;
+    height: 30px;
+    top: 4px;
+    left: 4px;
+    position: relative;
+  }
+
+
 
 
 
@@ -126,6 +135,7 @@ table td{
     font-size: 0.9em; 
     white-space: nowrap; 
   }
+
 
   table td {
     padding: 8px 6px; 

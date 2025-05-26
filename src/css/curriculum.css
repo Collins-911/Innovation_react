@@ -1,5 +1,6 @@
 
 
+
 .Curriculum-container{
     height: fit-content;
     width: 100%;
@@ -7,30 +8,14 @@
     background-color: white;
 }
 
-.Curriculum-first-row{
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
-}
-.row1{
-    height:30vh;
-  width: 30%;
-    margin: 20px 10px 10px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
-
-.row2{
-    height: 30vh;
- width: 30%;
-    margin: 20px 10px 10px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
-
-.row3{
-    height: 30vh;
-   width: 30%;
+    .Curriculum-first-row{
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+    }
+.row1,.row2, .row3{
+    height:53vh;
+    width: 30%;
     margin: 20px 10px 10px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -48,92 +33,87 @@ img{
     border-top-right-radius: 10px;
 }
 
-.Curriculum-first-row-title{
-    display: flex;
-    justify-content: center;
-}
-.row1-title{
-    height: 23vh;
-    width: 30%;
-    margin: -10px 10px 10px;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-.row2-title{
-    height: 23vh;
-    width: 30%;
-    margin: -10px 10px 10px;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-.row3-title{
-    height: 23vh;
-    width: 30%;
-    margin: -10px 10px 10px;
-    background-color:white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
 
-/* second row */
-.row4,.row5,.row6{
+.row1-title, .row2-title, .row3-title{
+    height: 23vh;
+    width: 100%;
+    margin: auto;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.image-container{
     height:30vh;
-     width: 30%;
-    margin: 20px 10px 10px;
+    width: 100%;
+    margin: auto;
     background-color: none;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
-.row4-title,.row5-title,.row6-title{
-    height: 23vh;
-     width: 30%;
-    margin: -10px 10px 10px;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
+
+/* second */
 
 .Curriculum-second-row{
     display: flex;
     justify-content: center;
 }
 
-.Curriculum-second-row-title{
-    display: flex;
-    justify-content: center;
-}
-
-/* third row */
-.row7,.row8,.row9{
-    height:30vh;
-     width: 30%;
+.row4{
+    height:53vh;
+    width: 30%;
     margin: 20px 10px 10px;
     background-color: none;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
-.row7-title,.row8-title,.row9-title{
+
+.row5{
+    height:53vh;
+    width: 30%;
+    margin: 20px 10px 10px;
+    background-color: none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.row6{
+    height:53vh;
+    width: 30%;
+    margin: 20px 10px 10px;
+    background-color: none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.row4-title, .row5-title, .row6-title{
     height: 23vh;
-     width: 30%;
-    margin: -10px 10px 10px;
-    background-color: white;
+    width: 100%;
+    margin: auto;
+    background-color: none;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 }
+ .row7, .row8, .row9{
+    height:53vh;
+    width: 30%;
+    margin: 20px 10px 10px;
+    background-color: none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+ }
 
-.Curriculum-third-row{
-    display: flex;
-    justify-content: center;
+ .row7-title, .row8-title, .row9-title{
+    height: 23vh;
+    width: 100%;
+    margin: auto;
+    background-color: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
-
-.Curriculum-third-row-title{
+.Curriculum-third-row{
     display: flex;
     justify-content: center;
 }
@@ -170,9 +150,41 @@ p{
 }
 
 @media only screen and (max-width:768px){
-.Curriculum-first-row{
+.Curriculum-first-row, .Curriculum-second-row, .Curriculum-third-row{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    overflow-y: hidden;
 }
 
+.row1, .row2, .row3, .row4, .row5, .row6, .row7, .row8, .row9{
+    height:53vh;
+    width: 60%;
+    margin: 20px 10px 25px;
+    background-color: none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+ }
+
+ .row1-title, .row2-title, .row3-title, .row4-title, .row5-title, .row6-title, .row7-title, .row8-title, .row9-title{
+    height: 23vh;
+    width: 100%;
+    margin: auto;
+    background-color: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+}
+
+
+@media only screen and (max-width:1024px){
+    .curriculum-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(768px, 1fr));
+  gap: 0rem;
+  padding: 2rem 0;
+  overflow-y: hidden;
+}
 }

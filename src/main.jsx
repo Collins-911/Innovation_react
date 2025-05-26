@@ -18,7 +18,7 @@ import Curriculum from './pages/Curriculum.jsx';
 import Entry from './components/entry.jsx';
 import Change from './pages/login/change.jsx';
 import Settings from './pages/Settings.jsx';
-
+import Add_courses from './pages/Add_courses.jsx';
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <Routes>
@@ -38,6 +38,7 @@ createRoot(document.getElementById('root')).render(
       <Route path='/' element={<Entry/>}/>
       <Route path='/change' element={<Change/>}/>
       <Route path='/settings' element={<Settings/>}/>
+      <Route path='/add_courses' element={<Add_courses/>}/>
     </Routes>
   </BrowserRouter>
 );

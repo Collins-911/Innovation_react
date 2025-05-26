@@ -1,7 +1,7 @@
 import React from "react";
 import '../../css/signup.css';
 import { useNavigate } from 'react-router-dom';
-import nugilogo from '../../assets/nugilogo.svg'
+import NI_Blue from '../../assets/NI_Blue.png'
 
 
 export default function Signup(){
@@ -20,7 +20,7 @@ export default function Signup(){
 				</div>
 				<div className="box-2">
 					<div className="logo1">
-						<img className="image1" src={nugilogo}/>
+						<img className="image1" src={NI_Blue}/>
 					</div>
 					<h1>Sign up</h1>
 					<div className="sign-btn">

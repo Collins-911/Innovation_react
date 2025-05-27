@@ -18,7 +18,7 @@
   border-bottom: 1px solid #eee;
   justify-content: center;
   gap: 20px;
-  overflow-x: auto;
+  overflow-x: hidden;
   padding: 0 1rem;
 }
 
@@ -181,4 +181,6 @@
   .profile-content {
     padding: 6.5rem;
 }
+
+
 }

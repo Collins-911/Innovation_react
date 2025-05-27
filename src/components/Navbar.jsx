@@ -30,6 +30,7 @@ export default function Navbar({ isOpen, onClose }) {
     curriculumClick,
     assignmentClick,
     settingsClick,
+    addcoursesClick
   } = Navigation();
 
   const navSections = [
@@ -47,7 +48,7 @@ export default function Navbar({ isOpen, onClose }) {
       title: 'Tools',
       items: [
         { name: 'Register Students', icon: <FaUserPlus />, onClick: registerClick },
-        { name: 'Add Courses', icon: <FaBook /> },
+        { name: 'Add Courses', icon: <FaBook />, onClick: addcoursesClick },
         { name: 'Assignment', icon: <FaTasks />, onClick: assignmentClick },
         { name: 'Report', icon: <FaFileAlt />, onClick: reportClick },
         { name: 'Payment', icon: <FaMoneyBill />, onClick: paymentClick },

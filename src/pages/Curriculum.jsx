@@ -38,73 +38,128 @@ export default function Curriculum() {
             <p>Student / <span>Curriculum</span></p>
           </div>
 
-          {/* First Row */}
+          
+                
+                {/* First Row */}
           <div className="Curriculum-first-row">
-            <div className="row1"><img src={pmanage} alt="UIUX" className="image-fit" /></div>
-            <div className="row2"><img src={Pdesign} alt="Cybersecurity" className="image-fit" /></div>
-            <div className="row3"><img src={Mobile} alt="Database" className="image-fit" /></div>
+            <div className="row1">
+              <div className="image-container">
+                <img src={pmanage} alt="UIUX" className="image-fit" />
+              </div>
+              <div className="row1-title">
+                <h3>Product Management</h3>
+                 <p>Focuses on guiding the development of a product from concept to launch...</p> 
+              </div>
+            </div>
+            <div className="row2">
+              <div className="image-container">
+                <img src={Pdesign} alt="Cybersecurity" className="image-fit" />
+              </div>
+              <div className="row2-title">
+                <h3>Product Design</h3>
+                 <p>The process of imagining, creating, and iterating products that solve user problems...</p>
+              </div>
+            </div>
+            <div className="row3">
+              <div className="image-container">
+                <img src={Mobile} alt="Database" className="image-fit" />
+              </div>
+              <div className="row3-title">
+                <h3>Mobile App Development</h3>
+                    <p>Involves creating applications for mobile devices using platforms like Android and iOS...</p>
+              </div>
+            </div>
           </div>
-          <div className="Curriculum-first-row-title">
-            <div className="row1-title"><h3>Product Management</h3>
-              <p>Focuses on guiding the development of a product from concept to launch...</p>
-            </div>
-            <div className="row2-title"><h3>Product Design</h3>
-              <p>The process of imagining, creating, and iterating products that solve user problems...</p>
-            </div>
-            <div className="row3-title"><h3>Mobile App Development</h3>
-              <p>Involves creating applications for mobile devices using platforms like Android and iOS...</p>
-            </div>
-          </div>
-
-          {/* Second Row */}
+          
+            {/* second row */}
           <div className="Curriculum-second-row">
-            <div className="row4"><img src={webdev} alt="Digital Marketing" className="image-fit" /></div>
-            <div className="row5"><img src={Dscience} alt="Data Science" className="image-fit" /></div>
-            <div className="row6"><img src={Dmarket} alt="Mobile Dev" className="image-fit" /></div>
+            <div className="row4">
+              <div className="image-container">
+                <img src={webdev} alt="Digital Marketing" className="image-fit" />
+              </div>
+              <div className="row4-title">
+                <h3>Full Stack Web Development</h3>
+                <p>Covers both front-end and back-end development, enabling the creation of complete web applications...</p>
+              </div>
+            </div>
+            <div className="row5">
+              <div className="image-container">
+                 <img src={Dscience} alt="Data Science" className="image-fit" />
+              </div>
+              <div className="row5-title">
+                 <h3>Data Science</h3>
+                <p>Combines statistics, programming, and domain expertise to extract insights from data...</p>
+              </div>
+            </div>
+            <div className="row6">
+              <div className="image-container">
+                <img src={Dmarket} alt="Digital Marketing" className="image-fit" />
+              </div>
+              <div className="row6-title">
+                 <h3>Digital Marketing</h3>
+                 <p>The practice of promoting products or services using digital channels such as search engines, social media, and email...</p>
+              </div>
+            </div>
           </div>
-          <div className="Curriculum-second-row-title">
-            <div className="row4-title"><h3>Full Stack Web Development</h3>
-              <p>Covers both front-end and back-end development...</p>
-            </div>
-            <div className="row5-title"><h3>Data Science</h3>
-              <p>Combines statistics, programming, and domain expertise...</p>
-            </div>
-            <div className="row6-title"><h3>Digital Marketing</h3>
-              <p>The practice of promoting products or services using digital channels...</p>
-            </div>
-          </div>
-
-          {/* Third Row */}
+          
+            {/* third row */}
           <div className="Curriculum-third-row">
-            <div className="row7"><img src={Devops} alt="DevOps" className="image-fit" /></div>
-            <div className="row8"><img src={Dbase} alt="DB Admin" className="image-fit" /></div>
-            <div className="row9"><img src={cybersecurity} alt="Cybersecurity" className="image-fit" /></div>
+            <div className="row7">
+              <div className="image-container">
+                <img src={Devops} alt="DevOps" className="image-fit" />
+              </div>
+              <div className="row7-title">
+                 <h3>DevOps Engineering</h3>
+                  <p>Bridges development and operations by automating and streamlining software delivery...</p>
+              </div>
+            </div>
+            <div className="row8">
+              <div className="image-container">
+                 <img src={Dbase} alt="DB Admin" className="image-fit" />
+              </div>
+              <div className="row8-title">
+                 <h3>Database Administration</h3>
+                 <p>Involves managing databases to ensure performance, security, and availability...</p>
+              </div>
+            </div>
+            <div className="row9">
+              <div className="image-container">
+                <img src={cybersecurity} alt="Cybersecurity" className="image-fit" />
+              </div>
+              <div className="row9-title">
+                 <h3>Cybersecurity</h3>
+                 <p>Focuses on protecting systems, networks, and data from cyber threats...</p>
+              </div>
+            </div>
           </div>
-          <div className="Curriculum-third-row-title">
-            <div className="row7-title"><h3>DevOps Engineering</h3>
-              <p>Bridges development and operations by automating and streamlining software delivery...</p>
-            </div>
-            <div className="row8-title"><h3>Database Administration</h3>
-              <p>Involves managing databases to ensure performance, security, and availability...</p>
-            </div>
-            <div className="row9-title"><h3>Cybersecurity</h3>
-              <p>Focuses on protecting systems, networks, and data from cyber threats...</p>
-            </div>
-          </div>
+          
+ 
+             
 
-          {/* Fourth Row */}
-          <div className="Curriculum-third-row">
-            <div className="row7"><img src={AI} alt="AI" className="image-fit" /></div>
-            <div className="row9"><img src={survey} alt="Surveillance" className="image-fit" /></div>
-          </div>
-          <div className="Curriculum-third-row-title">
-            <div className="row7-title"><h3>A.I Development</h3>
-              <p>Simulates human intelligence in machines including fields like ML, NLP, and robotics...</p>
+             {/* fouth row */}
+              <div className="Curriculum-third-row">
+            <div className="row7">
+              <div className="image-container">
+                <img src={AI} alt="AI" className="image-fit" />
+              </div>
+              <div className="row7-title">
+                 <h3>A.I Development</h3>
+                 <p>Simulates human intelligence in machines including fields like ML, NLP, and robotics...</p>
+              </div>
             </div>
-            <div className="row9-title"><h3>Surveillance System</h3>
-              <p>Refers to technologies like CCTV and networked cameras used for monitoring...</p>
+            <div className="row8">
+              <div className="image-container">
+                 <img src={survey} alt="Surveillance" className="image-fit" />
+              </div>
+              <div className="row8-title">
+                <h3>Surveillance System</h3>
+                <p>Refers to technologies like CCTV and networked cameras used for monitoring...</p>
+              </div>
             </div>
+           
           </div>
+            
+          
         </section>
       </div>
     </div>

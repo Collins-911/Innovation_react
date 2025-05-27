@@ -69,12 +69,13 @@ export default function settings() {
           <FaLock /> Password
         </button>
         
-        <button 
-          className={`sidebar-btn ${activeTab === 'appearance' ? 'active' : ''}`}
-          onClick={() => setActiveTab('appearance')}
-        >
-          <FaPalette /> Appearance
-        </button>
+   <button 
+  className={`sidebar-btn ${activeTab === 'appearance' ? 'appearance-tab active' : ''}`} 
+  onClick={() => setActiveTab('appearance')}
+>
+  <FaPalette /> Appearance
+</button>
+
         
         <button className="logout-btn">
           <FaSignOutAlt /> Logout
@@ -130,6 +131,9 @@ export default function settings() {
                 Save Changes
               </button>
             </form>
+              <button className="logout-btn-card3">
+              <FaSignOutAlt /> Logout
+            </button>
           </div>
         )}
         
@@ -179,8 +183,15 @@ export default function settings() {
               <button type="submit" className="save-btn">
                 Change Password
               </button>
+               <button className="logout-btn-card2">
+              <FaSignOutAlt /> Logout
+            </button>
+          
+
+              
             </form>
-          </div>
+            </div>
+          
         )}
           
         {activeTab === 'appearance' && (
@@ -192,7 +203,12 @@ export default function settings() {
               <button className="theme-btn dark">Dark</button>
               <button className="theme-btn system">System Default</button>
             </div>
+            <button className="logout-btn-card">
+              <FaSignOutAlt /> Logout
+            </button>
           </div>
+
+          
         )}
       </div>
     </div>

@@ -27,10 +27,10 @@ const attendanceTrend = [
 ];
 
 const recentAttendance = [
-  { name: 'John Doe', date: '2025-05-22', status: 'Present' },
-  { name: 'Jane Smith', date: '2025-05-22', status: 'Absent' },
-  { name: 'Alice Johnson', date: '2025-05-21', status: 'Present' },
-  { name: 'Bob Brown', date: '2025-05-21', status: 'Absent' },
+  { name: 'Jacinta bisong', date: '2025-05-22', status: 'Present' },
+  { name: 'Collins Echeng', date: '2025-05-22', status: 'Absent' },
+  { name: 'Idara Nnamnso', date: '2025-05-21', status: 'Present' },
+  { name: 'Collins Emelumba', date: '2025-05-21', status: 'Absent' },
 ];
 
 const User = 'Collins'

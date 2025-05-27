@@ -97,3 +97,12 @@
   margin-bottom: 20px;
   text-align: center;
 }
+
+@media (max-width: 778px) {
+.btn-sub{
+  width: 375px;
+  
+}
+
+
+}

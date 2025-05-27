@@ -89,7 +89,7 @@ const RollingGallery = ({
         />
       </video>
 
-      <h1 className="welcome-text">Welcome to Nugi Innovations</h1>
+      <h1 className="welcome-text">Welcome to Nugi Innovations <br/>E-learning platform</h1>
 
       <div className="gallery-container">
         <div className="gallery-gradient gallery-gradient-left"></div>

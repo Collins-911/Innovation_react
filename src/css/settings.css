@@ -2,6 +2,7 @@
   display: flex;
   min-height: 100vh;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  flex-direction: row;
 }
 
 .settings-sidebar {
@@ -70,6 +71,9 @@
   flex: 1;
   padding: 30px;
   background: #f5f7fa;
+  overflow-x: hidden;
+      display: flex;
+    justify-content: center;
 }
 
 .profile-section, 
@@ -81,6 +85,7 @@
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   max-width: 600px;
+  width: 100%;
 }
 
 h3 {
@@ -147,6 +152,7 @@ h3 {
   display: flex;
   gap: 15px;
   margin-top: 20px;
+  flex-wrap: wrap;
 }
 
 .theme-btn {
@@ -155,6 +161,7 @@ h3 {
   cursor: pointer;
   border: 1px solid #ddd;
   background: white;
+  white-space: nowrap;
 }
 
 .theme-btn.light {
@@ -164,4 +171,122 @@ h3 {
 .theme-btn.dark {
   background: #2c3e50;
   color: white;
+}
+
+.logout-btn-card {
+  display: none;
+}
+
+.logout-btn-card2 {
+display: none;
+}
+
+.logout-btn-card3 {
+display: none;
+}
+
+.logout-btn-card:hover {
+  background: #c0392b;
+}
+
+
+@media (max-width: 992px) {
+  .settings-container {
+    flex-direction: column;
+  }
+
+  .settings-sidebar {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+  }
+
+  .settings-sidebar h2,
+  .back-button {
+    display: none;
+  }
+
+  .sidebar-btn {
+    flex: 1 1 auto;
+    justify-content: center;
+    font-size: 14px;
+    padding: 10px 8px;
+    gap: 5px;
+  }
+
+  .logout-btn {
+display: none;
+  }
+
+  .logout-btn-card {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  margin-top: 205px;
+  transition: background 0.3s;
+  width: 430px;
+}
+
+.logout-btn-card2 {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  margin-top: 25px;
+  transition: background 0.3s;
+  width: 400px;
+  text-align: center;
+}
+
+.logout-btn-card3 {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  margin-top: 25px;
+  transition: background 0.3s;
+  width: 400px;
+}
+
+.save-btn{
+   width: 400px;
+}
+}
+
+@media (max-width: 600px) {
+  .sidebar-btn span {
+    display: none; 
+  }
+
+  .settings-content {
+    padding: 20px 15px;
+  }
+
+  .theme-options {
+    flex-direction: column;
+    gap: 10px;
+  }
+
 }

@@ -42,6 +42,10 @@ img{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    h3{
+    color: #0f017a;
+    padding: 10px 20px;
+}
 }
 .image-container{
     height:30vh;
@@ -94,6 +98,10 @@ img{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    h3{
+    color: #0f017a;
+    padding: 10px 20px;
+}
 }
  .row7, .row8, .row9{
     height:53vh;
@@ -109,19 +117,21 @@ img{
     width: 100%;
     margin: auto;
     background-color: none;
+    border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    h3{
+    color: #0f017a;
+    padding: 10px 20px;
+}
 }
 .Curriculum-third-row{
     display: flex;
     justify-content: center;
 }
 
-h3{
-    color: #0f017a;
-    padding: 10px 20px;
-}
+
 p{
     color: #0f017a;
     font-size: 12px;
@@ -154,37 +164,100 @@ p{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    overflow-y: hidden;
+    
+}
+
+p{
+    color: #0f017a;
+    font-size: 14px;
+    margin-top: 10px;
+    padding: 0px 10px;
 }
 
 .row1, .row2, .row3, .row4, .row5, .row6, .row7, .row8, .row9{
     height:53vh;
-    width: 60%;
-    margin: 20px 10px 25px;
+    width: 90%;
+    margin: auto;
     background-color: none;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    overflow-y: hidden;
+    margin-bottom: 20px;
  }
 
  .row1-title, .row2-title, .row3-title, .row4-title, .row5-title, .row6-title, .row7-title, .row8-title, .row9-title{
     height: 23vh;
     width: 100%;
     margin: auto;
-    background-color: none;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    overflow-y: hidden;
+}
+
+.image-fit{
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 }
 
 
 @media only screen and (max-width:1024px){
-    .curriculum-grid {
+    /* .curriculum-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(768px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(820px, 1fr));
   gap: 0rem;
   padding: 2rem 0;
   overflow-y: hidden;
+} */
+
+.Curriculum-first-row, .Curriculum-second-row, .Curriculum-third-row{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
 }
+
+p{
+    color: #0f017a;
+    font-size: 20px;
+    margin-top: 10px;
+    padding: 0px 10px;
+}
+
+.row1, .row2, .row3, .row4, .row5, .row6, .row7, .row8, .row9{
+    height:53vh;
+    width: 90%;
+    margin: auto;
+    background-color: none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    overflow-y: hidden;
+    margin-bottom: 20px;
+ }
+
+ .row1-title, .row2-title, .row3-title, .row4-title, .row5-title, .row6-title, .row7-title, .row8-title, .row9-title{
+    height: 23vh;
+    width: 100%;
+    margin: auto;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    overflow-y: hidden;
+}
+
+.image-fit{
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 }

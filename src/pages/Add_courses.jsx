@@ -16,6 +16,6 @@ export default function AddCourses() {
                     </section>
                 </div>
             </div>
-        </>
+        </> 
     );
 }

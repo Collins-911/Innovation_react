@@ -126,7 +126,7 @@
 .gallery-container {
   position: relative;
   width: 100%;
-  height: 500px;
+  height: 400px;
   perspective: 1000px;
   overflow: hidden;
   margin: 0 auto;
@@ -158,7 +158,7 @@
 }
 
 .gallery-inner {
-  width: 95%; /* shrink a bit to simulate gap */
+  width: 95%; 
   
   box-sizing: border-box;
   border-radius: 8px;
@@ -177,9 +177,9 @@
   transition: transform 0.3s ease;
 }
 
-.gallery-img:hover {
-  transform: scale(1.05);
-}
+/* .gallery-img:hover {
+  transform: scale(0.5);
+} */
 
 .gallery-gradient {
   position: absolute;
@@ -207,7 +207,7 @@
   display: flex;
   justify-content: center;
   gap: 1.5rem;
-  margin-top: -2rem;
+  margin-top: 2rem;
   
 }
 
@@ -241,21 +241,70 @@
 
 
 
-
-
-
-@media (max-width: 768px) {
-  .welcome-text {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-  
-  .gallery-container {
-    height: 400px;
-  }
-  
-  .gallery-item {
-    height: 300px;
-  }
-
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 3px solid #fff;
+  transition: all 0.3s ease;
 }
+
+/* Smaller image size for mobile devices */
+@media (max-width: 640px) {
+ 
+
+  .gallery-img {
+    border-width: 2px;
+    border-radius: 10px;
+  }
+
+  .gallery-wrapper {
+    padding: 10px;
+  }
+
+  .welcome-text {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .auth-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .auth-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  
+.gallery-content {
+  width: 800px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  perspective: 1200px;
+  margin: 0 auto; /* centers the block element horizontally */
+}
+
+
+.gallery-item{
+  height: 4000px;
+}
+ 
+.gallery-container {
+  display: flex;
+  justify-content: center;
+}
+
+.auth-btn{
+  width: 200px ;
+}
+
+.welcome-text{
+  font-size:30px;
+}
+}
+

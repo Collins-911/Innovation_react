@@ -66,7 +66,7 @@
 
 .search::placeholder {
 	color: transparent;
-	transition: color 0.3s ease;
+	transition: color 10s ease;
 }
 
 .search:hover::placeholder {

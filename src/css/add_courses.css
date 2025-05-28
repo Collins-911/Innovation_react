@@ -10,7 +10,7 @@
     font-weight: bold;
     transition: all 0.3s ease;
     overflow: hidden;
-    transition: 1s;
+    transition: 2s;
 }
 
 .addCourse:hover {
@@ -71,6 +71,7 @@
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    outline: none;
 }
 
 .submit-btn {
@@ -85,4 +86,71 @@
 
 .submit-btn:hover {
     background-color: darkblue;
+}
+
+@media (max-width: 1024px) {
+    .addCourse {
+        width: 400px;
+    }
+
+    .addCourse:hover {
+        width: 600px;
+    }
+
+    .popAddinner {
+        width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .addCourse {
+        width: 300px;
+        font-size: 14px;
+    }
+
+    .addCourse:hover {
+        width: 100%;
+    }
+
+    .popAddinner {
+        width: 95%;
+        padding: 1.5rem;
+    }
+
+    .popAdd input {
+        font-size: 14px;
+    }
+
+    .submit-btn {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .addCourse {
+        width: 90%;
+        height: 45px;
+        font-size: 13px;
+    }
+
+    .addCourse:hover {
+        width: 100%;
+    }
+
+    .addCourse::after {
+        font-size: 20px;
+    }
+
+    .popAddinner {
+        padding: 1rem;
+    }
+
+    .popAdd input {
+        font-size: 13px;
+    }
+
+    .submit-btn {
+        font-size: 13px;
+        padding: 8px;
+    }
 }

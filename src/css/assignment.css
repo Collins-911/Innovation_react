@@ -1,9 +1,10 @@
 .assignment-form-container {
   /* width: 900px; */
-  margin: 40px auto;
+  margin: 40px 2rem;
   align-items: center;
   padding: 20px;
   background: white;
+  padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   font-family: 'Poppins', sans-serif;

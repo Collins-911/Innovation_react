@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import icon2 from '../assets/icon2.svg';
 import icon7 from '../assets/icon7.jpg';
 import '../css/top.css';
+import Navbar from './Navbar';
 
 import { FaReact } from 'react-icons/fa';
 import { CiMenuFries } from "react-icons/ci";
@@ -13,6 +14,10 @@ export default function TopNav() {
 	const front = 'https://www.frontendmentor.io/home'
 	const free = 'https://www.freecodecamp.org/'
 
+     function side() {
+        document.getElementById("popAdd").style.display = "block";
+    }
+
 	  return (
         <div className="topnav-container">
             <div className="top">
@@ -20,7 +25,7 @@ export default function TopNav() {
       <CiMenuFries size={30} color="#fff" style={{ cursor: 'pointer' }} />
 
 
-
+       
          
         </div>
                 <div className="right-section">

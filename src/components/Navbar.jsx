@@ -70,6 +70,7 @@ export default function Navbar({ isOpen, onClose }) {
   };
 
   return (
+
     <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
       <div className="logo">
 			<img src={NI_Blue} alt="" />

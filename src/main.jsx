@@ -19,6 +19,18 @@ import Entry from './components/entry.jsx';
 import Change from './pages/login/change.jsx';
 import Settings from './pages/Settings.jsx';
 import Add_courses from './pages/Add_courses.jsx';
+import Ai from './uppload/Ai.jsx';
+import Cybersecurity from './uppload/Cybersecurity.jsx';
+import Dbase from './uppload/Dbase.jsx';
+import Devops from './uppload/Devops.jsx';
+import Dmarketing from './uppload/Dmarketing.jsx';
+import Dscience from './uppload/Dscience.jsx';
+import FullStack from'./uppload/FullStack.jsx';
+import MobileApp from './uppload/MobileApp.jsx';
+import Pdesign from './uppload/Pdesign.jsx';
+import Pmanagement from './uppload/Pmanagement.jsx';
+import Survey from './uppload/Survey.jsx';
+
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <Routes>
@@ -39,6 +51,17 @@ createRoot(document.getElementById('root')).render(
       <Route path='/change' element={<Change/>}/>
       <Route path='/settings' element={<Settings/>}/>
       <Route path='/add_courses' element={<Add_courses/>}/>
+      <Route path='/ai' element={<Ai/>}/>
+      <Route path='/cybersecurity' element={<Cybersecurity/>}/>
+      <Route path='/dbase' element={<Dbase/>}/>
+      <Route path='/devops' element={<Devops/>}/>
+      <Route path='/dmarketing' element={<Dmarketing/>}/>
+      <Route path='/dscience' element={<Dscience/>}/>
+      <Route path='/fullstack' element={<FullStack/>}/>
+      <Route path='/mobileapp' element={<MobileApp/>}/>
+      <Route path='/pdesign' element={<Pdesign/>}/>
+      <Route path='/pmanagement' element={<Pmanagement/>}/>
+      <Route path='/survey' element={<Survey/>}/>
     </Routes>
   </BrowserRouter>
 );

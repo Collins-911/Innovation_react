@@ -1,0 +1,35 @@
+.survey-wrapper {
+    margin-top: 10rem;
+    padding: 1.5rem;
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+}
+
+.survey-wrapper h2 {
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.survey-wrapper p {
+    margin-bottom: 1.5rem;
+    color: #555;
+}
+
+.module-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    text-align: left;
+}
+
+.module-item {
+    padding: 0.8rem 1rem;
+    background-color: #fff;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    color: #333;
+}

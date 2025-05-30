@@ -19,12 +19,7 @@ import AI from '../assets/AI.jpg';
 
 export default function Curriculum() {
 
-  const studentClick = (e) => { e.preventDefault(); console.log("Student clicked"); };
-  const curriculumClick = (e) => { e.preventDefault(); console.log("Curriculum clicked"); };
-  const registerClick = (e) => { e.preventDefault(); console.log("Register clicked"); };
-  const paymentClick = (e) => { e.preventDefault(); console.log("Payment clicked"); };
-  const assignment = (e) => { e.preventDefault(); console.log("Assignment clicked"); };
-
+  
   return (
     <div className="home-content">
       <Navbar />

@@ -5,22 +5,33 @@ import Navbar from'../components/Navbar.jsx';
 import Topnav from '../components/Topnav.jsx';
 
 export default function MobileApp(){
+    const modules = [
+        "Flutter & Dart - The Complet Guide",
+        "Android App Development with Kotlin",
+        "ios App Development with Swift",
+        "React Native - The Practical Guide",
+        "Build Native Mobile Apps with Flutter"
+    ];
     return(
         <>
             <div className="home-content">
                 <Navbar/>
                 <div className="top-content">
                     <Topnav/>
-                    <div className="content">
-                        <h2 style={{marginTop:"5rem", textAlign:'center'}}>Mobile App Development</h2>
-                    <ol style={{marginLeft:"2rem"}}>
-                        <li>Flutter & Dart - The Complete Guide</li>
-                        <li>Android App Development with Kotlin</li>
-                        <li>iOS App Development with Swift</li>
-                        <li>React Native - The Practical Guide</li>
-                        <li>Build Native Mobile Apps with Flutter</li>
-                    </ol>
+                     <div className="survey-wrapper">
+                            <h2>Mobile App Development</h2>
+                            <p>
+                                Learn the essentials of CCTV and surveillance in this hands-on course:
+                            </p>
+                            <div className="module-list">
+                                {modules.map((item, index) => (
+                                    <div key={index} className="module-item">
+                                        {item}
+                                    </div>
+                                ))}
                     </div>
+                </div>
+                   
                 </div>
             </div>
         </>

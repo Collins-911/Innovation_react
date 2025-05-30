@@ -5,22 +5,33 @@ import Navbar from'../components/Navbar.jsx';
 import Topnav from '../components/Topnav.jsx';
 
 export default function(){
+
+    const modules = [
+        "Google UX Design Certificate",
+        "UI/UX Design Specialization - California Institute of the Arts",
+        "Product Design for Beginners",
+        "UX & Web Design Master Course: Strategy, Design, Development",
+        "Figma UI/UX Design Essetial Training"
+    ];
     return(
         <>
             <div className="home-content">
                 <Navbar/>
                 <div className="top-content">
                     <Topnav/>
-                    <div className="content">
-                        <h2 style={{marginTop:"5rem", textAlign:'center'}}>Product Design</h2>
-                    <ol style={{marginLeft:"2rem"}}>
-                        <li>Google UX Design Certificate</li>
-                        <li>UI/UX Design Specialization - California Institute of the Arts</li>
-                        <li>Product Design for Beginners</li>
-                        <li>UX & Web Design Master Course: Strategy, Design, Development</li>
-                        <li>Figma UI/UX Design Essential Training</li>
-                    </ol>
+                     <div className="survey-wrapper">
+                            <h2>Product Design</h2>
+                            <p>
+                                Learn the essentials of CCTV and surveillance in this hands-on course:
+                            </p>
+                            <div className="module-list">
+                                {modules.map((item, index) => (
+                                    <div key={index} className="module-item">
+                                        {item}
+                                    </div>
+                                ))}
                     </div>
+                </div>
                 </div>
             </div>
         </>

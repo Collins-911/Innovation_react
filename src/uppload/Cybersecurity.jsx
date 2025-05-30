@@ -5,6 +5,14 @@ import Navbar from'../components/Navbar.jsx';
 import Topnav from '../components/Topnav.jsx';
 
 export default function Cybersecurity(){
+
+    const modules = [
+        "IBM Cybersecurity Analyst Professional certificate",
+        "Google Cybersecurity Certicate",
+        "Introduction to Cybersecurity - NYU",
+        "The Complete Cybersecurity Course",
+        "Cybersecurity for business - University of Colorado"
+    ];
     return(
 
         <>
@@ -12,17 +20,20 @@ export default function Cybersecurity(){
                 <Navbar/>
                 <div className="top-content">
                     <Topnav/>
-                    <div className="content">
-                        <h2 style={{marginTop:"5rem", textAlign:'center'}}>Cybersecurity
-</h2>
-                            <ol style={{marginLeft:"2rem"}}>
-                                <li>IBM Cybersecurity Analyst Professional Certificate</li>
-                                <li>Google Cybersecurity Certificate </li>
-                                <li>Introduction to Cybersecurity - NYU</li>
-                                <li>The Complete Cybersecurity Course</li>
-                                <li>Cybersecurity for Business - University of Colorado</li>
-                            </ol>
+                     <div className="survey-wrapper">
+                            <h2>Cybersecurity</h2>
+                            <p>
+                                Learn the essentials of CCTV and surveillance in this hands-on course:
+                            </p>
+                            <div className="module-list">
+                                {modules.map((item, index) => (
+                                    <div key={index} className="module-item">
+                                        {item}
+                                    </div>
+                                ))}
                     </div>
+                </div>
+                   
                 </div>
             </div>
         </>

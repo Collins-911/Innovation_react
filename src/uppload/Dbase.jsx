@@ -5,23 +5,34 @@ import Navbar from'../components/Navbar.jsx';
 import Topnav from '../components/Topnav.jsx';
 
 export default function Dbase(){
+
+    const modules = [
+        "Databases and SQL for Data Science",
+        "MYSQL for Data Analystics and Business Intelligence",
+        "Database Management Essentials",
+        "Microsoft SQL Server Database Administration",
+        "Oracle Database Administration"
+    ];
     return(
         <>
             <div className="home-content">
                 <Navbar/>
                 <div className="top-content">
                     <Topnav/>
-                    <div className="content">
-                        <h2 style={{marginTop:"5rem", textAlign:'center'}}>Database Administration
-</h2>
-                    <ol style={{marginLeft:"2rem"}}>
-                        <li>Databases and SQL for Data Science</li>
-                        <li>MySQL for Data Analytics and Business Intelligence</li>
-                        <li>Database Management Essentials</li>
-                        <li>Microsoft SQL Server Database Administration</li>
-                        <li>Oracle Database Administration</li>
-                    </ol>
+                     <div className="survey-wrapper">
+                            <h2>Database Administration</h2>
+                            <p>
+                                Learn the essentials of CCTV and surveillance in this hands-on course:
+                            </p>
+                            <div className="module-list">
+                                {modules.map((item, index) => (
+                                    <div key={index} className="module-item">
+                                        {item}
+                                    </div>
+                                ))}
                     </div>
+                </div>
+                  
                 </div>
             </div>
         </>

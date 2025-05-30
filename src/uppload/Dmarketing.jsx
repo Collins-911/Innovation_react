@@ -5,22 +5,33 @@ import Navbar from'../components/Navbar.jsx';
 import Topnav from '../components/Topnav.jsx';
 
 export default function Dmarketing(){
+    const modules = [
+        "Googlemdigital Marketing & E-commeerce Certificate",
+        "Meta Social Media Marketing Certificate",
+        "Digital Marketing Specialization - University of Illinois",
+        "the Complete Digital Marketing Guide",
+        "SEO Fundamentals - UC Davis"
+    ];
     return(
         <>
             <div className="home-content">
                 <Navbar/>
                 <div className="top-content">
                     <Topnav/>
-                    <div className="content">
-                        <h2 style={{marginTop:"5rem", textAlign:'center'}}>Digital Marketing</h2>
-                    <ol style={{marginLeft:"2rem"}}>
-                        <li>Google Digital Marketing & E-commerce Certificate</li>
-                        <li>Meta Social Media Marketing Certificate</li>
-                        <li>Digital Marketing Specialization - University of Illinois</li>
-                        <li>The Complete Digital Marketing Guide</li>
-                        <li>SEO Fundamentals - UC Davis</li>
-                    </ol>
+                     <div className="survey-wrapper">
+                            <h2>Digital Marketing</h2>
+                            <p>
+                                Learn the essentials of CCTV and surveillance in this hands-on course:
+                            </p>
+                            <div className="module-list">
+                                {modules.map((item, index) => (
+                                    <div key={index} className="module-item">
+                                        {item}
+                                    </div>
+                                ))}
                     </div>
+                </div>
+                   
                 </div>
             </div>
         </>

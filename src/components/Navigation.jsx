@@ -64,6 +64,50 @@ export default function Navigation() {
         console.log('Navigating to Add_Courses');
         navigate('/add_courses')
     };
+     const aiClick = () => {
+        console.log('Navigating to AI');
+        navigate('/ai')
+    };
+    const cyberClick = () => {
+        console.log('Navigating to Cybersecurity');
+        navigate('/cybersecurity')
+    };
+    const dbaseClick = () => {
+        console.log('Navigating to Dbase');
+        navigate('/dbase')
+    };
+    const devopsClick = () => {
+        console.log('Navigating to Devops');
+        navigate('/devops')
+    };
+    const dmarketingClick = () => {
+        console.log('Navigating to Dmarketing');
+        navigate('/dmarketing')
+    };
+    const dscienceClick = () => {
+        console.log('Navigating to Dscience');
+        navigate('/dscience')
+    };
+    const fullstackClick = () => {
+        console.log('Navigating to Full Stack');
+        navigate('/fullstack')
+    };
+    const mobileappClick = () => {
+        console.log('Navigating to Mobile App');
+        navigate('/mobileapp')
+    };
+    const pdesignClick = () => {
+        console.log('Navigating to Pdesign');
+        navigate('/pdesign')
+    };
+    const pmanagementClick = () => {
+        console.log('Navigating to Pmanagement');
+        navigate('/pmanagement')
+    };
+    const surveyClick = () => {
+        console.log('Navigating to Survey');
+        navigate('/survey')
+    };
 
   return {
     dashboardClick,
@@ -79,6 +123,17 @@ export default function Navigation() {
     entryClick,
     changeClick,
     settingsClick,
-    addcoursesClick
+    addcoursesClick,
+    aiClick,
+    cyberClick,
+    dbaseClick,
+    devopsClick,
+    dmarketingClick,
+    dscienceClick,
+    fullstackClick,
+    mobileappClick,
+    pdesignClick,
+    pmanagementClick,
+    surveyClick
   };
 }

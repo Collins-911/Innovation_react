@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../css/profile.css'
 import Change from "../pages/login/change";
+import ThemeToggle from '../components/theme';
 import {
   FaUser,
   FaEdit,
@@ -97,6 +98,7 @@ export default function Profile() {
         </div>
         
       </div>
+      <ThemeToggle/>
     </div>
   );
 }

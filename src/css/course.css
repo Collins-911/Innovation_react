@@ -79,12 +79,13 @@
 }
 
 .course-image {
-  flex: 1;
-  height: auto;
-  max-height: 250px;
+  width: 50%;
+  height: 250px;
   object-fit: cover;
   border-radius: 0 0.5rem 0.5rem 0;
 }
+
+
 
 .course-item h4 {
 margin-top: -50px;
@@ -106,15 +107,16 @@ margin-left: 10px;
 
 @media (max-width: 1024px) {
   .course-item {
-    flex-direction: column-reverse; /* 🔁 Image goes above text */
+    flex-direction: column-reverse;
   }
 
   .course-image {
     width: 100%;
     height: 200px;
-    border-radius: 0.5rem 0.5rem 0 0; /* Rounded top */
+    border-radius: 0.5rem 0.5rem 0 0;
   }
 }
+
 
 @media (max-width: 768px) {
   .course-image {

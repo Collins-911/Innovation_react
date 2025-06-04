@@ -5,6 +5,7 @@ import Swal from 'sweetalert2'
 import Imageuploader  from '../components/Imageuploader.jsx';
 import Navbar from '../components/Navbar.jsx';
 import Topnav from '../components/Topnav.jsx';
+import ThemeToggle from "../components/theme.jsx";
 
 
 
@@ -97,6 +98,7 @@ export default function Register(){
 			           	</div>
 			        </section>
 		        </div>
+				<ThemeToggle/>
 	      	</div>
 		</>
 	)

@@ -4,6 +4,7 @@ import '../css/home.css';
 import '../css/course.css';
 import Navbar from '../components/Navbar.jsx';
 import Topnav from '../components/Topnav.jsx';
+import ThemeToggle from '../components/theme.jsx';
 
 
 export default function assignment(){
@@ -97,6 +98,7 @@ export default function assignment(){
         </div>
                 </section>
               </div>
+              <ThemeToggle/>
             </div>
         </>
     )

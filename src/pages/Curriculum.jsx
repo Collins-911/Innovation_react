@@ -17,6 +17,7 @@ import Pdesign from '../assets/Pdesign.jpg';
 import Devops from '../assets/Devops.jpg';
 import AI from '../assets/AI.jpg';
 import Navigation from '../components/Navigation.jsx';
+import ThemeToggle from "../components/theme.jsx";
 
 
 
@@ -176,6 +177,7 @@ export default function Curriculum() {
           
         </section>
       </div>
+      <ThemeToggle/>
     </div>
   );
 }

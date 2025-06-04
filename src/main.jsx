@@ -13,7 +13,7 @@ import Courses from './pages/Courses.jsx';
 import Report from './pages/Report.jsx';
 import Profile from './pages/profile.jsx';
 import { MdAssignment } from 'react-icons/md';
-import Assignment from './pages/assignment.jsx';
+import Assignment from './pages/Assignment.jsx';
 import Curriculum from './pages/Curriculum.jsx';
 import Entry from './components/entry.jsx';
 import Change from './pages/login/change.jsx';

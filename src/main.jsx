@@ -17,7 +17,7 @@ import Assignment from './pages/Assignment.jsx';
 import Curriculum from './pages/Curriculum.jsx';
 import Entry from './components/entry.jsx';
 import Change from './pages/login/change.jsx';
-import Settings from './pages/Settings.jsx';
+import Settings from './pages/settings.jsx';
 import Add_courses from './pages/Add_courses.jsx';
 import Ai from './uppload/Ai.jsx';
 import Cybersecurity from './uppload/Cybersecurity.jsx';

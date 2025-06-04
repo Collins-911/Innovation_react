@@ -25,7 +25,7 @@ export default function Payment(){
 			           		<div className="list-title">
 			           			<h3>Fees collection</h3>
 			           		</div>
-			           		<div className="student-table">
+			           		<div className="student-table payment-table">
 			           			<table >
 			           				<thead>
 			           					<tr>
@@ -44,7 +44,7 @@ export default function Payment(){
 				           					<td>course1</td>
 				           					<td>email address</td>
 				           					<td>12222222</td>
-				           					<td><button style={{backgroundColor: "green"}}>Paid</button></td>
+				           					<td><button className="paid">Paid</button></td>
 				           				</tr>
 				           				<tr>
 				           					<td>image</td>
@@ -52,7 +52,7 @@ export default function Payment(){
 				           					<td>course2</td>
 				           					<td>email address</td>
 				           					<td>12222222</td>
-				           					<td><button style={{backgroundColor: "green"}}>Paid</button></td>
+				           					<td><button  className="paid">Paid</button></td>
 				           				</tr>
 				           				<tr>
 				           					<td>image</td>
@@ -60,7 +60,7 @@ export default function Payment(){
 				           					<td>course3</td>
 				           					<td>email address</td>
 				           					<td>12222222</td>
-				           					<td><button>Pending</button></td>
+				           					<td><button  className="pending">Pending</button></td>
 				           				</tr>
 				           				<tr>
 				           					<td>image</td>
@@ -68,7 +68,7 @@ export default function Payment(){
 				           					<td>course4</td>
 				           					<td>email address</td>
 				           					<td>12222222</td>
-				           					<td><button style={{backgroundColor: "red"}}>Unpaid</button></td>
+				           					<td><button>Unpaid</button></td>
 				           				</tr>
 				           				<tr>
 				           					<td>image</td>
@@ -76,7 +76,7 @@ export default function Payment(){
 				           					<td>course5</td>
 				           					<td>email address</td>
 				           					<td>12222222</td>
-				           					<td><button style={{backgroundColor: "green"}}>Paid</button></td>
+				           					<td><button  className="paid">Paid</button></td>
 				           				</tr>
 				           				<tr>
 				           					<td>image</td>
@@ -84,7 +84,7 @@ export default function Payment(){
 				           					<td>course6</td>
 				           					<td>email address</td>
 				           					<td>12222222</td>
-				           					<td><button style={{backgroundColor: "red"}}>Unpaid</button></td>
+				           					<td><button>Unpaid</button></td>
 				           				</tr>
 				           				<tr>
 				           					<td>image</td>
@@ -92,7 +92,7 @@ export default function Payment(){
 				           					<td>course7</td>
 				           					<td>email address</td>
 				           					<td>12222222</td>
-				           					<td><button style={{backgroundColor: "green"}}>Paid</button></td>
+				           					<td><button  className="paid">Paid</button></td>
 				           				</tr>
 				           				<tr>
 				           					<td>image</td>
@@ -100,7 +100,7 @@ export default function Payment(){
 				           					<td>course8</td>
 				           					<td>email address</td>
 				           					<td>12222222</td>
-				           					<td><button style={{backgroundColor: "green"}}>Paid</button></td>
+				           					<td><button  className="paid">Paid</button></td>
 				           				</tr>
 				           				<tr>
 				           					<td>image</td>
@@ -108,7 +108,7 @@ export default function Payment(){
 				           					<td>course9</td>
 				           					<td>email address</td>
 				           					<td>12222222</td>
-				           					<td><button>Pending</button></td>
+				           					<td><button  className="pending">Pending</button></td>
 				           				</tr>
 				           				<tr>
 				           					<td>image</td>
@@ -116,7 +116,7 @@ export default function Payment(){
 				           					<td>course10</td>
 				           					<td>email address</td>
 				           					<td>12222222</td>
-				           					<td><button style={{backgroundColor: "green"}}>Paid</button></td>
+				           					<td><button  className="paid">Paid</button></td>
 				           				</tr>
 			           				</tbody>
 			           			</table>

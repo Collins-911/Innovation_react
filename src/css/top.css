@@ -119,6 +119,11 @@
 .info-home .two span {
 	display: none;
 }
+.pop{
+	background-color: #ccc;
+	z-index: 1000;
+	display: none;
+}
 
 /* --- NAV HOVER EFFECTS --- */
 .nav-item:hover {

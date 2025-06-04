@@ -6,6 +6,7 @@ import cybersecurity from '../assets/cybersecurity.jpg';
 import Dbase from '../assets/Dbase.jpg';
 import Dmarket from '../assets/Dmarket.jpg';
 import Dscience from '../assets/Dscience.jpg';
+import ThemeToggle from "../components/theme.jsx";
 import { MdMargin } from "react-icons/md";
 
 
@@ -96,7 +97,7 @@ export default function Courses() {
                   <p>Lessons: 35</p>
                   <p>Duration: 2 months</p>
                 </div>
-                <img src="https://www.cyberark.com/wp-content/uploads/2019/06/DevOps.jpg" alt="DevOps Engineering" className="course-image" />
+                <img src="https://i.pinimg.com/736x/f7/73/19/f7731997b5af048b484277ed8c0b3493.jpg" alt="DevOps Engineering" className="course-image" />
               </div>
 
               <div className="course-item">
@@ -128,6 +129,7 @@ export default function Courses() {
             </div>
           </div>
         </section>
+           <ThemeToggle/>
       </div>
     </div>
   );

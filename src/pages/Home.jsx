@@ -9,6 +9,8 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 import TopNav from '../components/Topnav';
+import { TbHemisphere } from 'react-icons/tb';
+import ThemeToggle from '../components/theme';
 
 const summaryData = {
   totalStudents: 120,
@@ -94,9 +96,13 @@ export default function Dashboard() {
                 ))}
               </tbody>
             </table>
+
+              <ThemeToggle/>
           </div>
         </div>
       </div>
+
+              
     </div>
   );
 }

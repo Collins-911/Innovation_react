@@ -6,6 +6,9 @@ import Navbar from '../components/Navbar.jsx';
 import Topnav from '../components/Topnav.jsx';
 import dummy from '../assets/dummy.webp'
 
+import ThemeToggle from "../components/theme.jsx";
+
+
 
 
 export default function Staff(){
@@ -130,6 +133,7 @@ export default function Staff(){
 			           	</div>
 		          	</section>
 		        </div>
+				<ThemeToggle/>
 		    </div>
 		</>
 	)

@@ -38,7 +38,7 @@ export default function TopNav() {
 
                     <a href={nugi} target="_blank" rel="noopener noreferrer">
                         <div className="w3">
-                            <img src="https://nugigroup.s3.us-west-1.amazonaws.com/nugi-website/public/assets/icons/logo.svg" alt="" />
+                            <img src="https://nugigroup.s3.us-west-1.amazonaws.com/nugi-website/public/assets/icons/logo.svg" alt="NUGI" />
                         </div>
                     </a>
 

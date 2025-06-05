@@ -66,7 +66,7 @@
 
 .search::placeholder {
 	color: transparent;
-	transition: color 10s ease;
+	transition: color 0.6s ease;
 }
 
 .search:hover::placeholder {
@@ -161,7 +161,9 @@
 		display: none;
 	}
 	.hamburger{
-		display: none;
+		display: block;
+		left: 30px;
+		position: absolute;
 	}
 
 	

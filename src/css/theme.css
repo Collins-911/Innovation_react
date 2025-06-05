@@ -11,7 +11,8 @@
   color: white;
   cursor: pointer;
   transition: background 0.3s, transform 0.2s;
-  z-index: 1;
+  z-index: 1000;
+ 
 
 }
 
@@ -20,5 +21,32 @@
   color:rgb(15, 1, 122);
   border: 1px solid rgb(15, 1, 122);
   transform: scale(1.05);
+}
+
+
+/* --- RESPONSIVE STYLES --- */
+@media screen and (max-width: 3008px){
+	.theme-toggle{
+    display: block;
+  }
+}
+@media screen and (max-width: 1024px) {
+
+.theme-toggle{
+    display: block;
+  }
+	
+}
+
+@media screen and (max-width: 768px) {
+	.theme-toggle{
+    display: block;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .theme-toggle{
+    display: block;
+  }
 }
 

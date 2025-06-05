@@ -1,52 +1,27 @@
-.theme-toggle {
+.darkmode {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 30px;
+  right: 30px;
   width: 50px;
   height: 50px;
-  background-color: rgb(15, 1, 122);
+  border: none;
   border-radius: 50%;
-  padding: 12px;
-  border: 1px solid white;
-  color: white;
   cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
+      background-color: rgba(15, 1, 122);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 1s;
+  border: 1px solid white;
   z-index: 1000;
- 
-
 }
 
-.theme-toggle:hover {
-  background-color: white;
-  color:rgb(15, 1, 122);
-  border: 1px solid rgb(15, 1, 122);
-  transform: scale(1.05);
+.darkmode:hover {
+  transform: rotateZ(360deg);
+  transition: 1s;
 }
 
-
-/* --- RESPONSIVE STYLES --- */
-@media screen and (max-width: 3008px){
-	.theme-toggle{
-    display: block;
-  }
+.moon-icon {
+  font-size: 20px;
+  color: white;
 }
-@media screen and (max-width: 1024px) {
-
-.theme-toggle{
-    display: block;
-  }
-	
-}
-
-@media screen and (max-width: 768px) {
-	.theme-toggle{
-    display: block;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .theme-toggle{
-    display: block;
-  }
-}
-

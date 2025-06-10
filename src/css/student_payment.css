@@ -12,7 +12,7 @@
     padding: 0 1rem;
 
     p{
-    	margin-left: 70%;
+    	margin-left: 65%;
     	font-size: 12px;
 	}
 }
@@ -26,6 +26,15 @@
 }
 .reciept{
 	padding: 1.5rem;
+
+	p{
+		text-align: center;
+		padding-top: 1rem;
+	}
+
+	h5{
+		text-transform: uppercase;
+	}
 }
 .reciept-title{
 	border-bottom: 1px solid rgba(220, 220, 220, 1);
@@ -33,63 +42,73 @@
 	height: 50px;
 	display: flex;
 	align-items: center;
-	padding-left: 3rem;
+	padding-left: 1rem;
 
 	p{
-		font-size: 13px;
+		font-size: 20px;
 	}
 }
-#reciept-p{
-	padding-left: 78%;
+.bank{
+	margin-top: 1rem;
 }
-.reciept-address{
-	display: flex;
-	margin-top: 4rem;
-	margin-bottom: 4rem;
-
-	p{
-		font-size: 13px;
-	}
+.bank-text{
+	font-weight: 900 !important;
+	font-size: 18px;
+	color: black;
+	padding-left:  0;
 }
-.address-to{
-	padding-left: 47%;
+.transfer-amount{
+	width: 100%;
+	height: 80px;
+	border:  1px solid gainsboro;
+	border-radius: 10px;
+	margin-top: 1rem;
+	padding: 10px 2rem;
+	
 }
-#total-p{
-	font-size: 14px;
-	float: right;
-	padding-right: 2rem;
-	margin-top: 2rem;
-}
-.reciept button{
-	margin-left: 45%;
-	margin-top: 120px;
-	width: 150px;
-	height: 40px;
-	border-radius: 5px;
-	outline: none;
+.transfer-amount input{
+	width: 250px;
 	border: none;
+	border-bottom: 1px solid black;
+	outline: none;
+	padding-left: 10px;
+}
+.transfer-buttons{
+	display: flex;
+	margin-top: 3rem;
+}
+.transfer-buttons button{
+	width: 200px;
+	height: 40px;
+	border-radius: 10px;
+	border: 1px solid  rgba(15, 1, 122);
+	outline: none;
 	background-color: rgba(15, 1, 122);
 	color: white;
+	font-size: 14px;
+	font-weight: bold;
+	margin: 2rem auto !important;
+	transition: 0.5s;
+}
+.transfer-buttons button:hover{
+	background-color: white;
+	color: rgba(15, 1, 122);
+}
+.transfer{
+	margin-top: 2rem;
+	padding: 1rem 2rem;
+	width: 100%;
+	height: 235px;
+	border:  1px solid gainsboro;
+	border-radius: 10px;
 }
 
 
 
 @media only screen and (max-width: 768px){
-	.reciept button{
-		margin-left: auto !important;
-	}
-	#total-p{
-		position: relative;
-		left: 35px !important;
-	}
-	.reciept-address p{
-		font-size: 10px !important;
-	}
-	.address-to{
-		padding-left: 5% !important;
-	}
-	#reciept-p{
-		padding-left: 38% !important;
+	.transfer-buttons button{
+		width: 150px;
+		font-size: 12px;
 	}
 	.reciept-title{
 		padding-left: 1rem !important;
@@ -105,10 +124,8 @@
 	.sp-title p{
 		display: none !important;
 	}
-	#reciept-p{
-		padding-left: 70% !important;
-	}
-	.reciept button{
-	margin-left: 40% !important;
+	.transfer-buttons button{
+		width: 150px;
+		font-size: 12px;
 	}
 }

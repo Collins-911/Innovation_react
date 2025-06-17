@@ -148,6 +148,7 @@ export default function Navigation() {
     reportClick,
     assignmentClick,
     addcoursesClick,
+    studentPayment,
 
     profileClick,
     settingsClick,

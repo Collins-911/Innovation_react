@@ -15,6 +15,7 @@ import {
   FaFileAlt,
   FaCog,
   FaUser,
+  FaMoneyBillWave,
 } from 'react-icons/fa';
 
 export default function Navbar({ isOpen, onClose }) {
@@ -30,7 +31,8 @@ export default function Navbar({ isOpen, onClose }) {
     curriculumClick,
     assignmentClick,
     settingsClick,
-    addcoursesClick
+    addcoursesClick,
+    studentPayment,
   } = Navigation();
 
   const navSections = [
@@ -51,7 +53,9 @@ export default function Navbar({ isOpen, onClose }) {
         { name: 'Add Courses', icon: <FaBook />, onClick: addcoursesClick },
         { name: 'Assignment', icon: <FaTasks />, onClick: assignmentClick },
         { name: 'Report', icon: <FaFileAlt />, onClick: reportClick },
+         { name: 'Student Payment', icon: <FaMoneyBillWave />, onClick: studentPayment },
         { name: 'Payment', icon: <FaMoneyBill />, onClick: paymentClick },
+        
       ],
     },
     {

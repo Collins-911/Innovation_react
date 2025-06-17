@@ -71,10 +71,10 @@ export default function Navbar({ isOpen, onClose }) {
 
   return (
 
-    <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
+  <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
       <div className="logo">
 			<img src={NI_Blue} alt="" />
-		</div>
+		</div>    
 
       {navSections.map((section, index) => (
         <section className="sidebar-section" key={index}>

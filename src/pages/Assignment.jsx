@@ -5,6 +5,7 @@ import '../css/course.css';
 import Navbar from '../components/Navbar.jsx';
 import Topnav from '../components/Topnav.jsx';
 import ThemeToggle from '../components/theme.jsx';
+import Sidebar from '../components/Sidebar.jsx';
 
 
 export default function assignment(){
@@ -97,6 +98,9 @@ export default function assignment(){
                             it thanks for your Cooperaton Nugi Innovation loves you all and mean the best for you all.</p>
         </div>
                 </section>
+                <div>
+                  <Sidebar/>
+                </div>
               </div>
               <ThemeToggle/>
             </div>

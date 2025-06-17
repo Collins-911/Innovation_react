@@ -29,7 +29,7 @@ export default function Profile() {
       <div className="profile-card">
         
         <div className="profile-tabs">
-          <Link to="/dashboard" className="clean-link">
+          <Link to="/general/dashboard" className="clean-link">
   <button className="tab">
     <FaArrowLeft className="icon" />
     <span>Go back</span>

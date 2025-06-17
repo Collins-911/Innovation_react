@@ -16,7 +16,7 @@
   z-index: 1000;
 }
 
-.darkmode:hover {
+.moon-icon:hover {
   transform: rotateZ(360deg);
   transition: 1s;
 }

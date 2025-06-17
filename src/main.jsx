@@ -34,23 +34,23 @@ import Survey from './uppload/Survey.jsx';
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <Routes>
-      <Route path='/dashboard' element={<Home/>}/>
+      <Route path='/general/dashboard' element={<Home/>}/>
       <Route path='/login' element={<Login/>}/>
       <Route path='/signup' element={<Signup/>}/>
-      <Route path='/student' element={<Student/>}/>
-      <Route path='/register' element={<Register/>}/>
-      <Route path='/payment' element={<Payment/>}/>
+      <Route path='/general/student' element={<Student/>}/>
+      <Route path='/tools/register' element={<Register/>}/>
+      <Route path='/tools/payment' element={<Payment/>}/>
       <Route path='/student_payment' element={<Student_payment/>}/>
-      <Route path='/staff' element={<Staff/>}/>
-      <Route path='/courses' element={<Courses/>}/>
-      <Route path='/report' element={<Report/>}/>
-      <Route path='/profile' element={<Profile/>}/>
-      <Route path='/assignment' element={<Assignment/>}/>
-      <Route path='/curriculum' element={<Curriculum/>}/>
+      <Route path='/general/staff' element={<Staff/>}/>
+      <Route path='/general/courses' element={<Courses/>}/>
+      <Route path='/tools/report' element={<Report/>}/>
+      <Route path='/profile/profile' element={<Profile/>}/>
+      <Route path='/tools/assignment' element={<Assignment/>}/>
+      <Route path='/general/curriculum' element={<Curriculum/>}/>
       <Route path='/' element={<Entry/>}/>
       <Route path='/change' element={<Change/>}/>
-      <Route path='/settings' element={<Settings/>}/>
-      <Route path='/add_courses' element={<Add_courses/>}/>
+      <Route path='/profile/settings' element={<Settings/>}/>
+      <Route path='/tools/add_courses' element={<Add_courses/>}/>
       <Route path='/ai' element={<Ai/>}/>
       <Route path='/cybersecurity' element={<Cybersecurity/>}/>
       <Route path='/dbase' element={<Dbase/>}/>

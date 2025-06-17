@@ -49,7 +49,7 @@ export default function settings() {
   return (
     <div className="settings-container">
       <div className="settings-sidebar">
-        <Link to="/dashboard" className="back-button">
+        <Link to="/general/dashboard" className="back-button">
           <FaArrowLeft /> Back to Home
         </Link>
         

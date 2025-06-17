@@ -62,7 +62,7 @@ export default function TopNav() {
                         </button>
                     </div>
 
-                    <Link to="/profile">
+                    <Link to="/profile/profile">
                         <img src={icon7} alt="Profile" className="pfp" />
                     </Link>
                 </div>

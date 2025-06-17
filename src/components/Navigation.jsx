@@ -54,6 +54,11 @@ export default function Navigation() {
     navigate('/tools/add_courses');
   };
 
+   const studentPayment = () => {
+    console.log('Navigating to Add_Courses');
+    navigate('/tools/student_payment');
+  };
+
 
   const profileClick = () => {
     console.log('Navigating to Profile');

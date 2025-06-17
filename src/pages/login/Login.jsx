@@ -6,7 +6,7 @@ export default function Login() {
     const navigate = useNavigate();
 
     const click = () => navigate('/signup');
-    const move = () => navigate('/dashboard');
+    const move = () => navigate('/general/dashboard');
 
     return (
         <div className="login-container">

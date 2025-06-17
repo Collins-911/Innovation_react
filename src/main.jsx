@@ -62,7 +62,7 @@ createRoot(document.getElementById('root')).render(
       <Route path='/pdesign' element={<Pdesign/>}/>
       <Route path='/pmanagement' element={<Pmanagement/>}/>
       <Route path='/survey' element={<Survey/>}/>
-      <Route path='/tools/student_payment' element={<Survey/>}/>
+      <Route path='/tools/student_payment' element={<Student_payment/>}/>
     </Routes>
   </BrowserRouter>
 );

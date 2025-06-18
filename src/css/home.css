@@ -24,6 +24,12 @@
   z-index: 200;
 }
 
+body.dark .logo{
+  background-color: #121212;
+  border-right: 1px solid #fff
+  ;
+}
+
 .logo img {
   max-height: 50px;
   width: auto;

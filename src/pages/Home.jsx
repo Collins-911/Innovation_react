@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
+import { FaMoon } from "react-icons/fa";
 import {
   LineChart,
   Line,
@@ -35,7 +36,11 @@ const recentAttendance = [
   { name: 'Collins Emelumba', date: '2025-05-21', status: 'Absent' },
 ];
 
-const User = 'Collins'
+const User = 'INNOVATION';
+
+const toggleTheme = () => {
+  document.body.classList.toggle('dark');
+};
 
 export default function Dashboard() {
   const Username = 'Nathan';
@@ -97,8 +102,12 @@ export default function Dashboard() {
               </tbody>
             </table>
 
-              <ThemeToggle/>
+           <button className="theme-toggle" onClick={toggleTheme}>
+                <FaMoon className="moon-icon" />
+          </button>
+
           </div>
+
         </div>
       </div>
 

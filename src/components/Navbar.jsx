@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Navigation from './Navigation.jsx';
 import '../css/home.css';
-
+import { FaMoon } from "react-icons/fa";
 import NI_Blue from '../assets/NI_Blue.png'
 import {
   FaHome,
@@ -73,7 +73,12 @@ export default function Navbar({ isOpen, onClose }) {
     setOpenSectionIndex(openSectionIndex === index ? null : index);
   };
 
+  const toggleTheme = () => {
+  document.body.classList.toggle('dark');
+};
+
   return (
+    
 
     <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
       <div className="logo">
@@ -108,8 +113,16 @@ export default function Navbar({ isOpen, onClose }) {
               </li>
             ))}
           </ul>
+
+             <button className="theme-toggle" onClick={toggleTheme}>
+                            <FaMoon className="moon-icon" />
+                      </button>
+
         </section>
+            
+                     
       ))}
     </aside>
+      
   );
 }

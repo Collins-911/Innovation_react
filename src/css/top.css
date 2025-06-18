@@ -5,8 +5,7 @@
 	padding: 10px 20px;
 	background-color: rgba(15, 1, 122);
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-	width: 1218px;
-	border-left: 1px solid rgba(15, 1, 122);
+	width: 80px;
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -16,7 +15,7 @@
 
 body.dark .top{
 	background-color: #1e1e1e;
-	border-left: 1px solid #ffffff;
+
 }
 
 .right-section {

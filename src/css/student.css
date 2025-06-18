@@ -76,6 +76,30 @@ table td{
     position: relative;
   }
 
+  body.dark .student-title{
+    background-color: #2a2a2a;
+  }
+  body.dark .student-title p{
+    color: white;
+  }
+  body.dark .student-title span{
+    color: white;
+  }
+  body.dark .student-list{
+    background-color: #2a2a2a;
+    color: white !important;
+  }
+  body.dark .list-title{
+    border-bottom: 1px solid white;
+  }
+  body.dark .student-table td{
+    color: white;
+  }
+  body.dark .student-table img{
+    border-radius: 50%;
+
+  }
+
 
 
 

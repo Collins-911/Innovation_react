@@ -4,7 +4,7 @@ import '../css/home.css';
 import '../css/course.css';
 import Navbar from '../components/Navbar.jsx';
 import Topnav from '../components/Topnav.jsx';
-import ThemeToggle from '../components/theme.jsx';
+
 import Sidebar from '../components/Sidebar.jsx';
 
 
@@ -102,7 +102,7 @@ export default function assignment(){
                   <Sidebar/>
                 </div>
               </div>
-              <ThemeToggle/>
+       
             </div>
         </>
     )

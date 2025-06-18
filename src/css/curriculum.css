@@ -87,7 +87,19 @@ p {
     margin-left: auto;
     font-size: 12px;
 }
-
+body.dark .row1-title, .row2-title, .row3-title,
+.row4-title, .row5-title, .row6-title,
+.row7-title, .row8-title, .row9-title {
+    background-color: #2a2a2a;
+}
+body.dark p{
+    color: white;
+}
+body.dark .row1-title h3, .row2-title h3, .row3-title h3,
+.row4-title h3, .row5-title h3, .row6-title h3,
+.row7-title h3, .row8-title h3, .row9-title h3{
+    color: white;
+}
 
 @media only screen and (max-width: 1024px),
 only screen and (max-width: 768px) {

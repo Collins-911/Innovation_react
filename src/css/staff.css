@@ -30,6 +30,29 @@
 	width: 100%;
 	padding: 2rem 1.5rem;
 }
+body.dark .staff-title{
+    background-color: #2a2a2a;
+  }
+  body.dark .staff-title p{
+    color: white;
+  }
+  body.dark .stafft-title span{
+    color: white;
+  }
+  body.dark .staff-list{
+    background-color: #2a2a2a;
+    color: white !important;
+  }
+  body.dark .list-title{
+    border-bottom: 1px solid white;
+  }
+  body.dark .staff-table td{
+    color: white;
+  }
+  body.dark .staff-table img{
+    border-radius: 50%;
+
+  }
 
 
 

@@ -104,6 +104,25 @@ margin-left: 10px;
 .last-course-item {
   margin-bottom: 4rem;
 }
+  body.dark .courses-title{
+    background-color: #2a2a2a;
+  }
+  body.dark .courses-title p{
+    color: white;
+  }
+  body.dark .courses-title span{
+    color: white;
+  }
+  body.dark .course-item{
+    background-color: #2a2a2a;
+    
+  }
+body.dark .course-item h4,
+body.dark .course-item p {
+  color: white;
+}
+
+
 
 @media (max-width: 1024px) {
   .course-item {

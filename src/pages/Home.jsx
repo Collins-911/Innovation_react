@@ -11,7 +11,7 @@ import {
 } from 'recharts';
 import TopNav from '../components/Topnav';
 import { TbHemisphere } from 'react-icons/tb';
-import ThemeToggle from '../components/theme';
+import Themebtn from '../components/themebtn';
 
 const summaryData = {
   totalStudents: 120,
@@ -38,9 +38,6 @@ const recentAttendance = [
 
 const User = 'INNOVATION';
 
-const toggleTheme = () => {
-  document.body.classList.toggle('dark');
-};
 
 export default function Dashboard() {
   const Username = 'Nathan';
@@ -102,10 +99,7 @@ export default function Dashboard() {
               </tbody>
             </table>
 
-           <button className="theme-toggle" onClick={toggleTheme}>
-                <FaMoon className="moon-icon" />
-          </button>
-
+      
           </div>
 
         </div>

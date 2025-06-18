@@ -4,6 +4,7 @@ import icon7 from '../assets/icon7.jpg';
 import '../css/top.css';
 import React, {useState} from 'react';
 import { FaReact } from 'react-icons/fa';
+import { FaMoon } from "react-icons/fa";
 import { CiMenuFries } from "react-icons/ci";
 
 
@@ -14,7 +15,9 @@ export default function TopNav() {
 	const free = 'https://www.freecodecamp.org/'
 
 
-
+const toggleTheme = () => {
+  document.body.classList.toggle('dark');
+};
 
   return (
     <div className="topnav-container">
@@ -75,6 +78,7 @@ export default function TopNav() {
   </div>
 
             
+                    
 
             
         </div>

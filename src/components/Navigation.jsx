@@ -136,6 +136,8 @@ export default function Navigation() {
     navigate('/');
   };
 
+
+
   return {
     dashboardClick,
     studentClick,

@@ -4,7 +4,7 @@ import '../css/student.css';
 import Navbar from '../components/Navbar.jsx';
 import Topnav from '../components/Topnav.jsx';
 import dummy from '../assets/dummy.webp'
-import ThemeToggle from '../components/theme.jsx';
+
 
 
 
@@ -144,7 +144,7 @@ export default function Student(){
 		          </section>
 				  
 		        </div>
-				 <ThemeToggle/>
+			
 	      	</div>
 			
 		</>

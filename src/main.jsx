@@ -30,10 +30,10 @@ import MobileApp from './uppload/MobileApp.jsx';
 import Pdesign from './uppload/Pdesign.jsx';
 import Pmanagement from './uppload/Pmanagement.jsx';
 import Survey from './uppload/Survey.jsx';
-import { ThemeProvider } from './components/Themetoggle.jsx';
+
 
 createRoot(document.getElementById('root')).render(
-  <ThemeProvider>
+
     <BrowserRouter>
       <Routes>
         <Route path='/general/dashboard' element={<Home/>}/>
@@ -67,5 +67,5 @@ createRoot(document.getElementById('root')).render(
         <Route path='/tools/student_payment' element={<Student_payment/>}/>
       </Routes>
     </BrowserRouter>
-  </ThemeProvider>
+
 );

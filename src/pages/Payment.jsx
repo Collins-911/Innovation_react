@@ -4,7 +4,7 @@ import '../css/payment.css';
 import '../css/student.css';
 import Navbar from '../components/Navbar.jsx';
 import Topnav from '../components/Topnav.jsx';
-import ThemeToggle from "../components/theme.jsx";
+
 
 
 export default function Payment(){
@@ -131,7 +131,7 @@ export default function Payment(){
 			           	</div>
 			        </section>
 		        </div>
-				<ThemeToggle/>
+			
 	      	</div>
 		</>
 	)

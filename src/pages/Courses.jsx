@@ -6,7 +6,7 @@ import cybersecurity from '../assets/cybersecurity.jpg';
 import Dbase from '../assets/Dbase.jpg';
 import Dmarket from '../assets/Dmarket.jpg';
 import Dscience from '../assets/Dscience.jpg';
-import ThemeToggle from "../components/theme.jsx";
+
 import { MdMargin } from "react-icons/md";
 
 
@@ -129,7 +129,7 @@ export default function Courses() {
             </div>
           </div>
         </section>
-           <ThemeToggle/>
+          
       </div>
     </div>
   );

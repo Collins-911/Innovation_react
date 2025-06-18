@@ -5,6 +5,7 @@ import '../css/top.css';
 import React, {useState} from 'react';
 import { FaReact } from 'react-icons/fa';
 import { CiMenuFries } from "react-icons/ci";
+import Sidebar from '../components/Sidebar.jsx'
 
 
 export default function TopNav() {
@@ -21,12 +22,10 @@ export default function TopNav() {
             <div className="top">
                <div className="hamburger">
       <CiMenuFries size={30} color="#fff" style={{ cursor: 'pointer' }} />
-
-
-      
-
        
-         
+      <div>
+        <Sidebar/>  
+      </div>   
         </div>
         
                 <div className="right-section">

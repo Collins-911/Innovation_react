@@ -102,7 +102,19 @@
 	border:  1px solid gainsboro;
 	border-radius: 10px;
 }
-
+body.dark .sp-title{
+	background-color: #2a2a2a;
+}
+body.dark .reciept-home{
+	background-color: #2a2a2a;
+}
+body.dark .transfer h6{
+	color: white;
+}
+body.dark .transfer-amount input{
+	background-color: #2a2a2a;
+	border-bottom: 1px solid white;
+}
 
 
 @media only screen and (max-width: 768px){

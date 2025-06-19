@@ -1,10 +1,8 @@
 .assignment-form-container {
-  /* width: 900px; */
   margin: 40px 2rem;
   align-items: center;
-  padding: 20px;
-  background: white;
   padding: 2rem;
+  background: white;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   font-family: 'Poppins', sans-serif;
@@ -47,11 +45,13 @@
 .assignment-form button:hover {
   background-color: #0f017a;
 }
-input{
-    background-color:#fff;
-    border: 2px solid #0f017a;
+
+input {
+  background-color: #fff;
+  border: 2px solid #0f017a;
 }
 
-
-
-                                  /* No Meia query pls fix */     
+body.dark .assignment-form-container {
+  background-color: #1a1a1a !important;
+  color: #f0f0f0;
+}

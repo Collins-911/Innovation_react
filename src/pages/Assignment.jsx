@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import '../css/assignment.css';
 import '../css/home.css';
 import '../css/course.css';
-import Navbar from '../components/Navbar.jsx';
-import Topnav from '../components/Topnav.jsx';
 import Sidebar from '../components/Sidebar.jsx';
+import Topnav from '../components/Topnav.jsx';
+
 
 export default function Assignment() {
   const [formData, setFormData] = useState({
@@ -37,7 +37,7 @@ export default function Assignment() {
   return (
     <>
       <div className="home-content">
-        <Navbar />
+       <Sidebar />
         <div className="top-content">
           <Topnav />
           <section className="content">

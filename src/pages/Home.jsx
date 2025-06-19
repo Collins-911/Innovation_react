@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Navbar from '../components/Navbar';
+import Sidebar from '../components/Sidebar.jsx';
 import { FaMoon } from "react-icons/fa";
 import {
   LineChart,
@@ -47,7 +47,7 @@ export default function Dashboard() {
 
   return (
     <div className="home-content">
-      <Navbar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+      <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
       <div className={`top-content ${sidebarOpen ? 'with-sidebar' : ''}`}>
       
       <TopNav/>

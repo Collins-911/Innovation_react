@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Topnav from '../components/Topnav.jsx';
-import Navbar from '../components/Navbar.jsx';
+import Sidebar from '../components/Sidebar.jsx';
 import '../css/add_courses.css';
 
 export default function AddCourses() {
@@ -11,7 +11,7 @@ export default function AddCourses() {
     return (
         <>
             <div className="home-content">
-                <Navbar />
+              <Sidebar />
                 <div className="top-content">
                     <Topnav />
                     <section className="content">

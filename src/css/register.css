@@ -1,5 +1,4 @@
 
-
 .register-title{
   margin-top: 1rem;
   display: flex;
@@ -51,6 +50,26 @@ select{
   border: none;
   color: white;
   background-color: rgba(15, 1, 122);
+}
+body.dark .register-title{
+  background-color: #1a1a1a !important  
+}
+body.dark .register-title p{
+  color: white !important;
+}
+body.dark .register-form{
+  background-color: #1a1a1a !important;
+  color: white !important;
+}
+body.dark .r-form label{
+  color: white !important;
+}
+
+
+body.dark .r-form input,
+body.dark .r-form textarea {
+  background-color: #1a1a1a;
+  color: white;
 }
 
 

@@ -116,7 +116,26 @@
   color: #333;
   white-space: pre-wrap;
 }
+body.dark .compose-section{
+  background-color: #2a2a2a;
+}
+body.dark .email-box {
+  background-color: #2a2a2a;
+}
+body.dark .email-item {
+  background-color: #2a2a2a;
+  border:   1px solid white;
+  margin-top: 5px;
 
+  color: #fff;
+} 
+body.dark .email-item h4{
+  color: white;
+}
+body.dark .inbox-view{
+  background-color: #2a2a2a;
+  color: white;
+}
 /* Responsive Design */
 @media (max-width: 768px) {
   .dashboard {

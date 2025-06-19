@@ -6,7 +6,7 @@ import React, {useState} from 'react';
 import { FaReact } from 'react-icons/fa';
 import { FaMoon } from "react-icons/fa";
 import { CiMenuFries } from "react-icons/ci";
-import Sidebar from '../components/Sidebar.jsx'
+import Mobile_sidebar from './Mobile_sidebar.jsx'
 
 
 export default function TopNav() {
@@ -27,7 +27,7 @@ const toggleTheme = () => {
       <CiMenuFries size={30} color="#fff" style={{ cursor: 'pointer' }} />
        
       <div>
-        <Sidebar/>  
+       
       </div>   
         </div>
         

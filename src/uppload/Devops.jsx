@@ -1,7 +1,7 @@
 import React from "react";
 import '../css/home.css';
 import '../css/course.css';
-import Navbar from'../components/Navbar.jsx';
+import Sidebar from '../components/Sidebar.jsx';
 import Topnav from '../components/Topnav.jsx';
 
 export default function(){
@@ -15,7 +15,7 @@ export default function(){
     return(
         <>
             <div className="home-content">
-                <Navbar/>
+                <Sidebar />
                 <div className="top-content">
                     <Topnav/>
                      <div className="survey-wrapper">

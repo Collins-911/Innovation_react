@@ -1,7 +1,7 @@
 import React from "react";
 import '../css/home.css';
 import '../css/student.css';
-import Navbar from '../components/Navbar.jsx';
+import Sidebar from '../components/Sidebar.jsx';
 import Topnav from '../components/Topnav.jsx';
 import dummy from '../assets/dummy.webp'
 
@@ -14,7 +14,7 @@ export default function Student(){
 	return (
 		<>
 			<div className="home-content">
-		     	<Navbar/>
+		     	<Sidebar/>
 		        <div className="top-content">
 		           <Topnav/>
 			        <section className="content" style={{padding: "1rem"}}>

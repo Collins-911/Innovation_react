@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Navigation from './Navigation.jsx';
-import '../css/home.css';
-import { FaMoon } from "react-icons/fa";
+import '../css/home.css'
+
 import NI_Blue from '../assets/NI_Blue.png'
 import {
   FaHome,
@@ -15,11 +15,10 @@ import {
   FaFileAlt,
   FaCog,
   FaUser,
-  FaMoneyBillWave,
 } from 'react-icons/fa';
+ export default function Sidebar({ isOpen, onClose}){
 
-export default function Navbar({ isOpen, onClose }) {
-  const {
+const {
     dashboardClick,
     studentClick,
     registerClick,
@@ -31,8 +30,7 @@ export default function Navbar({ isOpen, onClose }) {
     curriculumClick,
     assignmentClick,
     settingsClick,
-    addcoursesClick,
-    studentPayment,
+    addcoursesClick
   } = Navigation();
 
   const navSections = [
@@ -53,9 +51,7 @@ export default function Navbar({ isOpen, onClose }) {
         { name: 'Add Courses', icon: <FaBook />, onClick: addcoursesClick },
         { name: 'Assignment', icon: <FaTasks />, onClick: assignmentClick },
         { name: 'Report', icon: <FaFileAlt />, onClick: reportClick },
-         { name: 'Student Payment', icon: <FaMoneyBillWave />, onClick: studentPayment },
         { name: 'Payment', icon: <FaMoneyBill />, onClick: paymentClick },
-        
       ],
     },
     {
@@ -73,56 +69,43 @@ export default function Navbar({ isOpen, onClose }) {
     setOpenSectionIndex(openSectionIndex === index ? null : index);
   };
 
-  const toggleTheme = () => {
-  document.body.classList.toggle('dark');
-};
 
-  return (
-    
-
-  <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
-      <div className="logo">
-			<img src={NI_Blue} alt="" />
-		</div>    
-
-      {navSections.map((section, index) => (
-        <section className="sidebar-section" key={index}>
-          <h3
-            className={`sidebar-heading ${openSectionIndex === index ? 'open' : ''}`}
-            onClick={() => toggleSection(index)}
-            role="button"
-            tabIndex={0}
-            onKeyPress={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') toggleSection(index);
-            }}
-          >
-            {section.title}
-          </h3>
-
-          <ul className={`dropdown-list ${openSectionIndex === index ? 'open' : ''}`}>
-            {section.items.map((item, i) => (
-              <li key={i}>
-                <a
-                  href="#!"
-                  onClick={item.onClick}
-                  style={{ cursor: item.onClick ? 'pointer' : 'default', display: 'flex', alignItems: 'center', gap: '10px' }}
-                >
-                  {item.icon}
-                  {item.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-
-             <button className="theme-toggle" onClick={toggleTheme}>
-                            <FaMoon className="moon-icon" />
-                      </button>
-
-        </section>
-            
-                     
-      ))}
-    </aside>
-      
-  );
-}
+    return(
+         <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
+              <div className="logo">
+                    <img src={NI_Blue} alt="" />
+                </div>    
+        
+              {navSections.map((section, index) => (
+                <section className="sidebar-section" key={index}>
+                  <h3
+                    className={`sidebar-heading ${openSectionIndex === index ? 'open' : ''}`}
+                    onClick={() => toggleSection(index)}
+                    role="button"
+                    tabIndex={0}
+                    onKeyPress={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') toggleSection(index);
+                    }}
+                  >
+                    {section.title}
+                  </h3>
+        
+                  <ul className={`dropdown-list ${openSectionIndex === index ? 'open' : ''}`}>
+                    {section.items.map((item, i) => (
+                      <li key={i}>
+                        <a
+                          href="#!"
+                          onClick={item.onClick}
+                          style={{ cursor: item.onClick ? 'pointer' : 'default', display: 'flex', alignItems: 'center', gap: '10px' }}
+                        >
+                          {item.icon}
+                          {item.name}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              ))}
+            </aside>
+    );
+ }

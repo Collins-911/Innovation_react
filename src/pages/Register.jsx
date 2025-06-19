@@ -3,7 +3,7 @@ import '../css/home.css';
 import '../css/register.css';
 import Swal from 'sweetalert2'
 import Imageuploader  from '../components/Imageuploader.jsx';
-import Navbar from '../components/Navbar.jsx';
+import Sidebar from '../components/Sidebar.jsx';
 import Topnav from '../components/Topnav.jsx';
 
 
@@ -40,7 +40,7 @@ export default function Register(){
 	return(
 		<>
 			<div className="home-content">
-				<Navbar/>
+				<Sidebar/>
 		        <div className="top-content">
 		          	<Topnav/>
 			        <section className="content" style={{padding: "1rem"}}>

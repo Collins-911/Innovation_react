@@ -1,10 +1,11 @@
+/* ========== LIGHT THEME DEFAULTS ========== */
 .payment-title {
   margin-top: 1rem;
   display: flex;
   align-items: center;
   width: 100%;
   height: 55px;
-  background-color: white;
+  background-color: white !important;
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   border-radius: 5px;
@@ -12,12 +13,13 @@
 }
 
 .payment-title p {
-  margin-left: 77%;
+  margin-left: auto;
   font-size: 12px;
+  color: #333;
 }
 
 .payment-list {
-  color: black !important;
+  color: black;
   margin-top: 3rem;
   padding-bottom: 4rem;
   width: 100%;
@@ -27,23 +29,21 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
+.student-table,
+.list-title {
+  background-color: white;
+  color: black;
+}
+
 table td button {
   padding: 5px 10px;
   background-color: white;
-  color: #bb3d3f;
   width: 70px;
   border-radius: 10px;
   outline: none;
-  border: 2px solid #bb3d3f;
   font-size: 12px;
   font-weight: bold;
-  transition: 0.5s;
-}
-
-table td button:hover {
-  background-color: #bb3d3f;
-  color: white !important;
-  border: 2px solid #bb3d3f;
+  transition: 0.3s;
 }
 
 .paid {
@@ -54,49 +54,111 @@ table td button:hover {
 .paid:hover {
   background-color: #28a745 !important;
   color: white !important;
-  border: 2px solid #28a745 !important;
 }
 
 .pending {
-  color: #565FB7;
-  border: 2px solid #565FB7;
+  color: #565fb7;
+  border: 2px solid #565fb7;
 }
 
 .pending:hover {
-  background-color: #565FB7 !important;
+  background-color: #565fb7 !important;
   color: white !important;
-  border: 2px solid #565FB7 !important;
 }
 
-body.dark .payment-title, .list-title, .payment-list{
-  background-color: #2a2a2a;
-  color: white;
+.unpaid {
+  color: #bb3d3f;
+  border: 2px solid #bb3d3f;
+}
+
+.unpaid:hover {
+  background-color: #bb3d3f !important;
+  color: white !important;
+}
+
+
+body.dark .payment-title,
+body.dark .list-title {
+  background-color: #2a2a2a !important;
+  color:white;
 }
 
 body.dark .payment-title p,
-body.dark .payment-title span,
-body.dark .payment-table td {
-  color: white;
+body.dark .payment-title span {
+  color: #ccc;
 }
 
-body.dark .student-table {
+body.dark .payment-list {
+  background-color: #121212;
+  color: #f5f5f5;
+  border-color: #444;
+}
+
+body.dark .student-table,
+body.dark .payment-table {
+  background-color: #1c1c1c;
+  color: #f5f5f5;
+}
+
+body.dark .payment-table td {
+  color: #e0e0e0;
+}
+
+body.dark .payment-table th {
   background-color: #2a2a2a;
+  color: #fff;
+}
+
+body.dark table td button {
+  background-color: #1c1c1c;
+}
+
+body.dark .paid {
+  background-color: #1c1c1c;
+  color: #28a745;
+  border: 2px solid #28a745;
+}
+
+body.dark .paid:hover {
+  background-color: #28a745 !important;
   color: white !important;
 }
 
-
-
-body.dark .staff-table img {
-  border-radius: 50%;
+body.dark .pending {
+  background-color: #1c1c1c;
+  color: #565fb7;
+  border: 2px solid #565fb7;
 }
 
-@media only screen and (max-width: 768px) {
-  .payment-title p {
-    display: none;
-  }
+body.dark .pending:hover {
+  background-color: #565fb7 !important;
+  color: white !important;
 }
 
-@media only screen and (min-width: 820px) and (max-width: 1180px) {
+body.dark .unpaid {
+  background-color: #1c1c1c;
+  color: #bb3d3f;
+  border: 2px solid #bb3d3f;
+}
+
+body.dark .unpaid:hover {
+  background-color: #bb3d3f !important;
+  color: white !important;
+}
+
+body.dark .list-btn button {
+  background-color: #2a2a2a;
+  color: #f0f0f0;
+  border: 1px solid #555;
+}
+
+body.dark .list-btn button:hover {
+  background-color: #444;
+}
+
+/* ========== RESPONSIVE FIX ========== */
+@media only screen and (max-width: 768px),
+only screen and (min-width: 820px) and (max-width: 1180px) {
   .payment-title p {
     display: none;
   }

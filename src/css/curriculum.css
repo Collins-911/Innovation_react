@@ -87,18 +87,49 @@ p {
     margin-left: auto;
     font-size: 12px;
 }
-body.dark .row1-title, .row2-title, .row3-title,
-.row4-title, .row5-title, .row6-title,
-.row7-title, .row8-title, .row9-title {
+
+body.dark .Curriculum-container {
+    background-color: #1c1c1c;
+}
+
+body.dark .curriculum-title {
     background-color: #2a2a2a;
+    color: #f0f0f0;
+    border: 1px solid #444;
 }
-body.dark p{
-    color: white;
+
+body.dark .curriculum-title p {
+    color: #ccc;
 }
-body.dark .row1-title h3, .row2-title h3, .row3-title h3,
-.row4-title h3, .row5-title h3, .row6-title h3,
-.row7-title h3, .row8-title h3, .row9-title h3{
-    color: white;
+
+body.dark .row1-title, 
+body.dark .row2-title, 
+body.dark .row3-title,
+body.dark .row4-title, 
+body.dark .row5-title, 
+body.dark .row6-title,
+body.dark .row7-title, 
+body.dark .row8-title, 
+body.dark .row9-title {
+    background-color: #2a2a2a;
+    color: #f0f0f0;
+    box-shadow: none;
+}
+
+body.dark .row1-title h3, 
+body.dark .row2-title h3, 
+body.dark .row3-title h3,
+body.dark .row4-title h3, 
+body.dark .row5-title h3, 
+body.dark .row6-title h3,
+body.dark .row7-title h3, 
+body.dark .row8-title h3, 
+body.dark .row9-title h3 {
+    color: #ffffff;
+}
+
+body.dark p {
+    color: #d0d0d0;
 }
 
 @media only screen and (max-width: 1024px),

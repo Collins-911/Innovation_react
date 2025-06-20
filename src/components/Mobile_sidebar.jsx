@@ -1,111 +1,44 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Navigation from './Navigation.jsx';
-import '../css/home.css'
+import '../css/home.css';
+import '../css/Mobile_sidebar.css';
 
-import NI_Blue from '../assets/NI_Blue.png'
-import {
-  FaHome,
-  FaUserGraduate,
-  FaChalkboardTeacher,
-  FaBook,
-  FaMoneyBill,
-  FaUserPlus,
-  FaClipboardList,
-  FaTasks,
-  FaFileAlt,
-  FaCog,
-  FaUser,
-} from 'react-icons/fa';
- export default function Sidebar({ isOpen, onClose}){
+export default function MobileSidebar() {
+  const [sidebarVisible, setSidebarVisible] = useState(false);
 
-const {
-    dashboardClick,
-    studentClick,
-    registerClick,
-    paymentClick,
-    staffClick,
-    coursesClick,
-    reportClick,
-    profileClick,
-    curriculumClick,
-    assignmentClick,
-    settingsClick,
-    addcoursesClick
-  } = Navigation();
+  const showSidebar = () => setSidebarVisible(true);
+  const hideSidebar = () => setSidebarVisible(false);
 
-  const navSections = [
-    {
-      title: 'General',
-      items: [
-        { name: 'Dashboard', icon: <FaHome />, onClick: dashboardClick },
-        { name: 'Students', icon: <FaUserGraduate />, onClick: studentClick },
-        { name: 'Courses', icon: <FaBook />, onClick: coursesClick },
-        { name: 'Curriculum', icon: <FaClipboardList />, onClick: curriculumClick },
-        { name: 'Staffs', icon: <FaChalkboardTeacher />, onClick: staffClick },
-      ],
-    },
-    {
-      title: 'Tools',
-      items: [
-        { name: 'Register Students', icon: <FaUserPlus />, onClick: registerClick },
-        { name: 'Add Courses', icon: <FaBook />, onClick: addcoursesClick },
-        { name: 'Assignment', icon: <FaTasks />, onClick: assignmentClick },
-        { name: 'Report', icon: <FaFileAlt />, onClick: reportClick },
-        { name: 'Payment', icon: <FaMoneyBill />, onClick: paymentClick },
-      ],
-    },
-    {
-      title: 'Profile',
-         items: [
-        { name: 'Profile', icon: <FaUser />, onClick: profileClick },
-        { name: 'Settings', icon: <FaCog />, onClick: settingsClick },  
-      ],
-    },
-  ];
+  return (
+    <>
+      <div className="menu-button" onClick={showSidebar}>
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="black">
+          <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+        </svg>
+      </div>
 
-  const [openSectionIndex, setOpenSectionIndex] = useState(null);
-
-  const toggleSection = (index) => {
-    setOpenSectionIndex(openSectionIndex === index ? null : index);
-  };
-
-
-    return(
-         <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
-              <div className="logo">
-                    <img src={NI_Blue} alt="" />
-                </div>    
-        
-              {navSections.map((section, index) => (
-                <section className="sidebar-section" key={index}>
-                  <h3
-                    className={`sidebar-heading ${openSectionIndex === index ? 'open' : ''}`}
-                    onClick={() => toggleSection(index)}
-                    role="button"
-                    tabIndex={0}
-                    onKeyPress={(e) => {
-                      if (e.key === 'Enter' || e.key === ' ') toggleSection(index);
-                    }}
-                  >
-                    {section.title}
-                  </h3>
-        
-                  <ul className={`dropdown-list ${openSectionIndex === index ? 'open' : ''}`}>
-                    {section.items.map((item, i) => (
-                      <li key={i}>
-                        <a
-                          href="#!"
-                          onClick={item.onClick}
-                          style={{ cursor: item.onClick ? 'pointer' : 'default', display: 'flex', alignItems: 'center', gap: '10px' }}
-                        >
-                          {item.icon}
-                          {item.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </section>
-              ))}
-            </aside>
-    );
- }
+      <div className={`sidebar ${sidebarVisible ? 'show' : ''}`}>
+        <ul>
+          <li onClick={hideSidebar}>
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="black">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+              </svg>
+            </a>
+          </li>
+          {[
+            'Add_courses', 'Assignment', 'Courses', 'Curriculum', 'Payment', 'Profile',
+            'Register', 'Report', 'Setting', 'Staff', 'Student', 'Student_payment'
+          ].map((item, index) => (
+            <li key={index}>
+              <a href="#">
+                <img src="Co-movies (2).png" alt="icon" />
+                {item}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
+  );
+}

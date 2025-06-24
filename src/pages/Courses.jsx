@@ -1,6 +1,6 @@
 import React from "react";
 import '../css/course.css';
-import Navbar from '../components/Navbar.jsx';
+import Sidebar from '../components/Sidebar.jsx';
 import Topnav from '../components/Topnav.jsx';
 import cybersecurity from '../assets/cybersecurity.jpg';
 import Dbase from '../assets/Dbase.jpg';
@@ -17,7 +17,7 @@ import { MdMargin } from "react-icons/md";
 export default function Courses() {
   return (
     <div className="home-content">
-            <Navbar/>
+            <Sidebar />
               <div className="top-content">
                  <Topnav/>
                 <section className="content">

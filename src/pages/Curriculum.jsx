@@ -2,7 +2,7 @@ import React from "react";
 import '../css/curriculum.css';
 import '../css/course.css';
 import '../css/home.css';
-import Navbar from '../components/Navbar.jsx';
+import Sidebar from '../components/Sidebar.jsx';
 import Topnav from '../components/Topnav.jsx';
 import payment from '../assets/payment.png';
 import cybersecurity from '../assets/cybersecurity.jpg';
@@ -42,7 +42,7 @@ export default function Curriculum() {
   
   return (
     <div className="home-content">
-      <Navbar />
+      <Sidebar />
 
       <div className="top-content">
         <Topnav />

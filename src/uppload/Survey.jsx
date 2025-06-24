@@ -2,7 +2,7 @@ import React from "react";
 import '../css/home.css';
 import '../css/course.css';
 import '../css/curriculum_upload.css';
-import Navbar from '../components/Navbar.jsx';
+import Sidebar from '../components/Sidebar.jsx';
 import Topnav from '../components/Topnav.jsx';
 
 export default function Survey() {
@@ -16,7 +16,7 @@ export default function Survey() {
 
     return (
         <div className="home-content">
-            <Navbar />
+            <Sidebar />
             <div className="top-content">
                 <Topnav />
                 <div className="survey-wrapper">

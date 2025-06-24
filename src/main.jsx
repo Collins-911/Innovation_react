@@ -52,7 +52,7 @@ createRoot(document.getElementById('root')).render(
         <Route path='/tools/assignment' element={<Assignment/>}/>
         <Route path='/general/curriculum' element={<Curriculum/>}/>
         <Route path='/' element={<Entry/>}/>
-        <Route path='/change' element={<Change/>}/>
+        <Route path='/change' element={<Change/>}/> 
         <Route path='/profile/settings' element={<Settings/>}/>
         <Route path='/tools/add_courses' element={<Add_courses/>}/>
         <Route path='/ai' element={<Ai/>}/>

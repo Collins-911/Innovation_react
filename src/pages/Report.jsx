@@ -1,11 +1,11 @@
 import '../css/report.css';
-import Navbar from "../components/Navbar";
+import Sidebar from '../components/Sidebar.jsx';
 import TopNav from "../components/Topnav";
 
 const EmailReports = () => {
   return (
     <div className="home-content">
-      <Navbar />
+       <Sidebar/>
 
       <div className="top-content">
         <TopNav />

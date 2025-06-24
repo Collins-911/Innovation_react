@@ -87,6 +87,10 @@
 .submit-btn:hover {
     background-color: darkblue;
 }
+body.dark .popAddinner{
+    background-color: #2a2a2a;
+    border: none;
+}
 
 @media (max-width: 1024px) {
     .addCourse {

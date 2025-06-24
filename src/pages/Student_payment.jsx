@@ -4,25 +4,26 @@ import '../css/student_payment.css';
 import '../css/home.css';
 // import Swal from 'sweetalert2'
 import Navbar from '../components/Navbar.jsx';
+import Sidebar from '../components/Sidebar.jsx'
 import Topnav from '../components/Topnav.jsx';
 
 
 
 export default function Student_payment(){
 
-	// const paid = () => {
-	// 		Swal.fire({
-	// 			title: "Good job!",
-	// 			text: "Payment Successful",
-	// 			icon: "success"
-	// 		});
-	// 	}
+	const paid = () => {
+			Swal.fire({
+				title: "Good job!",
+				text: "Payment Successful",
+				icon: "success"
+			});
+		}
 
 
 	return(
 		<>
 			<div className="home-content">
-				<Navbar/>
+				<Sidebar/>
 		        <div className="top-content">
 			       <Topnav/> 
 			        <section className="content" style={{padding: "1rem"}}>

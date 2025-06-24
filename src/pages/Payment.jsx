@@ -2,7 +2,7 @@ import React from "react";
 import '../css/home.css';
 import '../css/payment.css';
 import '../css/student.css';
-import Navbar from '../components/Navbar.jsx';
+import Sidebar from '../components/Sidebar.jsx';
 import Topnav from '../components/Topnav.jsx';
 
 
@@ -13,7 +13,7 @@ export default function Payment(){
 	return(
 		<>
 			<div className="home-content">
-		       <Navbar/>
+		      	<Sidebar/>
 		        <div className="top-content">
 		          	<Topnav/>
 			        <section className="content" style={{padding: "1rem"}}>

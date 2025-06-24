@@ -32,7 +32,7 @@ export default function MobileSidebar() {
           ].map((item, index) => (
             <li key={index}>
               <a href="#">
-                <img src="Co-movies (2).png" alt="icon" />
+                <img src="Co-movi-es (2).png" alt="icon" />
                 {item}
               </a>
             </li>

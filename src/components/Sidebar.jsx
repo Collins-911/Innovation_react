@@ -67,7 +67,7 @@ export default function Sidebar({ isOpen, onClose }) {
       title: 'Profile',
          items: [
         { name: 'Profile', icon: <FaUser />, onClick: profileClick },
-        { name: 'Settings', icon: <FaCog />, onClick: settingsClick },  
+        
       ],
     },
   ];

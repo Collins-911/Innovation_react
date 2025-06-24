@@ -14,8 +14,6 @@ export default function Login() {
 
     const [isLoginState, setIsLoginState] = useState(false);
 
-    const click = () => navigate('/signup');
-    const move = () => navigate('/general/dashboard');
 
     const handleLogin = async () => {
         setIsLoginState(true)
@@ -62,7 +60,6 @@ export default function Login() {
                   
               
                 <button className="submit-btn" disabled={isLoginState} onClick={handleLogin}>{ !isLoginState ? "Login" :  "Please wait . . ."}</button>
-                <p className="text3">New Member? <span onClick={click}>Sign up</span></p>
             </div>
         </div>
     );

@@ -4,6 +4,7 @@ import '../css/register.css';
 import Swal from 'sweetalert2'
 import Imageuploader  from '../components/Imageuploader.jsx';
 import Topnav from '../components/Topnav.jsx';
+import Sidebar from '../components/Sidebar.jsx';
 import axios from 'axios';
 
 export default function RegisterStaff(){
@@ -33,7 +34,7 @@ export default function RegisterStaff(){
 	return(
 		<>
 			<div className="home-content">
-			
+                <Sidebar/>
 		        <div className="top-content">
 		          	<Topnav/>
 			        <section className="content" style={{padding: "1rem"}}>

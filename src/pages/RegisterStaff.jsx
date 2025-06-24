@@ -3,17 +3,8 @@ import '../css/home.css';
 import '../css/register.css';
 import Swal from 'sweetalert2'
 import Imageuploader  from '../components/Imageuploader.jsx';
-import Navbar from '../components/Navbar.jsx';
 import Topnav from '../components/Topnav.jsx';
 import axios from 'axios';
-
-
-
-
-
-
-
-
 
 export default function RegisterStaff(){
 	
@@ -42,7 +33,7 @@ export default function RegisterStaff(){
 	return(
 		<>
 			<div className="home-content">
-				<Navbar/>
+			
 		        <div className="top-content">
 		          	<Topnav/>
 			        <section className="content" style={{padding: "1rem"}}>

@@ -3,7 +3,7 @@ import '../css/home.css';
 import '../css/student_payment.css';
 import '../css/home.css';
 // import Swal from 'sweetalert2'
-import Navbar from '../components/Navbar.jsx';
+
 import Sidebar from '../components/Sidebar.jsx'
 import Topnav from '../components/Topnav.jsx';
 

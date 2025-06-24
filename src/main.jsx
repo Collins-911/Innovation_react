@@ -12,6 +12,7 @@ import Staff from './pages/Staff.jsx';
 import Courses from './pages/Courses.jsx';
 import Report from './pages/Report.jsx';
 import Profile from './pages/profile.jsx';
+import RegisterStaff from './pages/RegisterStaff.jsx';
 import { MdAssignment } from 'react-icons/md';
 import Assignment from './pages/Assignment.jsx';
 import Curriculum from './pages/Curriculum.jsx';
@@ -41,6 +42,7 @@ createRoot(document.getElementById('root')).render(
         <Route path='/signup' element={<Signup/>}/>
         <Route path='/general/student' element={<Student/>}/>
         <Route path='/tools/register' element={<Register/>}/>
+        <Route path='/tools/registerstaff' element={<RegisterStaff/>}/>
         <Route path='/tools/payment' element={<Payment/>}/>
         <Route path='/student_payment' element={<Student_payment/>}/>
         <Route path='/general/staff' element={<Staff/>}/>

@@ -135,6 +135,10 @@ export default function Navigation() {
     console.log('Navigating to Change');
     navigate('/');
   };
+  const registerstaffClick = () => {
+    console.log('Navigating to Register staff');
+    navigate('/tools/registerstaff');
+  };
 
 
 
@@ -151,6 +155,7 @@ export default function Navigation() {
     assignmentClick,
     addcoursesClick,
     studentPayment,
+    registerstaffClick,
 
     profileClick,
     settingsClick,

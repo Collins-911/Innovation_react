@@ -16,9 +16,9 @@ import RegisterStaff from './pages/RegisterStaff.jsx';
 import { MdAssignment } from 'react-icons/md';
 import Assignment from './pages/Assignment.jsx';
 import Curriculum from './pages/Curriculum.jsx';
-import Entry from './components/entry.jsx';
+
 import Change from './pages/login/change.jsx';
-import Settings from './pages/settings.jsx';
+
 import Add_courses from './pages/Add_courses.jsx';
 import Ai from './uppload/Ai.jsx';
 import Cybersecurity from './uppload/Cybersecurity.jsx';
@@ -38,7 +38,7 @@ createRoot(document.getElementById('root')).render(
     <BrowserRouter>
       <Routes>
         <Route path='/general/dashboard' element={<Home/>}/>
-        <Route path='/login' element={<Login/>}/>
+        <Route path='/' element={<Login/>}/>
         <Route path='/signup' element={<Signup/>}/>
         <Route path='/general/student' element={<Student/>}/>
         <Route path='/tools/register' element={<Register/>}/>
@@ -51,9 +51,9 @@ createRoot(document.getElementById('root')).render(
         <Route path='/profile/profile' element={<Profile/>}/>
         <Route path='/tools/assignment' element={<Assignment/>}/>
         <Route path='/general/curriculum' element={<Curriculum/>}/>
-        <Route path='/' element={<Entry/>}/>
+       
         <Route path='/change' element={<Change/>}/> 
-        <Route path='/profile/settings' element={<Settings/>}/>
+       
         <Route path='/tools/add_courses' element={<Add_courses/>}/>
         <Route path='/ai' element={<Ai/>}/>
         <Route path='/cybersecurity' element={<Cybersecurity/>}/>

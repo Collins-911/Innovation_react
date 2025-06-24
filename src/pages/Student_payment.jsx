@@ -2,12 +2,21 @@ import React from "react";
 import '../css/home.css';
 import '../css/student_payment.css';
 import '../css/home.css';
+// import Swal from 'sweetalert2'
 import Navbar from '../components/Navbar.jsx';
 import Topnav from '../components/Topnav.jsx';
 
 
 
 export default function Student_payment(){
+
+	// const paid = () => {
+	// 		Swal.fire({
+	// 			title: "Good job!",
+	// 			text: "Payment Successful",
+	// 			icon: "success"
+	// 		});
+	// 	}
 
 
 	return(

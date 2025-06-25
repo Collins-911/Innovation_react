@@ -3,21 +3,14 @@ import '../css/home.css';
 import '../css/register.css';
 import Swal from 'sweetalert2'
 import Imageuploader  from '../components/Imageuploader.jsx';
-import Sidebar from '../components/Sidebar.jsx';
 import Topnav from '../components/Topnav.jsx';
+import Sidebar from '../components/Sidebar.jsx';
 import axios from 'axios';
 
 
-
-
-
-
-
-
-
-export default function Register(){
+export default function RegisterStaff(){
 	
-	const submit = () => {
+	const submitstaff = () => {
 		Swal.fire({
 		  	title: "Good job!",
 		  	text: "Registration Successful",
@@ -42,13 +35,16 @@ export default function Register(){
 	return(
 		<>
 			<div className="home-content">
-				<Sidebar/>
+
+				< Sidebar/>
+			
+
 		        <div className="top-content">
 		          	<Topnav/>
 			        <section className="content" style={{padding: "1rem"}}>
 			        	<div className="register-title" style={{marginTop: "4rem"}}>
-			           		<h4>Register Student</h4>
-			           		<p>Students / <span>Register student</span></p>
+			           		<h4>Register Staff</h4>
+			           		<p>Staffs / <span>Register staffs</span></p>
 			           	</div>
 			           	<div className="register-form">
 			           		<div className="list-title">
@@ -94,7 +90,7 @@ export default function Register(){
 										<input type="date" id="registration_date" name="registration_date" required />
 									</div>
 									<Imageuploader/>
-									<button onClick={submit}>Submit</button>
+									<button onClick={submitstaff}>Submit</button>
 								</form>
 					       </div>
 			           	</div>

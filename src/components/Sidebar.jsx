@@ -3,20 +3,22 @@ import Navigation from './Navigation.jsx';
 import '../css/home.css';
 import { FaMoon } from "react-icons/fa";
 import NI_Blue from '../assets/NI_Blue.png'
+import { RiUserAddLine } from 'react-icons/ri';
+
 
 import {
   FaHome,
   FaUserGraduate,
-  FaChalkboardTeacher,
   FaBook,
-  FaMoneyBill,
-  FaUserPlus,
   FaClipboardList,
+  FaChalkboardTeacher,
+  FaUserPlus,
   FaTasks,
   FaFileAlt,
-  FaCog,
-  FaUser,
   FaMoneyBillWave,
+  FaMoneyBill,
+  FaUser,
+  FaCog
 } from 'react-icons/fa';
 
 export default function Sidebar({ isOpen, onClose }) {
@@ -34,6 +36,7 @@ export default function Sidebar({ isOpen, onClose }) {
     settingsClick,
     addcoursesClick,
     studentPayment,
+    registerstaffClick
   } = Navigation();
 
   const navSections = [
@@ -50,20 +53,21 @@ export default function Sidebar({ isOpen, onClose }) {
     {
       title: 'Tools',
       items: [
+         { name: 'Register Staff', icon: < RiUserAddLine  />, onClick: registerstaffClick},
         { name: 'Register Students', icon: <FaUserPlus />, onClick: registerClick },
         { name: 'Add Courses', icon: <FaBook />, onClick: addcoursesClick },
         { name: 'Assignment', icon: <FaTasks />, onClick: assignmentClick },
         { name: 'Report', icon: <FaFileAlt />, onClick: reportClick },
          { name: 'Student Payment', icon: <FaMoneyBillWave />, onClick: studentPayment },
         { name: 'Payment', icon: <FaMoneyBill />, onClick: paymentClick },
-        
+         
       ],
     },
     {
       title: 'Profile',
          items: [
         { name: 'Profile', icon: <FaUser />, onClick: profileClick },
-        { name: 'Settings', icon: <FaCog />, onClick: settingsClick },  
+        
       ],
     },
   ];

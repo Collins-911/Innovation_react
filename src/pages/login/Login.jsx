@@ -1,20 +1,53 @@
 import React from "react";
 import '../../css/login.css';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { useState, props } from "react";
+import * as constant from '../../utils/constants'
+
 
 export default function Login() {
     const navigate = useNavigate();
 
-    const click = () => navigate('/signup');
-    const move = () => navigate('/general/dashboard');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const [isLoginState, setIsLoginState] = useState(false);
+
+
+    const handleLogin = async () => {
+        setIsLoginState(true)
+        try {
+            const response = await axios.post(`${constant.default}/auth/admin/login`, {
+                email,
+                password
+            });
+
+            if(response.data?.status){
+                navigate('/general/dashboard')
+            }
+
+        } catch (error) {
+            console.log(error)
+            if (error.response) {
+                // Server responded with a status other than 2xx
+                alert(error.response.data.message || 'Login failed');
+            } else {
+                // Network error or other issue
+                alert('An error occurred. Please try again.');
+            }
+        }finally{
+            setIsLoginState(false)
+        }
+    };
 
     return (
         <div className="login-container">
             <div className="glass-card">
                 <h1>Welcome</h1>
                 <p>Login to your account</p>
-                <input type="text" placeholder="Username" className="input-field" />
-                <input type="password" placeholder="Password" className="input-field" />
+                <input type="email" placeholder="Enter email" className="input-field"  value={email} onChange={(e) => setEmail(e.target.value)}/>
+                <input type="password" placeholder="Password" className="input-field"  value={password}  onChange={(e) => setPassword(e.target.value)}/>
 
                      <div className="text2">
                               <div className="remember">
@@ -26,8 +59,7 @@ export default function Login() {
                     </div>
                   
               
-                <button className="submit-btn" onClick={move}>Login</button>
-                <p className="text3">New Member? <span onClick={click}>Sign up</span></p>
+                <button className="submit-btn" disabled={isLoginState} onClick={handleLogin}>{ !isLoginState ? "Login" :  "Please wait . . ."}</button>
             </div>
         </div>
     );

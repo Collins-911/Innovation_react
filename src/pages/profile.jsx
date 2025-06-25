@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../css/profile.css'
 import Change from "../pages/login/change";
-import Themebtn from '../../src/components/Themebtn.jsx';
+import Themebtn from "../components/Themebtn.jsx";
+
 
 
 import {

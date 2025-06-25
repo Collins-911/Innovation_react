@@ -204,7 +204,7 @@ h2 {
   padding: 20px;
   font-weight: 600;
   font-size: 1.1rem;
-  text-align: center;
+  /* text-align: center; */
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(15, 1, 122, 0.1);
 }

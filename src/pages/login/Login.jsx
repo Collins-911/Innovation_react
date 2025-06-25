@@ -24,6 +24,9 @@ export default function Login() {
             });
 
             if(response.data?.status){
+                // Store user session in cookie store
+
+
                 navigate('/general/dashboard')
             }
 

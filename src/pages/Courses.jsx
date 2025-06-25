@@ -6,7 +6,6 @@ import cybersecurity from '../assets/cybersecurity.jpg';
 import Dbase from '../assets/Dbase.jpg';
 import Dmarket from '../assets/Dmarket.jpg';
 import Dscience from '../assets/Dscience.jpg';
-
 import { MdMargin } from "react-icons/md";
 
 

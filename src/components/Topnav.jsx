@@ -80,12 +80,6 @@ export default function TopNav() {
         </div>
 
         <div className="right-section">
-          {[w3School, nugi, front, free].map((url, idx) => (
-            <a key={idx} href={url} target="_blank" rel="noopener noreferrer">
-              <div className="w3"><img /></div>
-            </a>
-          ))}
-
           <div className="searchInput">
             <input type="text" placeholder="Search..." className="search" />
             <button className="searchBtn">

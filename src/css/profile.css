@@ -128,7 +128,19 @@
   color: inherit; 
   display: inline-block; 
 }
-
+body.dark .profile-content{
+  background-color: #2a2a2a;
+}
+body.dark .profile-tabs{
+    background-color: #2a2a2a;
+   
+}
+body.dark .tab{
+  color: white;
+}
+body.dark .detail-row span{
+  color: white;
+}
 
 @media (min-width: 768px) {
   .profile-container {

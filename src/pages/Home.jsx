@@ -11,7 +11,7 @@ import {
 } from 'recharts';
 import TopNav from '../components/Topnav';
 import { TbHemisphere } from 'react-icons/tb';
-import Themebtn from '../components/themebtn';
+import Themebtn from '../components/Themebtn.jsx';
 
 const summaryData = {
   totalStudents: 120,

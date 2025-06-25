@@ -11,7 +11,6 @@ import {
 } from 'recharts';
 import TopNav from '../components/Topnav';
 import { TbHemisphere } from 'react-icons/tb';
-import Themebtn from '../components/Themebtn.jsx';
 
 const summaryData = {
   totalStudents: 120,
@@ -54,7 +53,7 @@ export default function Dashboard() {
     
         <div className="dashb-cont">  
               <div className="hello">
-                  {/* <h3> Welcome to the dashboard, {User}</h3> */}
+                 
               </div>
           <div className="dash-cards">
             <div className="card frosted">

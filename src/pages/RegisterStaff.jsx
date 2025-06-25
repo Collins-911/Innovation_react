@@ -5,7 +5,6 @@ import Swal from 'sweetalert2'
 import Imageuploader  from '../components/Imageuploader.jsx';
 import Topnav from '../components/Topnav.jsx';
 import Sidebar from '../components/Sidebar.jsx';
-import axios from 'axios';
 
 
 export default function RegisterStaff(){

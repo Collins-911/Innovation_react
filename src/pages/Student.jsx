@@ -12,28 +12,6 @@ import { useEffect, useState } from "react";
 
 export default function Student(){
 
-	const [students, setStudents] = useState([]);
-  	const [loading, setLoading] = useState(true);
-	
-	useEffect(() => {
-		// Fetch data from an API
-		fetch("https://jsonplaceholder.typicode.com/users")
-		.then((response) => {
-			if (!response.ok) {
-			throw new Error("Network response was not OK");
-			}
-			return response.json();
-		})
-		.then((data) => {
-			setStudents(data);
-			setLoading(false);
-		})
-		.catch((error) => {
-			console.error("There was a problem with the fetch operation:", error);
-			setLoading(false);
-		});
-	}, []); // Empty array means this runs once when component mounts
-	 
 
 	return (
 		<>
@@ -65,6 +43,87 @@ export default function Student(){
 			           				</thead>
 			           				<tbody>
 			           					<tr>
+				           					<td><img src={dummy} /></td>
+				           					<td>Jacinta Ada Bisong</td>
+				           					<td>Web Development</td>
+				           					<td>12345678900</td>
+				           					<td>emailaddress@gmail.com</td>
+				           					<td>12/10/2024</td>
+				           					<td><button>Delete</button></td>
+				           				</tr>
+										<tr>
+				           					<td><img src={dummy} /></td>
+				           					<td>Jacinta Ada Bisong</td>
+				           					<td>Web Development</td>
+				           					<td>12345678900</td>
+				           					<td>emailaddress@gmail.com</td>
+				           					<td>12/10/2024</td>
+				           					<td><button>Delete</button></td>
+				           				</tr>
+										<tr>
+				           					<td><img src={dummy} /></td>
+				           					<td>Jacinta Ada Bisong</td>
+				           					<td>Web Development</td>
+				           					<td>12345678900</td>
+				           					<td>emailaddress@gmail.com</td>
+				           					<td>12/10/2024</td>
+				           					<td><button>Delete</button></td>
+				           				</tr>
+										<tr>
+				           					<td><img src={dummy} /></td>
+				           					<td>Jacinta Ada Bisong</td>
+				           					<td>Web Development</td>
+				           					<td>12345678900</td>
+				           					<td>emailaddress@gmail.com</td>
+				           					<td>12/10/2024</td>
+				           					<td><button>Delete</button></td>
+				           				</tr>
+										<tr>
+				           					<td><img src={dummy} /></td>
+				           					<td>Jacinta Ada Bisong</td>
+				           					<td>Web Development</td>
+				           					<td>12345678900</td>
+				           					<td>emailaddress@gmail.com</td>
+				           					<td>12/10/2024</td>
+				           					<td><button>Delete</button></td>
+				           				</tr>
+										<tr>
+				           					<td><img src={dummy} /></td>
+				           					<td>Jacinta Ada Bisong</td>
+				           					<td>Web Development</td>
+				           					<td>12345678900</td>
+				           					<td>emailaddress@gmail.com</td>
+				           					<td>12/10/2024</td>
+				           					<td><button>Delete</button></td>
+				           				</tr>
+										<tr>
+				           					<td><img src={dummy} /></td>
+				           					<td>Jacinta Ada Bisong</td>
+				           					<td>Web Development</td>
+				           					<td>12345678900</td>
+				           					<td>emailaddress@gmail.com</td>
+				           					<td>12/10/2024</td>
+				           					<td><button>Delete</button></td>
+				           				</tr>
+										<tr>
+				           					<td><img src={dummy} /></td>
+				           					<td>Jacinta Ada Bisong</td>
+				           					<td>Web Development</td>
+				           					<td>12345678900</td>
+				           					<td>emailaddress@gmail.com</td>
+				           					<td>12/10/2024</td>
+				           					<td><button>Delete</button></td>
+				           				</tr>
+										<tr>
+				           					<td><img src={dummy} /></td>
+				           					<td>Jacinta Ada Bisong</td>
+				           					<td>Web Development</td>
+				           					<td>12345678900</td>
+				           					<td>emailaddress@gmail.com</td>
+				           					<td>12/10/2024</td>
+				           					<td><button>Delete</button></td>
+				           				</tr>
+										<tr>
 				           					<td><img src={dummy} /></td>
 				           					<td>Jacinta Ada Bisong</td>
 				           					<td>Web Development</td>

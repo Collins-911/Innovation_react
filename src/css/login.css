@@ -29,12 +29,8 @@ body {
 }
 
 @keyframes moveBackground {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 100% 100%;
-  }
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 100%; }
 }
 
 .glass-card {
@@ -89,9 +85,10 @@ body {
   margin: 15px 0;
   font-size: 0.95em;
   width: 100%;
+  gap: 10px;
 }
 
-.text2 label {
+.remember-wrap {
   display: flex;
   align-items: center;
   gap: 6px;
@@ -99,20 +96,20 @@ body {
   cursor: pointer;
 }
 
-.text2 input[type="checkbox"] {
+.remember-me {
   width: 16px;
   height: 16px;
   accent-color: #1e90ff;
   cursor: pointer;
 }
 
-.text2 a {
+.forgot {
   color: white;
   text-decoration: none;
   font-size: 0.95em;
 }
 
-.text2 a:hover {
+.forgot:hover {
   text-decoration: underline;
 }
 

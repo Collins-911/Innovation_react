@@ -59,10 +59,19 @@ export default function Dashboard() {
             <div className="card frosted">
               <div style={{fontSize: "35px"}}>{summaryData.totalStudents}</div>
               <div style={{fontSize: "13px", color: "gray", textTransform:"uppercase"}}>Total Students</div>
-            </div>
-            <div className="card frosted">Present Today: {summaryData.presentToday}</div>
-            <div className="card frosted">Absent Today: {summaryData.absentToday}</div>
-            <div className="card frosted">Avg Weekly: {summaryData.avgWeekly}</div>
+              </div>
+            <div className="card frosted">
+              <div style={{fontSize: "35px"}}>{summaryData.presentToday}</div>
+              <div  style={{fontSize: "13px", color: "gray", textTransform:"uppercase"}}>Present Today</div>
+              </div>
+               <div className="card frosted">
+              <div style={{fontSize: "35px"}}>{summaryData.absentToday}</div>
+              <div  style={{fontSize: "13px", color: "gray", textTransform:"uppercase"}}>Absent today</div>
+              </div>
+              <div className="card frosted">
+              <div style={{fontSize: "35px"}}>{summaryData.avgWeekly}</div>
+              <div  style={{fontSize: "13px", color: "gray", textTransform:"uppercase"}}>Avg Weekly</div>
+              </div>
           </div>
           <div className="chart-cont">
             <h3>Attendance Trend This Week</h3>

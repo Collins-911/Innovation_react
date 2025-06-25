@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ReactDOM from 'react-dom/client';
 import { createRoot } from 'react-dom/client';
 import Login from './pages/login/Login.jsx';
-import Signup from './pages/login/Signup.jsx';
 import Home from './pages/Home.jsx';
 import Student from './pages/Student.jsx';
 import Register from './pages/Register.jsx';
@@ -17,7 +16,6 @@ import { MdAssignment } from 'react-icons/md';
 import Assignment from './pages/Assignment.jsx';
 import Curriculum from './pages/Curriculum.jsx';
 
-import Change from './pages/login/change.jsx';
 
 import Add_courses from './pages/Add_courses.jsx';
 import Ai from './uppload/Ai.jsx';
@@ -39,7 +37,6 @@ createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path='/general/dashboard' element={<Home/>}/>
         <Route path='/' element={<Login/>}/>
-        <Route path='/signup' element={<Signup/>}/>
         <Route path='/general/student' element={<Student/>}/>
         <Route path='/tools/register' element={<Register/>}/>
         <Route path='/tools/registerstaff' element={<RegisterStaff/>}/>
@@ -51,8 +48,6 @@ createRoot(document.getElementById('root')).render(
         <Route path='/profile/profile' element={<Profile/>}/>
         <Route path='/tools/assignment' element={<Assignment/>}/>
         <Route path='/general/curriculum' element={<Curriculum/>}/>
-       
-        <Route path='/change' element={<Change/>}/> 
        
         <Route path='/tools/add_courses' element={<Add_courses/>}/>
         <Route path='/ai' element={<Ai/>}/>

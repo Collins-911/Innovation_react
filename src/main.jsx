@@ -15,6 +15,8 @@ import RegisterStaff from './pages/RegisterStaff.jsx';
 import { MdAssignment } from 'react-icons/md';
 import Assignment from './pages/Assignment.jsx';
 import Curriculum from './pages/Curriculum.jsx';
+import { CookiesProvider } from 'react-cookie'; 
+
 
 
 import Add_courses from './pages/Add_courses.jsx';
@@ -33,7 +35,8 @@ import Survey from './uppload/Survey.jsx';
 
 createRoot(document.getElementById('root')).render(
 
-    <BrowserRouter>
+   <CookiesProvider>
+       <BrowserRouter>
       <Routes>
         <Route path='/general/dashboard' element={<Home/>}/>
         <Route path='/' element={<Login/>}/>
@@ -64,5 +67,6 @@ createRoot(document.getElementById('root')).render(
         <Route path='/tools/student_payment' element={<Student_payment/>}/>
       </Routes>
     </BrowserRouter>
+   </CookiesProvider>
 
 );

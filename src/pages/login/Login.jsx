@@ -16,6 +16,14 @@ export default function Login() {
     const [isLoginState, setIsLoginState] = useState(false);
 
     const [cookies, setCookie] = useCookies(['user']);
+    const [role, setRole] = useState(''); /*document.querySelector('.userType').value;*/
+
+    const roles = [
+		"admin",
+        "staff",
+        "student"
+
+	]
 
 
     const handleLogin = async () => {
@@ -56,6 +64,16 @@ export default function Login() {
                 <p>Login to your account</p>
                 <input type="email" placeholder="Enter email" className="input-field"  value={email} onChange={(e) => setEmail(e.target.value)}/>
                 <input type="password" placeholder="Password" className="input-field"  value={password}  onChange={(e) => setPassword(e.target.value)}/>
+                <select className="input-select" name="role" value={role} onChange={(e) => setRole(e.target.value)}>
+                <option value="">Select a user type</option>
+                {
+                    roles.map((item) => (
+                        <option value={item}>
+                            {item}
+                        </option>
+                    ))
+                }
+                </select>
 
                      <div className="text2">
                               <div className="remember">

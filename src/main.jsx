@@ -31,6 +31,7 @@ import Pmanagement from './uppload/Pmanagement.jsx';
 import Survey from './uppload/Survey.jsx';
 
 createRoot(document.getElementById('root')).render(
+
   <CookiesProvider>
     <BrowserRouter>
       <Routes>
@@ -62,5 +63,5 @@ createRoot(document.getElementById('root')).render(
         <Route path='/tools/student_payment' element={<Student_payment />} />
       </Routes>
     </BrowserRouter>
-  </CookiesProvider>
-);
+   </CookiesProvider>
+)

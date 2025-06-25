@@ -4,7 +4,7 @@ import '../css/student.css';
 import Sidebar from '../components/Sidebar.jsx';
 import Topnav from '../components/Topnav.jsx';
 import dummy from '../assets/dummy.webp'
-import axios from 'axios';
+import { useEffect, useState } from "react";
 
 
 
@@ -12,6 +12,28 @@ import axios from 'axios';
 
 export default function Student(){
 
+	const [students, setStudents] = useState([]);
+  	const [loading, setLoading] = useState(true);
+	
+	useEffect(() => {
+		// Fetch data from an API
+		fetch("https://jsonplaceholder.typicode.com/users")
+		.then((response) => {
+			if (!response.ok) {
+			throw new Error("Network response was not OK");
+			}
+			return response.json();
+		})
+		.then((data) => {
+			setStudents(data);
+			setLoading(false);
+		})
+		.catch((error) => {
+			console.error("There was a problem with the fetch operation:", error);
+			setLoading(false);
+		});
+	}, []); // Empty array means this runs once when component mounts
+	 
 
 	return (
 		<>
@@ -49,87 +71,6 @@ export default function Student(){
 				           					<td>12345678900</td>
 				           					<td>emailaddress@gmail.com</td>
 				           					<td>12/10/2024</td>
-				           					<td><button>Delete</button></td>
-				           				</tr>
-				           				<tr>
-				           					<td><img src={dummy} /></td>
-				           					<td>person2</td>
-				           					<td>course2</td>
-				           					<td>123456789</td>
-				           					<td>email address</td>
-				           					<td>12222222</td>
-				           					<td><button>Delete</button></td>
-				           				</tr>
-				           				<tr>
-				           					<td><img src={dummy} /></td>
-				           					<td>person3</td>
-				           					<td>course3</td>
-				           					<td>123456789</td>
-				           					<td>email address</td>
-				           					<td>12222222</td>
-				           					<td><button>Delete</button></td>
-				           				</tr>
-				           				<tr>
-				           					<td><img src={dummy} /></td>
-				           					<td>person4</td>
-				           					<td>course4</td>
-				           					<td>123456789</td>
-				           					<td>email address</td>
-				           					<td>12222222</td>
-				           					<td><button>Delete</button></td>
-				           				</tr>
-				           				<tr>
-				           					<td><img src={dummy} /></td>
-				           					<td>person5</td>
-				           					<td>course5</td>
-				           					<td>123456789</td>
-				           					<td>email address</td>
-				           					<td>12222222</td>
-				           					<td><button>Delete</button></td>
-				           				</tr>
-				           				<tr>
-				           					<td><img src={dummy} /></td>
-				           					<td>person6</td>
-				           					<td>course6</td>
-				           					<td>123456789</td>
-				           					<td>email address</td>
-				           					<td>12222222</td>
-				           					<td><button>Delete</button></td>
-				           				</tr>
-				           				<tr>
-				           					<td><img src={dummy} /></td>
-				           					<td>person7</td>
-				           					<td>course7</td>
-				           					<td>123456789</td>
-				           					<td>email address</td>
-				           					<td>12222222</td>
-				           					<td><button>Delete</button></td>
-				           				</tr>
-				           				<tr>
-				           					<td><img src={dummy} /></td>
-				           					<td>person8</td>
-				           					<td>course8</td>
-				           					<td>123456789</td>
-				           					<td>email address</td>
-				           					<td>12222222</td>
-				           					<td><button>Delete</button></td>
-				           				</tr>
-				           				<tr>
-				           					<td><img src={dummy} /></td>
-				           					<td>person9</td>
-				           					<td>course9</td>
-				           					<td>123456789</td>
-				           					<td>email address</td>
-				           					<td>12222222</td>
-				           					<td><button>Delete</button></td>
-				           				</tr>
-				           				<tr>
-				           					<td><img src={dummy} /></td>
-				           					<td>person10</td>
-				           					<td>course10</td>
-				           					<td>123456789</td>
-				           					<td>email address</td>
-				           					<td>12222222</td>
 				           					<td><button>Delete</button></td>
 				           				</tr>
 			           				</tbody>

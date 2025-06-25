@@ -54,10 +54,13 @@ export default function Dashboard() {
     
         <div className="dashb-cont">  
               <div className="hello">
-                  <h3> Welcome to the dashboard, {User}</h3>
+                  {/* <h3> Welcome to the dashboard, {User}</h3> */}
               </div>
           <div className="dash-cards">
-            <div className="card frosted">Total Students: {summaryData.totalStudents}</div>
+            <div className="card frosted">
+              <div style={{fontSize: "35px"}}>{summaryData.totalStudents}</div>
+              <div style={{fontSize: "13px", color: "gray", textTransform:"uppercase"}}>Total Students</div>
+            </div>
             <div className="card frosted">Present Today: {summaryData.presentToday}</div>
             <div className="card frosted">Absent Today: {summaryData.absentToday}</div>
             <div className="card frosted">Avg Weekly: {summaryData.avgWeekly}</div>

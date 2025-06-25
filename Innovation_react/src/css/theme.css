@@ -1,0 +1,60 @@
+.theme-toggle {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: rgba(15, 1, 122);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 1s;
+  border: 1px solid white;
+  z-index: 1000;
+  color: white;
+}
+
+.moon-icon {
+  font-size: 20px;
+  color: white;
+  transition: 0s;
+}
+
+.moon-icon:hover {
+  transform: rotateZ(360deg);
+  transition: 1s;
+}
+
+body {
+  background-color: #fff;
+  color: #000;
+  transition: 0.5s;
+}
+
+body.dark {
+  background-color: #121212;
+  color: #ffffff;
+  transition: 0.5s;
+}
+
+body.dark .dashb-count .hello h3 {
+  color: #ffffff;
+}
+
+body.dark .theme-toggle {
+  background-color: rgba(15, 1, 122, 0.8);
+  border: 1px solid #121212;
+}
+
+body.dark .moon-icon {
+  color: white;
+}
+
+body.dark .card {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+  transition: 0.5s;
+}

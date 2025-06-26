@@ -25,6 +25,7 @@ export default function AddCourses() {
                                 <h2>Add Course Details</h2>
                                 <input type="text" placeholder="Course Name" />
                                 <input type="text" placeholder="No. of Lessons" />
+                                <input type="text" placeholder="Description" />
                                 <input type="date" placeholder="Duration" />
                                 <button className="submit-btn">Submit</button>
                             </div>

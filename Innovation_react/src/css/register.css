@@ -1,0 +1,112 @@
+
+.register-title{
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 55px;
+  background-color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    padding: 0 1rem;
+
+    p{
+      margin-left: 65%;
+      font-size: 12px;
+  }
+}
+.register-form{
+  color: black !important;
+  margin-top: 3rem;
+  width: 100%;
+  min-height: 105vh;
+  background-color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+.r-form{
+  padding: 2rem;
+}
+
+select{
+  width: 100% !important;
+  height: 40px;
+  outline: none;
+  border-radius: 10px;
+  border: 1px solid rgba(200, 200, 200, 1);
+  padding-left: 1rem;
+   padding-right: 1rem;
+}
+.r-form label{
+  font-size: 13px;
+  font-weight: bold;
+}
+.r-form button{
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  color: white;
+  background-color: rgba(15, 1, 122);
+}
+body.dark .register-title{
+  background-color: #1a1a1a !important  
+}
+body.dark .register-title p{
+  color: white !important;
+}
+body.dark .register-form{
+  background-color: #1a1a1a !important;
+  color: white !important;
+}
+body.dark .r-form label{
+  color: white !important;
+}
+.form-input {
+  width: 100%;
+  height: 40px;
+  padding: 0 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(200, 200, 200, 1);
+  outline: none;
+  font-size: 14px;
+  background-color: white;
+  color: black;
+  transition: 0.3s ease;
+}
+
+.form-input:focus {
+  border-color: #1e90ff;
+  box-shadow: 0 0 0 2px rgba(30, 144, 255, 0.2);
+}
+
+/* Dark Mode Support */
+body.dark .form-input {
+  background-color: #1a1a1a;
+  color: white;
+  border: 1px solid #444;
+}
+
+
+
+body.dark .r-form input,
+body.dark .r-form textarea {
+  background-color: #1a1a1a;
+  color: white;
+}
+
+
+@media only screen and (max-width: 768px){
+  .register-title p{
+    display: none !important;
+  }
+}
+
+
+@media only screen and (min-width: 820px) and (max-width: 1180px){
+   .register-title p{
+    display: none !important;
+  }
+}

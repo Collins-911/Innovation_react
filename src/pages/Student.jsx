@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 
 
 
+
 export default function Student(){
 
 
@@ -145,7 +146,9 @@ export default function Student(){
 			           	</div>
 		          </section>
 				  
+				  
 		        </div>
+			
 			
 	      	</div>
 			

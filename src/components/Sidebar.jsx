@@ -4,7 +4,8 @@ import '../css/home.css';
 import { FaMoon } from "react-icons/fa";
 import NI_Blue from '../assets/NI_Blue.png'
 import { RiUserAddLine } from 'react-icons/ri';
-import Themebtn from './Themebtn.jsx'
+
+
 
 
 import {
@@ -120,16 +121,18 @@ export default function Sidebar({ isOpen, onClose }) {
             ))}
           </ul>
 
-          <Themebtn />
+       
          
 
-            
+      
 
         </section>
+        
             
                      
       ))}
     </aside>
+    
       
   );
 }

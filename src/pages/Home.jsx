@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Sidebar from '../components/Sidebar.jsx';
 import { FaMoon } from "react-icons/fa";
+import Footer from '../components/Footer.jsx'
 import {
   LineChart,
   Line,
@@ -114,6 +115,7 @@ export default function Dashboard() {
           </div>
 
         </div>
+        <Footer />
       </div>
 
               

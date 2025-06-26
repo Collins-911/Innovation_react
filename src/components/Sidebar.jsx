@@ -65,7 +65,7 @@ export default function Sidebar({ isOpen, onClose }) {
       ],
     },
     {
-      title: 'Profile',
+      title: 'My Account',
          items: [
         { name: 'Profile', icon: <FaUser />, onClick: profileClick },
         

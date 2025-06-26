@@ -7,6 +7,7 @@ import { RiUserAddLine } from 'react-icons/ri';
 
 
 
+
 import {
   FaHome,
   FaUserGraduate,
@@ -44,28 +45,28 @@ export default function Sidebar({ isOpen, onClose }) {
     {
       title: 'General',
       items: [
-        { name: 'Dashboard', icon: <FaHome />, onClick: dashboardClick },
-        { name: 'Students', icon: <FaUserGraduate />, onClick: studentClick },
-        { name: 'Courses', icon: <FaBook />, onClick: coursesClick },
-        { name: 'Curriculum', icon: <FaClipboardList />, onClick: curriculumClick },
-        { name: 'Staffs', icon: <FaChalkboardTeacher />, onClick: staffClick },
+        { name: 'Dashboard', icon: <FaHome />, onClick: dashboardClick, roles: ['student', 'staff', 'admin'] },
+        { name: 'Students', icon: <FaUserGraduate />, onClick: studentClick, roles: ['admin'] },
+        { name: 'Courses', icon: <FaBook />, onClick: coursesClick, roles: ['admin']},
+        { name: 'Curriculum', icon: <FaClipboardList />, onClick: curriculumClick, roles: ['admin'] },
+        { name: 'Staffs', icon: <FaChalkboardTeacher />, onClick: staffClick, roles: ['admin'] },
       ],
     },
     {
       title: 'Tools',
       items: [
-         { name: 'Register Staff', icon: < RiUserAddLine  />, onClick: registerstaffClick},
-        { name: 'Register Students', icon: <FaUserPlus />, onClick: registerClick },
-        { name: 'Add Courses', icon: <FaBook />, onClick: addcoursesClick },
-        { name: 'Assignment', icon: <FaTasks />, onClick: assignmentClick },
-        { name: 'Report', icon: <FaFileAlt />, onClick: reportClick },
-         { name: 'Student Payment', icon: <FaMoneyBillWave />, onClick: studentPayment },
-        { name: 'Payment', icon: <FaMoneyBill />, onClick: paymentClick },
+         { name: 'Register Staff', icon: < RiUserAddLine  />, onClick: registerstaffClick, roles: ['admin']},
+        { name: 'Register Students', icon: <FaUserPlus />, onClick: registerClick, roles: ['admin']},
+        { name: 'Add Courses', icon: <FaBook />, onClick: addcoursesClick, roles: ['admin']},
+        { name: 'Assignment', icon: <FaTasks />, onClick: assignmentClick, roles: ['admin']},
+        { name: 'Report', icon: <FaFileAlt />, onClick: reportClick, roles: ['admin']},
+         { name: 'Student Payment', icon: <FaMoneyBillWave />, onClick: studentPayment, roles: ['admin']},
+        { name: 'Payment', icon: <FaMoneyBill />, onClick: paymentClick, roles: ['admin']},
          
       ],
     },
     {
-      title: 'Profile',
+      title: 'My Account',
          items: [
         { name: 'Profile', icon: <FaUser />, onClick: profileClick },
         
@@ -119,15 +120,19 @@ export default function Sidebar({ isOpen, onClose }) {
               </li>
             ))}
           </ul>
+
+       
          
 
-            
+      
 
         </section>
+        
             
                      
       ))}
     </aside>
+    
       
   );
 }

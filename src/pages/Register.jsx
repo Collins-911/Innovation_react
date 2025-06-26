@@ -55,22 +55,22 @@ export default function Register(){
 					       		<form action="/register" method="post">
 									<div className="form-group">
 										<label htmlFor="fullname">Full Name:</label>
-										<input type="text" id="fullname" name="fullname" required />
+										<input type="text" id="fullname" name="fullname" required className="form-input"/>
 									</div>
 
 									<div className="form-group">
 										<label htmlFor="email">Email Address:</label>
-										<input type="email" id="email" name="email" required />
+										<input type="email" id="email" name="email" required className="form-input"/>
 									</div>
 
 									<div className="form-group">
 										<label htmlFor="phonenumber">Phone Number:</label>
-										<input type="text" id="phonenumber" name="phonenumber" required />
+										<input type="text" id="phonenumber" name="phonenumber" required className="form-input" />
 									</div>
 
 									<div className="form-group">
 										<label htmlFor="address">Address:</label>
-										<input type="address" id="address" name="address" required />
+										<input type="address" id="address" name="address" required className="form-input" />
 									</div>
 
 									<div className="form-group">

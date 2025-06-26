@@ -1,0 +1,42 @@
+.footer {
+  background-color: gainsboro;
+  color: #0f017a;
+  padding: 10px 20px;
+  font-family: 'Segoe UI', sans-serif;
+  border-top: 1px solid #0f017a ;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+  gap: 10px;
+}
+
+.footer-logo {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.footer-info {
+  font-size: 0.9rem;
+  text-align: right;
+}
+
+.footer-info p {
+  margin: 2px 0;
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-info {
+    text-align: center;
+  }
+}

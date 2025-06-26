@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Sidebar from '../components/Sidebar.jsx';
 import { FaMoon } from "react-icons/fa";
+import Footer from '../components/Footer.jsx'
 import {
   LineChart,
   Line,
@@ -11,6 +12,7 @@ import {
 } from 'recharts';
 import TopNav from '../components/Topnav';
 import { TbHemisphere } from 'react-icons/tb';
+import { getUser } from '../utils/authService.js';
 
 const summaryData = {
   totalStudents: 120,
@@ -39,6 +41,9 @@ const User = 'INNOVATION';
 
 
 export default function Dashboard() {
+
+  
+
   const Username = 'Nathan';
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -114,6 +119,7 @@ export default function Dashboard() {
           </div>
 
         </div>
+        <Footer />
       </div>
 
               

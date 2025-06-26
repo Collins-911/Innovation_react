@@ -4,6 +4,8 @@ import '../css/profile.css'
 import Change from "../pages/login/change";
 
 
+
+
 import {
   FaUser,
   FaEdit,
@@ -101,7 +103,7 @@ export default function Profile() {
       </div>
 
      
-   
+ 
     </div>
     
   );

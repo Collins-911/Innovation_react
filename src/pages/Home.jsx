@@ -12,6 +12,7 @@ import {
 } from 'recharts';
 import TopNav from '../components/Topnav';
 import { TbHemisphere } from 'react-icons/tb';
+import { getUser } from '../utils/authService.js';
 
 const summaryData = {
   totalStudents: 120,
@@ -40,6 +41,9 @@ const User = 'INNOVATION';
 
 
 export default function Dashboard() {
+
+  
+
   const Username = 'Nathan';
   const [sidebarOpen, setSidebarOpen] = useState(false);
 

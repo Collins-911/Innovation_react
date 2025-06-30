@@ -2,22 +2,25 @@ import React from "react";
 import '../../css/login.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import * as constant from '../../utils/constants';
 import { useCookies } from 'react-cookie';
 import { isAuthenticated } from "../../utils/authService";
 
 export default function Login() {
   const navigate = useNavigate();
-  if (isAuthenticated()) {
-    navigate("/general/dashboard");
-  }
+  useEffect(() => {
+    if (isAuthenticated()) {
+      navigate("/general/dashboard");
+    }
+  }, [navigate]);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [userType, setUserType] = useState('');
+  // const [userType, setUserType] = useState('');
   const [isLoginState, setIsLoginState] = useState(false);
-  const [cookies, setCookie] = useCookies(['user']);
+  // eslint-disable-next-line no-unused-vars
+  const [cookies, setCookie] = useCookies(['token']);
   const [role, setRole] = useState('');
   const [errors, setErrors] = useState({});
 
@@ -56,15 +59,16 @@ export default function Login() {
         role: finalUserType
       };
 
-      const response = await axios.post(`${constant.default}/auth/login`, data);
+      const response = await axios.post(`${constant.default}/auth/login`, data, {withCredentials: true});
 
       if (response.data?.status) {
         const token = response.data.token;
+        setCookie('token', token, { path: '/', maxAge: 3600 , secure: false, sameSite: 'strict', }); // Set cookie for 1 hour.. in production environment, set secure to 'true' and sameSite to 'none' domain: '192.168.0.121'
 
-        localStorage.setItem('user', JSON.stringify({
-          token: token,
-          user: response.data?.admin
-        }));
+        // localStorage.setItem('user', JSON.stringify({
+        //   token: token,
+        //   user: response.data?.admin
+        // }));
 
         navigate('/general/dashboard');
       }

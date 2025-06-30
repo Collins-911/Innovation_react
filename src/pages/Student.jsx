@@ -8,10 +8,10 @@ import { useEffect, useState } from "react";
 import axios from 'axios';
 import * as constant from '../utils/constants.js';
 // import { getUser } from '../utils/authService.js';
-import {useCookies} from 'react-cookie';
+// import {useCookies} from 'react-cookie';
 import { useNavigate } from "react-router-dom";
-import { useCallback } from "react";
-
+// import { useCallback } from "react";
+import useAuth from "../utils/authService.js"; 
 
 
 
@@ -19,33 +19,28 @@ export default function Student(){
 
 	const navigate = useNavigate();
 	const [students, setStudents] = useState([]);
-	const [cookies] = useCookies(['token']);
+	
+    //es-lint-disable-next-line
+	// const [cookies] = useCookies(['token']);
+	const {isAuthenticated} = useAuth(); // Custom hook to check authentication status
 
-	console.log("Cookies:", cookies);
-	const isAuthenticated = useCallback(() => {
-		return cookies.token !== undefined && cookies.token !== null;
-	}, [cookies.token]);
+	// console.log("Cookies:", cookies.token);
+	// const isAuthenticated = useCallback(() => {
+	// 	return cookies.token !== undefined && cookies.token !== null;
+	// }, [cookies.token]);
 
 	useEffect(() => {
 		const getStudents = async () => {
 
 			try {
+				// Check if the user is authenticated before making the request
 
-				// const user = getUser();
-				// const token = user.token;
-				// if (!user || !token) {
-				// 	console.log("User not authenticated");
-				// 	alert("You are not authenticated. Please log in.");
-				// 	navigate('/');
-				// 	return;
-				// }
-
-				// if (!isAuthenticated()) {
-				// 	console.log("User not authenticated");
-				// 	alert("You are not authenticated. Please log in.");
-				// 	navigate('/');
-				// 	return;
-				// }
+				if (!isAuthenticated()) {
+					console.log("User not authenticated");
+					alert("You are not authenticated. Please log in.");
+					navigate('/');
+					return;
+				}
 
 				const response = await axios.get(`${constant.default}/students/getStudent`, {
 					withCredentials: true,
@@ -69,7 +64,7 @@ export default function Student(){
 
 		};
 		getStudents();
-	}, [navigate, isAuthenticated, cookies.token]);
+	}, [navigate, isAuthenticated]);
 
 
 	return (

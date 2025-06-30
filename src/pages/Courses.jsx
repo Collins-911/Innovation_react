@@ -11,9 +11,10 @@ import { useEffect, useState } from "react";
 import axios from 'axios';
 import * as constant from '../utils/constants.js';
 // import { getUser } from '../utils/authService.js';
-import {useCookies} from 'react-cookie';
+// import {useCookies} from 'react-cookie';
 import { useNavigate } from "react-router-dom";
-import { useCallback } from "react";
+// import { useCallback } from "react";
+import useAuth from '../utils/authService';
 
 
 
@@ -24,12 +25,15 @@ export default function Courses() {
 
   const navigate = useNavigate();
   const [courses, setCourses] = useState([]);
-  const [cookies] = useCookies(['token']);
+  
+  //es-lint-disable-next-line
+  // const [cookies] = useCookies(['token']);
+  const {isAuthenticated} = useAuth(); // Custom hook to check authentication status
 
-  console.log("Cookies: ", cookies);
-  const isAuthenticated = useCallback(() => {
-    return cookies.token !== undefined && cookies.token !== null;
-  }, [cookies.token]);
+  // console.log("Cookies: ", cookies.token);
+  // const isAuthenticated = useCallback(() => {
+  //   return cookies.token !== undefined && cookies.token !== null;
+  // }, [cookies.token]);
 
   useEffect(() => {
     const getCourses = async () => {
@@ -61,7 +65,7 @@ export default function Courses() {
 
     };
     getCourses();
-  }, [navigate, isAuthenticated, cookies.token]);
+  }, [navigate, isAuthenticated]);
 
 
   return (

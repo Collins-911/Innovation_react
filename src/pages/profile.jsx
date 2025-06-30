@@ -2,6 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../css/profile.css'
 import Change from "../pages/login/change";
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import * as constant from '../utils/constants';
+import {useCookies} from 'react-cookie';
+import {useEffect} from 'react';
+import useAuth from "../utils/authService";
+// import { useCallback } from "react";
 
 
 
@@ -17,6 +24,31 @@ import {
 } from 'react-icons/fa';
 
 export default function Profile() {
+  
+    const navigate = useNavigate();
+    const { isAuthenticated } = useAuth(); // Custom hook to check authentication status
+
+    // es-lint-disable-next-line
+    const [cookies, removeCookie] = useCookies(['token']);
+  
+      // const isAuthenticated = useCallback(() => {
+      //   return cookies.token !== undefined && cookies.token !== null;
+      // }, [cookies.token]);
+
+        // if (!isAuthenticated()) {
+        //   console.log("User not authenticated");
+        //   alert("You are not authenticated. Please log in.");
+        //   navigate('/');
+        //   return;
+        // }
+
+      
+    useEffect(() => {
+      if (!isAuthenticated()) {
+        navigate('/');
+      }
+    }, [navigate, isAuthenticated]);
+
   const userData = {
     name: "Akpan Idara",
     email: "excellencennamso@gmail.com",
@@ -26,6 +58,50 @@ export default function Profile() {
     status: "Active",
     verified: true
   };
+
+
+  const handleLogout = async () => {
+  
+  
+      console.log('Logging out.....');
+      try {
+
+        console.log('cookie: ', cookies);
+        const response = await axios.post(`${constant.default}/auth/logout`, {}, {withCredentials: true});
+  
+        if (response.status === 201) {
+
+          console.log("Logout successful");
+          // removeCookie('token');
+          removeCookie('token', { path: '/' });
+          // console.log("Logout successful");
+          navigate('/');
+
+        }
+  
+      } catch (error) {
+        
+        if (error.response?.status === 401) {
+					console.log("User already logged out. Please login.");
+          // removeCookie('token');
+          removeCookie('token', { path: '/' });
+					navigate('/');
+				} else if (error.response?.status === 400) {
+          console.log("No cookie sent: ", cookies.token);
+          // removeCookie('token');
+          removeCookie('token', { path: '/' });
+					navigate('/');
+        } else {
+					console.log("Error loggimg out:", error.response?.data?.message || error.message);
+					alert('Error logging out: ', error);
+          // removeCookie('token');
+          removeCookie('token', { path: '/'});
+					navigate('/');
+			  }
+
+      }
+
+    };
 
   return (
     <div className="profile-container">
@@ -51,7 +127,7 @@ export default function Profile() {
 </Link>
          
 
-          <button className="tab-red">
+          <button className="tab-red" onClick={handleLogout}>
             LOGOUT
           </button>
         </div>

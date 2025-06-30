@@ -11,7 +11,7 @@ export default defineConfig({
     host: true,
     proxy: {
       '/api': {
-        target: 'http://localhost:3001',
+        target: 'https://nugi-inn.onrender.com',
         changeOrigin: true,
         secure: false, //set to true in production environment
         rewrite: (path) => path.replace(/^\/api/, ''),

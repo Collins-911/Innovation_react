@@ -44,8 +44,6 @@ export default function Register() {
     email: '',
     phonenumber: '',
     address: '',
-    course: '',
-    registration_date: '',
     image: null
   });
 
@@ -69,10 +67,7 @@ export default function Register() {
     }
 
     try {
-      const response = await axios.post(`${constant.default}/auth/register`, data, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        },
+      const response = await axios.post(`${constant.default}/staffs/register`, data, {
         withCredentials: true
       });
 
@@ -112,39 +107,22 @@ export default function Register() {
                 <form onSubmit={handleSubmit}>
                   <div className="form-group">
                     <label htmlFor="fullname">Full Name:</label>
-                    <input type="text" id="fullname" name="fullname" required onChange={handleChange} />
+                    <input className="form-input" type="text" id="fullname" name="fullname" required onChange={handleChange} />
                   </div>
 
                   <div className="form-group">
                     <label htmlFor="email">Email Address:</label>
-                    <input type="email" id="email" name="email" required onChange={handleChange} />
+                    <input className="form-input" type="email" id="email" name="email" required onChange={handleChange} />
                   </div>
 
                   <div className="form-group">
                     <label htmlFor="phonenumber">Phone Number:</label>
-                    <input type="text" id="phonenumber" name="phonenumber" required onChange={handleChange} />
+                    <input className="form-input" type="text" id="phonenumber" name="phonenumber" required onChange={handleChange} />
                   </div>
 
                   <div className="form-group">
                     <label htmlFor="address">Address:</label>
-                    <input type="text" id="address" name="address" required onChange={handleChange} />
-                  </div>
-
-                  <div className="form-group">
-                    <label htmlFor="course">Course:</label>
-                    <select name="course" value={formData.course} required onChange={handleChange}>
-                      <option value="" disabled>Select a course</option>
-                      {courses.map((item) => (
-                        <option key={item} value={item}>
-                          {item}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div className="form-group">
-                    <label htmlFor="registration_date">Registration Date:</label>
-                    <input type="date" id="registration_date" name="registration_date" required onChange={handleChange} />
+                    <input className="form-input" type="text" id="address" name="address" required onChange={handleChange} />
                   </div>
 
                   <ImageUploader onChange={handleImageChange} />

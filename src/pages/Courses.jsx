@@ -2,11 +2,18 @@ import React from "react";
 import '../css/course.css';
 import Sidebar from '../components/Sidebar.jsx';
 import Topnav from '../components/Topnav.jsx';
-import cybersecurity from '../assets/cybersecurity.jpg';
+// import cybersecurity from '../assets/cybersecurity.jpg';
 import Dbase from '../assets/Dbase.jpg';
 import Dmarket from '../assets/Dmarket.jpg';
 import Dscience from '../assets/Dscience.jpg';
 import { MdMargin } from "react-icons/md";
+import { useEffect, useState } from "react";
+import axios from 'axios';
+import * as constant from '../utils/constants.js';
+// import { getUser } from '../utils/authService.js';
+import {useCookies} from 'react-cookie';
+import { useNavigate } from "react-router-dom";
+import { useCallback } from "react";
 
 
 
@@ -14,6 +21,49 @@ import { MdMargin } from "react-icons/md";
 
 
 export default function Courses() {
+
+  const navigate = useNavigate();
+  const [courses, setCourses] = useState([]);
+  const [cookies] = useCookies(['token']);
+
+  console.log("Cookies: ", cookies);
+  const isAuthenticated = useCallback(() => {
+    return cookies.token !== undefined && cookies.token !== null;
+  }, [cookies.token]);
+
+  useEffect(() => {
+    const getCourses = async () => {
+
+      try {
+
+        if (!isAuthenticated()) {
+          console.log("User not authenticated. Please login");
+          navigate('/');
+          return;
+        }
+
+        const response = await axios.get(`${constant.default}/courses/getCourse`, {
+          withCredentials: true,
+        });
+        setCourses(response.data);
+
+      } catch (error) {
+        
+				if (error.response.status === 401) {
+					console.log("User not authenticated. Please login.");
+					navigate('/');
+				} else {
+					console.log("Error fetching courses:", error);
+					alert('Error getting all coursess: ', error);
+			    }
+
+      }
+
+    };
+    getCourses();
+  }, [navigate, isAuthenticated, cookies.token]);
+
+
   return (
     <div className="home-content">
             <Sidebar />
@@ -27,16 +77,18 @@ export default function Courses() {
 
             <div className="courses-grid">
             <div className="course-contain">
-              <div className="course-item" >
-                <div className="course-content">
-                  <h4>Front-end web development</h4>
-                  <p>Lessons: 163</p>
-                  <p>Duration: 2 months</p>
+              {courses.map((course) => (
+                <div className="course-item" key={course._id} >
+                  <div className="course-content">
+                    <h4>{course.name}</h4>
+                    <p>Lessons: {course.lessons}</p>
+                    <p>Duration: {course.duration}</p>
+                  </div>
+                  <img src={course.image || 'default-image.img'} alt={course.name} className="course-image" />
                 </div>
-                <img src="https://i.pinimg.com/736x/b9/1a/50/b91a501d1e7745e2d6301bed895bd272.jpg" alt="Front-end Development" className="course-image" />
-              </div>
+              ))}
 
-              <div className="course-item">
+              {/* <div className="course-item">
                 < div className="course-content">
                   <h4>Back-end web development</h4>
                   <p>Lessons: 41</p>
@@ -124,7 +176,7 @@ export default function Courses() {
                   <p>Duration: 1 month</p>
                 </div>
                 <img src={cybersecurity} alt="Cybersecurity" className="course-image" />
-              </div>
+              </div> */}
             </div>
           </div>
         </section>

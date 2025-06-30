@@ -5,7 +5,7 @@ export function isAuthenticated(){
 }
 
 export function getUser(){
-    _userData = getData("user")
+    _userData = JSON.parse(getData("user"))
     return _userData;
 }
 

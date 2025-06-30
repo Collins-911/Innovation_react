@@ -12,7 +12,7 @@ import {
 } from 'recharts';
 import TopNav from '../components/Topnav';
 import { TbHemisphere } from 'react-icons/tb';
-import { getUser } from '../utils/authService.js';
+// import { getUser } from '../utils/authService.js';
 
 const summaryData = {
   totalStudents: 120,

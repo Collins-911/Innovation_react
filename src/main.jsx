@@ -29,11 +29,11 @@ import MobileApp from './uppload/MobileApp.jsx';
 import Pdesign from './uppload/Pdesign.jsx';
 import Pmanagement from './uppload/Pmanagement.jsx';
 import Survey from './uppload/Survey.jsx';
-import { isAuthenticated, getUser } from './utils/authService.js';
+// import { isAuthenticated, getUser } from './utils/authService.js';
 
 
 // console.log(getUser())
-console.log(isAuthenticated())
+// console.log(isAuthenticated())
 
 createRoot(document.getElementById('root')).render(
 

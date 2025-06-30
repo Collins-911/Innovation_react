@@ -2,24 +2,21 @@ import React from "react";
 import '../../css/login.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { useState, useEffect} from "react";
+import { useState } from "react";
 import * as constant from '../../utils/constants';
 import { useCookies } from 'react-cookie';
-import { isAuthenticated } from "../../utils/authService";
+// import useAuth from "../../utils/authService.js";
 
 export default function Login() {
   const navigate = useNavigate();
-  useEffect(() => {
-    if (isAuthenticated()) {
-      navigate("/general/dashboard");
-    }
-  }, [navigate]);
+  // const { isAuthenticated } = useAuth(); // Custom hook to check authentication status
 
+  
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   // const [userType, setUserType] = useState('');
   const [isLoginState, setIsLoginState] = useState(false);
-  // eslint-disable-next-line no-unused-vars
+  // eslint-disable-next-line
   const [cookies, setCookie] = useCookies(['token']);
   const [role, setRole] = useState('');
   const [errors, setErrors] = useState({});
@@ -44,6 +41,15 @@ export default function Login() {
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
+  // const isAuthenticated = () => {
+  //   return cookies.token !== undefined && cookies.token !== null;
+  // };
+  // useEffect(() => {
+  //   if (isAuthenticated()) {
+  //     navigate("/general/dashboard");
+  //   }
+  // }, [navigate, isAuthenticated]);
+
 
   const handleLogin = async () => {
     if (!validateFields()) return;
@@ -63,7 +69,7 @@ export default function Login() {
 
       if (response.data?.status) {
         const token = response.data.token;
-        setCookie('token', token, { path: '/', maxAge: 3600 , secure: false, sameSite: 'strict', }); // Set cookie for 1 hour.. in production environment, set secure to 'true' and sameSite to 'none' domain: '192.168.0.121'
+        setCookie('token', token, { path: '/', maxAge: 360000 , secure: false, sameSite: 'strict', }); // Set cookie for 1 hour.. in production environment, set secure to 'true' and sameSite to 'none' domain: '192.168.0.121'
 
         // localStorage.setItem('user', JSON.stringify({
         //   token: token,

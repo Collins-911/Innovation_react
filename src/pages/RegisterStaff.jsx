@@ -44,12 +44,9 @@ export default function Register() {
     email: '',
     phonenumber: '',
     address: '',
-    image: null
   });
 
-  const handleImageChange = (file) => {
-    setFormData({ ...formData, image: file });
-  };
+
 
   const handleChange = (e) => {
     setFormData({ 
@@ -125,7 +122,7 @@ export default function Register() {
                     <input className="form-input" type="text" id="address" name="address" required onChange={handleChange} />
                   </div>
 
-                  <ImageUploader onChange={handleImageChange} />
+                  <ImageUploader />
 
                   <button type="submit">Submit</button>
                 </form>

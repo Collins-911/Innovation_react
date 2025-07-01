@@ -1,29 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import '../../css/login.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { useState } from "react";
-import * as constant from '../../utils/constants';
-import { useCookies } from 'react-cookie';
-// import useAuth from "../../utils/authService.js";
+import BASE_URL from '../../utils/constants';
+import { isAuthenticated } from "../../utils/authService";
 
 export default function Login() {
   const navigate = useNavigate();
-  // const { isAuthenticated } = useAuth(); // Custom hook to check authentication status
 
-  
+  useEffect(() => {
+    if (isAuthenticated()) {
+      navigate("/general/dashboard");
+    }
+  }, [navigate]);
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  // const [userType, setUserType] = useState('');
-  const [isLoginState, setIsLoginState] = useState(false);
-  // eslint-disable-next-line
-  const [cookies, setCookie] = useCookies(['token']);
   const [role, setRole] = useState('');
+  const [isLoginState, setIsLoginState] = useState(false);
   const [errors, setErrors] = useState({});
 
   const roles = ["staff", "student"];
+  const adminEmails = ["admin@domain.com"]; // <-- Update with real admin email(s)
 
-  const validateFields = () => {
+ const validateFields = () => {
     const newErrors = {};
 
     if (!email.trim()) {
@@ -38,17 +38,11 @@ export default function Login() {
       newErrors.password = "Password must be at least 6 characters.";
     }
 
+
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
-  };
-  // const isAuthenticated = () => {
-  //   return cookies.token !== undefined && cookies.token !== null;
-  // };
-  // useEffect(() => {
-  //   if (isAuthenticated()) {
-  //     navigate("/general/dashboard");
-  //   }
-  // }, [navigate, isAuthenticated]);
+};
 
 
   const handleLogin = async () => {
@@ -57,31 +51,46 @@ export default function Login() {
     setIsLoginState(true);
 
     try {
-      const finalUserType = role === roles[0] ? roles[0] : role === roles[1] ? roles[1] : "admin";
+      const selectedRole = ["staff", "student"].includes(role) ? role : "admin";
+
 
       const data = {
         email,
         password,
-        role: finalUserType
+        role: selectedRole
       };
 
-      const response = await axios.post(`${constant.default}/auth/login`, data, {withCredentials: true});
+      const response = await axios.post(${BASE_URL}/auth/login, data);
 
-      if (response.data?.status) {
+      console.log("Login response:", response.data);
+
+      if (response.data?.status && response.data?.token) {
         const token = response.data.token;
-        setCookie('token', token, { path: '/', maxAge: 360000 , secure: false, sameSite: 'strict', }); // Set cookie for 1 hour.. in production environment, set secure to 'true' and sameSite to 'none' domain: '192.168.0.121'
 
-        // localStorage.setItem('user', JSON.stringify({
-        //   token: token,
-        //   user: response.data?.admin
-        // }));
+        let user = null;
 
-        navigate('/general/dashboard');
+        if (selectedRole === "staff") {
+          user = { ...response.data?.staff, role: "staff" };
+        } else if (selectedRole === "student") {
+          user = { ...response.data?.student, role: "student" };
+        } else {
+          user = { ...response.data?.admin, role: "admin" };
+        }
+
+
+        localStorage.setItem("user", JSON.stringify({ token, user }));
+
+        console.log("Saved to storage:", localStorage.getItem("user"));
+        console.log("Authenticated:", isAuthenticated());
+
+        navigate("/general/dashboard");
+      } else {
+        console.warn("Login response missing token or status:", response.data);
+        alert("Login failed. Please check your credentials.");
       }
-
     } catch (error) {
-      console.log(error);
-      alert(error.response?.data?.message || 'An error occurred. Please try again.');
+      console.error("Login error:", error);
+      alert(error.response?.data?.message || "An error occurred. Please try again.");
     } finally {
       setIsLoginState(false);
     }
@@ -122,6 +131,7 @@ export default function Login() {
             <option key={index} value={item}>{item}</option>
           ))}
         </select>
+        {errors.role && <div className="login-error">{errors.role}</div>}
 
         <div className="login-row">
           <label className="remember-wrap">

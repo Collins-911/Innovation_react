@@ -1,8 +1,14 @@
 let  _userData;
 
-export function isAuthenticated(){
-    return getData("user") ? true : false
+export function isAuthenticated() {
+  try {
+    const userData = JSON.parse(getData("user"));
+    return !!userData?.token;
+  } catch {
+    return false;
+  }
 }
+
 
 export function getUser(){
     _userData = JSON.parse(getData("user"))

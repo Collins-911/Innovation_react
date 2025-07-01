@@ -7,15 +7,16 @@ export default defineConfig({
   build: {
     outDir: 'dist',
   },
-  server: {
-    host: true,
-    proxy: {
-      '/api': {
-        target: 'https://nugi-inn.onrender.com',
-        changeOrigin: true,
-        secure: false, //set to true in production environment
-        rewrite: (path) => path.replace(/^\/api/, ''),
-      },
-    },
-  },
-});
+})
+//   server: {
+//     host: true,
+//     proxy: {
+//       '/api': {
+//         target: 'https://nugi-inn.onrender.com',
+//         changeOrigin: true,
+//         secure: false, //set to true in production environment
+//         rewrite: (path) => path.replace(/^\/api/, ''),
+//       },
+//     },
+//   },
+// });

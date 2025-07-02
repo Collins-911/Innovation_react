@@ -1,3 +1,4 @@
+// src/pages/Login.jsx
 import React, { useState, useEffect } from "react";
 import '../../css/login.css';
 import { useNavigate } from 'react-router-dom';
@@ -21,9 +22,8 @@ export default function Login() {
   const [errors, setErrors] = useState({});
 
   const roles = ["staff", "student"];
-  const adminEmails = ["admin@domain.com"]; // <-- Update with real admin email(s)
 
- const validateFields = () => {
+  const validateFields = () => {
     const newErrors = {};
 
     if (!email.trim()) {
@@ -38,12 +38,9 @@ export default function Login() {
       newErrors.password = "Password must be at least 6 characters.";
     }
 
-
-
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
-};
-
+  };
 
   const handleLogin = async () => {
     if (!validateFields()) return;
@@ -51,8 +48,8 @@ export default function Login() {
     setIsLoginState(true);
 
     try {
-      const selectedRole = ["staff", "student"].includes(role) ? role : "admin";
-
+      // Default role to admin if none selected
+      const selectedRole = roles.includes(role) ? role : "admin";
 
       const data = {
         email,
@@ -62,34 +59,37 @@ export default function Login() {
 
       const response = await axios.post(`${BASE_URL}/auth/login`, data);
 
-      console.log("Login response:", response.data);
-
       if (response.data?.status && response.data?.token) {
         const token = response.data.token;
 
-        let user = null;
+        const normalizeUser = (user) => {
+          if (user?.rol && !user.role) {
+            user.role = user.rol;
+            delete user.rol;
+          }
+          return user;
+        };
 
+        let user = null;
         if (selectedRole === "staff") {
-          user = { ...response.data?.staff, role: "staff" };
+          user = normalizeUser({ ...response.data?.staff });
+          user.role = "staff";
         } else if (selectedRole === "student") {
-          user = { ...response.data?.student, role: "student" };
+          user = normalizeUser({ ...response.data?.student });
+          user.role = "student";
         } else {
-          user = { ...response.data?.admin, role: "admin" };
+          user = normalizeUser({ ...response.data?.admin });
+          user.role = "admin";
         }
 
-
+        // Store both token and user under one key "user"
         localStorage.setItem("user", JSON.stringify({ token, user }));
-
-        console.log("Saved to storage:", localStorage.getItem("user"));
-        console.log("Authenticated:", isAuthenticated());
 
         navigate("/general/dashboard");
       } else {
-        console.warn("Login response missing token or status:", response.data);
         alert("Login failed. Please check your credentials.");
       }
     } catch (error) {
-      console.error("Login error:", error);
       alert(error.response?.data?.message || "An error occurred. Please try again.");
     } finally {
       setIsLoginState(false);
@@ -131,15 +131,6 @@ export default function Login() {
             <option key={index} value={item}>{item}</option>
           ))}
         </select>
-        {errors.role && <div className="login-error">{errors.role}</div>}
-
-        <div className="login-row">
-          <label className="remember-wrap">
-            <input type="checkbox" className="remember-me" />
-            Remember Me
-          </label>
-          <a className="forgot" href="#">Forgot Password?</a>
-        </div>
 
         <button className="submit-btn" disabled={isLoginState} onClick={handleLogin}>
           {!isLoginState ? "Login" : "Please wait . . ."}

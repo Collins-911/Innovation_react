@@ -1,3 +1,4 @@
+// src/pages/Register.jsx
 import React, { useState, useEffect } from "react";
 import Swal from 'sweetalert2';
 import axios from 'axios';
@@ -10,7 +11,7 @@ import Sidebar from '../components/Sidebar.jsx';
 import Topnav from '../components/Topnav.jsx';
 
 import BASE_URL from '../utils/constants';
-import { isAuthenticated, getUser } from '../utils/authService';
+import { isAuthenticated, getUser, getToken } from '../utils/authService';
 
 export default function Register() {
   const navigate = useNavigate();
@@ -21,6 +22,17 @@ export default function Register() {
       navigate('/');
     }
   }, [navigate]);
+
+  const data = getUser();
+  const token = getToken();
+
+  // Only allow admin to register students
+  useEffect(() => {
+    if (data?.user?.role !== "admin") {
+      alert("Access denied. Only admins can register students.");
+      navigate('/');
+    }
+  }, [data, navigate]);
 
   const [formData, setFormData] = useState({
     fullname: '',
@@ -40,22 +52,16 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const token = getUser()?.token;
-    const role = getUser()?.user?.role;
-
-    console.log("Submitting as:", role);
-    console.log("Token being used:", token);
-
     if (!token) {
       alert("No token found. Please log in again.");
       navigate('/');
       return;
     }
 
-    if (role !== "admin") {
-      alert("Only admin users can register students.");
-      return;
-    }
+    console.log('Token:', token); 
+    console.log('Token to send:', token);
+    console.log('Authorization header:', `Bearer ${token}`);
+
 
     try {
       const response = await axios.post(`${BASE_URL}/students/register`, formData, {
@@ -71,23 +77,18 @@ export default function Register() {
         icon: "success"
       });
 
-      console.log("Registered:", response.data);
+      setFormData({
+        fullname: '',
+        email: '',
+        phonenumber: '',
+        address: ''
+      });
     } catch (error) {
-      console.error("Registration error:", error);
-      if (error.response) {
-        console.error("Response data:", error.response.data);
-        Swal.fire({
-          title: "Error",
-          text: error.response.data.message || "Registration failed.",
-          icon: "error"
-        });
-      } else {
-        Swal.fire({
-          title: "Error",
-          text: error.message || "Registration failed.",
-          icon: "error"
-        });
-      }
+      Swal.fire({
+        title: "Error",
+        text: error.response?.data?.message || "Registration failed.",
+        icon: "error"
+      });
     }
   };
 

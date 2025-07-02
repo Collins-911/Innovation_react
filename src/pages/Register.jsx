@@ -26,7 +26,6 @@ export default function Register() {
   const data = getUser();
   const token = getToken();
 
-  // Only allow admin to register students
   useEffect(() => {
     if (data?.user?.role !== "admin") {
       alert("Access denied. Only admins can register students.");
@@ -52,16 +51,15 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    console.log('Token:', token);
+    console.log('Token to send:', token);
+    console.log('Authorization header:', `Bearer ${token}`);
+
     if (!token) {
       alert("No token found. Please log in again.");
       navigate('/');
       return;
     }
-
-    console.log('Token:', token); 
-    console.log('Token to send:', token);
-    console.log('Authorization header:', `Bearer ${token}`);
-
 
     try {
       const response = await axios.post(`${BASE_URL}/students/register`, formData, {

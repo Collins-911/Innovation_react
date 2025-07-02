@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import BASE_URL from '../../utils/constants';
 import { isAuthenticated } from "../../utils/authService";
+import { normalizeUser } from "../../utils/authService"; // <-- Reuse this!
 
 export default function Login() {
   const navigate = useNavigate();
@@ -48,27 +49,16 @@ export default function Login() {
     setIsLoginState(true);
 
     try {
-      // Default role to admin if none selected
       const selectedRole = roles.includes(role) ? role : "admin";
 
-      const data = {
+      const response = await axios.post(`${BASE_URL}/auth/login`, {
         email,
         password,
         role: selectedRole
-      };
-
-      const response = await axios.post(`${BASE_URL}/auth/login`, data);
+      });
 
       if (response.data?.status && response.data?.token) {
         const token = response.data.token;
-
-        const normalizeUser = (user) => {
-          if (user?.rol && !user.role) {
-            user.role = user.rol;
-            delete user.rol;
-          }
-          return user;
-        };
 
         let user = null;
         if (selectedRole === "staff") {
@@ -82,7 +72,6 @@ export default function Login() {
           user.role = "admin";
         }
 
-        // Store both token and user under one key "user"
         localStorage.setItem("user", JSON.stringify({ token, user }));
 
         navigate("/general/dashboard");

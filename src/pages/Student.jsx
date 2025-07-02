@@ -15,19 +15,30 @@ export default function Student() {
 
   useEffect(() => {
     const getStudents = async () => {
-      if (!isAuthenticated()) {
+      const authStatus = isAuthenticated();
+
+      const user = getUser();
+      const token = getToken();
+
+      if (!authStatus || !user || !token) {
         alert("You are not authenticated. Please log in.");
         navigate('/');
         return;
       }
 
+      if (user.role?.toLowerCase() !== "admin") {
+        alert("Access denied. Admins only.");
+        navigate('/');
+        return;
+      }
+
       try {
-        const token = getToken();
         const response = await axios.get(`${constant.default}/students/getStudent`, {
           headers: {
             Authorization: `Bearer ${token}`
           }
         });
+
         setStudents(response.data);
       } catch (error) {
         if (error.response?.status === 401) {
@@ -77,7 +88,7 @@ export default function Student() {
                     <tr key={student._id} className="studentData">
                       <td><img src={dummy} alt="Profile" /></td>
                       <td>{student.fullname}</td>
-                      <td>{student.course[0]?.name || 'N/A'}</td>
+                      <td>{student.course?.[0]?.name || 'N/A'}</td>
                       <td>{student.phone}</td>
                       <td>{student.email}</td>
                       <td>{new Date(student.registrationDate).toLocaleDateString()}</td>

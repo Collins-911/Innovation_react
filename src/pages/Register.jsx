@@ -64,12 +64,14 @@ export default function Register() {
 
     try {
       const response = await axios.post(`${BASE_URL}/students/register`, formData, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json"
-        }
-      });
-      console.log("Token being sent:", token);
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json"
+      }
+    });
+
+    console.log("Register API response:", response.data); // ✅ now it's used
+
 
 
       Swal.fire({

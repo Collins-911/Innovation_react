@@ -1,48 +1,50 @@
 // src/pages/Register.jsx
+
 import React, { useState, useEffect } from "react";
-import Swal from 'sweetalert2';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import Swal from "sweetalert2";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-import '../css/home.css';
-import '../css/register.css';
+import "../css/home.css";
+import "../css/register.css";
 
-import Sidebar from '../components/Sidebar.jsx';
-import Topnav from '../components/Topnav.jsx';
+import Sidebar from "../components/Sidebar.jsx";
+import Topnav from "../components/Topnav.jsx";
 
-import BASE_URL from '../utils/constants';
-import { isAuthenticated, getUser, getToken } from '../utils/authService';
+import BASE_URL from "../utils/constants";
+import { isAuthenticated, getUser, getToken } from "../utils/authService";
 
 export default function Register() {
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!isAuthenticated()) {
-      alert("You are not authenticated. Please log in.");
-      navigate('/');
-    }
-  }, [navigate]);
-
-  const data = getUser();
   const token = getToken();
-
-  useEffect(() => {
-    if (data?.user?.role !== "admin") {
-      alert("Access denied. Only admins can register students.");
-      navigate('/');
-    }
-  }, [data, navigate]);
+  const user = getUser();
 
   const [formData, setFormData] = useState({
-    fullname: '',
-    email: '',
-    phonenumber: '',
-    address: ''
+    fullname: "",
+    email: "",
+    phonenumber: "",
+    address: ""
   });
+
+  useEffect(() => {
+    if (!isAuthenticated() || !token || !user) {
+      Swal.fire({
+        icon: "warning",
+        title: "Not Authenticated",
+        text: "Please log in to continue."
+      }).then(() => navigate("/"));
+    } else if (!(user && user.role && user.role.toLowerCase() === "admin")) {
+      Swal.fire({
+        icon: "error",
+        title: "Access Denied",
+        text: "Only admins can register students."
+      }).then(() => navigate("/"));
+    }
+  }, [navigate, token, user]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       [name]: value
     }));
@@ -51,13 +53,12 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log('Token:', token);
-    console.log('Token to send:', token);
-    console.log('Authorization header:', `Bearer ${token}`);
-
     if (!token) {
-      alert("No token found. Please log in again.");
-      navigate('/');
+      Swal.fire({
+        icon: "error",
+        title: "Missing Token",
+        text: "Please log in again."
+      });
       return;
     }
 
@@ -65,9 +66,11 @@ export default function Register() {
       const response = await axios.post(`${BASE_URL}/students/register`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json"
         }
       });
+      console.log("Token being sent:", token);
+
 
       Swal.fire({
         title: "Success!",
@@ -76,10 +79,10 @@ export default function Register() {
       });
 
       setFormData({
-        fullname: '',
-        email: '',
-        phonenumber: '',
-        address: ''
+        fullname: "",
+        email: "",
+        phonenumber: "",
+        address: ""
       });
     } catch (error) {
       Swal.fire({
@@ -103,7 +106,7 @@ export default function Register() {
 
           <div className="register-form">
             <div className="list-title">
-              <h3>Basic info</h3>
+              <h3>Basic Info</h3>
             </div>
 
             <div className="r-form">
@@ -160,7 +163,7 @@ export default function Register() {
                   />
                 </div>
 
-                <button type="submit">Submit</button>
+                <button type="submit" className="submit-btn">Submit</button>
               </form>
             </div>
           </div>

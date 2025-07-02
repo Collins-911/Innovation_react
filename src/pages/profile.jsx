@@ -1,53 +1,49 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import '../css/profile.css'
-import Change from "../pages/login/change";
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import * as constant from '../utils/constants';
-import {useCookies} from 'react-cookie';
-import {useEffect} from 'react';
-import useAuth from "../utils/authService";
-// import { useCallback } from "react";
-
-
-
-
+import React, { useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import '../css/profile.css';
 import {
   FaUser,
-  FaEdit,
-  FaPhone,
-  FaIdCard,
   FaRedoAlt,
-  FaHistory,
   FaArrowLeft
 } from 'react-icons/fa';
+import axios from 'axios';
+import * as constant from '../utils/constants';
+import { useCookies } from 'react-cookie';
+import { isAuthenticated } from "../utils/authService";
 
 export default function Profile() {
-  
-    const navigate = useNavigate();
-    const { isAuthenticated } = useAuth(); // Custom hook to check authentication status
+  const navigate = useNavigate();
+  const [cookies, removeCookie] = useCookies(['token']);
 
-    // es-lint-disable-next-line
-    const [cookies, removeCookie] = useCookies(['token']);
-  
-      // const isAuthenticated = useCallback(() => {
-      //   return cookies.token !== undefined && cookies.token !== null;
-      // }, [cookies.token]);
+  useEffect(() => {
+    if (!isAuthenticated()) {
+      navigate('/');
+    }
+  }, [navigate]);
 
-        // if (!isAuthenticated()) {
-        //   console.log("User not authenticated");
-        //   alert("You are not authenticated. Please log in.");
-        //   navigate('/');
-        //   return;
-        // }
+  const handleLogout = async () => {
+    try {
+      console.log('Logging out...');
 
-      
-    useEffect(() => {
-      if (!isAuthenticated()) {
+      const response = await axios.post(`${constant.default}/auth/logout`, {}, {
+        withCredentials: true
+      });
+
+      if (response.status === 201) {
+        removeCookie('token', { path: '/' });
         navigate('/');
       }
-    }, [navigate, isAuthenticated]);
+    } catch (error) {
+      if ([401, 400].includes(error.response?.status)) {
+        removeCookie('token', { path: '/' });
+        navigate('/');
+      } else {
+        console.error("Logout error:", error.response?.data?.message || error.message);
+        removeCookie('token', { path: '/' });
+        navigate('/');
+      }
+    }
+  };
 
   const userData = {
     name: "Akpan Idara",
@@ -59,73 +55,28 @@ export default function Profile() {
     verified: true
   };
 
-
-  const handleLogout = async () => {
-  
-  
-      console.log('Logging out.....');
-      try {
-
-        console.log('cookie: ', cookies);
-        const response = await axios.post(`${constant.default}/auth/logout`, {}, {withCredentials: true});
-  
-        if (response.status === 201) {
-
-          console.log("Logout successful");
-          // removeCookie('token');
-          removeCookie('token', { path: '/' });
-          // console.log("Logout successful");
-          navigate('/');
-
-        }
-  
-      } catch (error) {
-        
-        if (error.response?.status === 401) {
-					console.log("User already logged out. Please login.");
-          // removeCookie('token');
-          removeCookie('token', { path: '/' });
-					navigate('/');
-				} else if (error.response?.status === 400) {
-          console.log("No cookie sent: ", cookies.token);
-          // removeCookie('token');
-          removeCookie('token', { path: '/' });
-					navigate('/');
-        } else {
-					console.log("Error loggimg out:", error.response?.data?.message || error.message);
-					alert('Error logging out: ', error);
-          // removeCookie('token');
-          removeCookie('token', { path: '/'});
-					navigate('/');
-			  }
-
-      }
-
-    };
-
   return (
     <div className="profile-container">
       <div className="profile-card">
-        
         <div className="profile-tabs">
           <Link to="/general/dashboard" className="clean-link">
-  <button className="tab">
-    <FaArrowLeft className="icon" />
-    <span>Go back</span>
-  </button>
-</Link>
+            <button className="tab">
+              <FaArrowLeft className="icon" />
+              <span>Go back</span>
+            </button>
+          </Link>
+
           <button className="tab active">
             <FaUser className="icon" />
             <span>Profile</span>
           </button>
 
-<Link to="/change" className="clean-link">
- <button className="tab">
-            <FaRedoAlt className="icon" />
-            <span>Reset Password</span>
-          </button>
-</Link>
-         
+          <Link to="/change" className="clean-link">
+            <button className="tab">
+              <FaRedoAlt className="icon" />
+              <span>Reset Password</span>
+            </button>
+          </Link>
 
           <button className="tab-red" onClick={handleLogout}>
             LOGOUT
@@ -135,9 +86,9 @@ export default function Profile() {
         <div className="profile-content">
           <div className="profile-info">
             <div className="avatar-section">
-              <img 
-                src="https://i.ytimg.com/vi/DEGvXTJ5JPA/maxresdefault.jpg" 
-                alt="Profile" 
+              <img
+                src="https://i.ytimg.com/vi/DEGvXTJ5JPA/maxresdefault.jpg"
+                alt="Profile"
                 className="avatar"
               />
               <h2>{userData.name}</h2>
@@ -160,8 +111,8 @@ export default function Profile() {
               </div>
               <div className="detail-row">
                 <span>Email Verification:</span>
-                <strong className={userData.verified ? "verified" : "verified"}>
-                  {userData.verified ? "Verified" : "verified"}
+                <strong className="verified">
+                  {userData.verified ? "Verified" : "Not Verified"}
                 </strong>
               </div>
               <div className="detail-row">
@@ -175,12 +126,7 @@ export default function Profile() {
             </div>
           </div>
         </div>
-        
       </div>
-
-     
- 
     </div>
-    
   );
 }

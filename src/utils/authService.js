@@ -1,19 +1,39 @@
-let  _userData;
+// src/utils/authService.js
 
-export function isAuthenticated(){
-    return getData("user") ? true : false
+// Normalize user roles in case backend sends 'rol' instead of 'role'
+const normalizeUser = (user) => {
+  if (user?.rol && !user.role) {
+    user.role = user.rol;
+    delete user.rol;
+  }
+  return user;
+};
+
+// Retrieve user object from localStorage and normalize it
+export function getUser() {
+  try {
+    const data = JSON.parse(localStorage.getItem("user"));
+    if (data?.user) {
+      data.user = normalizeUser(data.user);
+    }
+    return data;
+  } catch (e) {
+    return null;
+  }
 }
 
-export function getUser(){
-    _userData = JSON.parse(getData("user"))
-    return _userData;
+// Get token from normalized user object
+export function getToken() {
+  const data = getUser();
+  return data?.token || null;
 }
 
-function getData(name) {
-    return localStorage.getItem(name)
-    
-    // const value = ; ${document.cookie};
-    // const parts = value.split(; ${name}=);
-    // if (parts.length === 2) 
-    //     return parts.pop().split(';').shift();
+// Boolean authentication check
+export function isAuthenticated() {
+  return !!getToken();
+}
+
+// Clear user and token from storage
+export function clearUser() {
+  localStorage.removeItem("user");
 }

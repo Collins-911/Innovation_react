@@ -1,26 +1,26 @@
 // src/pages/Login.jsx
+
 import React, { useState, useEffect } from "react";
-import '../../css/login.css';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import BASE_URL from '../../utils/constants';
+import "../../css/login.css";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import Swal from "sweetalert2";
+import BASE_URL from "../../utils/constants";
 import { isAuthenticated } from "../../utils/authService";
-import { normalizeUser } from "../../utils/authService"; // <-- Reuse this!
 
 export default function Login() {
   const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [role, setRole] = useState("");
+  const [isLoginState, setIsLoginState] = useState(false);
+  const [errors, setErrors] = useState({});
 
   useEffect(() => {
     if (isAuthenticated()) {
       navigate("/general/dashboard");
     }
   }, [navigate]);
-
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [role, setRole] = useState('');
-  const [isLoginState, setIsLoginState] = useState(false);
-  const [errors, setErrors] = useState({});
 
   const roles = ["staff", "student"];
 
@@ -45,20 +45,24 @@ export default function Login() {
 
   const handleLogin = async () => {
     if (!validateFields()) return;
-
     setIsLoginState(true);
 
     try {
       const selectedRole = roles.includes(role) ? role : "admin";
+      const data = { email, password, role: selectedRole };
 
-      const response = await axios.post(`${BASE_URL}/auth/login`, {
-        email,
-        password,
-        role: selectedRole
-      });
+      const response = await axios.post(`${BASE_URL}/auth/login`, data);
 
       if (response.data?.status && response.data?.token) {
         const token = response.data.token;
+
+        const normalizeUser = (user) => {
+          if (user?.rol && !user.role) {
+            user.role = user.rol;
+            delete user.rol;
+          }
+          return user;
+        };
 
         let user = null;
         if (selectedRole === "staff") {
@@ -73,13 +77,12 @@ export default function Login() {
         }
 
         localStorage.setItem("user", JSON.stringify({ token, user }));
-
         navigate("/general/dashboard");
       } else {
-        alert("Login failed. Please check your credentials.");
+        Swal.fire("Login Failed", "Invalid credentials", "error");
       }
     } catch (error) {
-      alert(error.response?.data?.message || "An error occurred. Please try again.");
+      Swal.fire("Error", error.response?.data?.message || "An error occurred", "error");
     } finally {
       setIsLoginState(false);
     }
@@ -122,7 +125,7 @@ export default function Login() {
         </select>
 
         <button className="submit-btn" disabled={isLoginState} onClick={handleLogin}>
-          {!isLoginState ? "Login" : "Please wait . . ."}
+          {!isLoginState ? "Login" : "Please wait..."}
         </button>
       </div>
     </div>

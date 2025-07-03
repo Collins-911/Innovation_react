@@ -1,39 +1,46 @@
-// src/utils/authService.js
-
-// Normalize user roles in case backend sends 'rol' instead of 'role'
-const normalizeUser = (user) => {
-  if (user?.rol && !user.role) {
-    user.role = user.rol;
-    delete user.rol;
-  }
-  return user;
-};
-
-// Retrieve user object from localStorage and normalize it
+// Return only user
 export function getUser() {
-  try {
-    const data = JSON.parse(localStorage.getItem("user"));
-    if (data?.user) {
-      data.user = normalizeUser(data.user);
-    }
-    return data;
-  } catch (e) {
-    return null;
+  const data = JSON.parse(localStorage.getItem("user"));
+  if (!data?.user) return null;
+
+  if (data.user.rol && !data.user.role) {
+    data.user.role = data.user.rol;
+    delete data.user.rol;
   }
+
+  return data.user;
 }
 
-// Get token from normalized user object
+// Return only token
 export function getToken() {
-  const data = getUser();
+  const data = JSON.parse(localStorage.getItem("user"));
   return data?.token || null;
 }
 
-// Boolean authentication check
-export function isAuthenticated() {
-  return !!getToken();
+// Return both if needed
+export function getAuthData() {
+  const data = JSON.parse(localStorage.getItem("user"));
+  if (!data?.user || !data?.token) return null;
+
+  if (data.user.rol && !data.user.role) {
+    data.user.role = data.user.rol;
+    delete data.user.rol;
+  }
+
+  return {
+    user: data.user,
+    token: data.token
+  };
 }
 
-// Clear user and token from storage
+export function isAuthenticated() {
+  const token = getToken();
+  const isAuth = !!token;
+  console.log("Authenticated:", isAuth); // 🔍 Will show true or false in console
+  return isAuth;
+}
+
+
 export function clearUser() {
   localStorage.removeItem("user");
 }

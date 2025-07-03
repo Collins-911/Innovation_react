@@ -1,49 +1,15 @@
-import React, { useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import '../css/profile.css';
 import {
   FaUser,
   FaRedoAlt,
   FaArrowLeft
 } from 'react-icons/fa';
-import axios from 'axios';
-import * as constant from '../utils/constants';
-import { useCookies } from 'react-cookie';
-import { isAuthenticated } from "../utils/authService";
+
 
 export default function Profile() {
-  const navigate = useNavigate();
-  const [cookies, removeCookie] = useCookies(['token']);
-
-  useEffect(() => {
-    if (!isAuthenticated()) {
-      navigate('/');
-    }
-  }, [navigate]);
-
-  const handleLogout = async () => {
-    try {
-      console.log('Logging out...');
-
-      const response = await axios.post(`${constant.default}/auth/logout`, {}, {
-        withCredentials: true
-      });
-
-      if (response.status === 201) {
-        removeCookie('token', { path: '/' });
-        navigate('/');
-      }
-    } catch (error) {
-      if ([401, 400].includes(error.response?.status)) {
-        removeCookie('token', { path: '/' });
-        navigate('/');
-      } else {
-        console.error("Logout error:", error.response?.data?.message || error.message);
-        removeCookie('token', { path: '/' });
-        navigate('/');
-      }
-    }
-  };
+ 
 
   const userData = {
     name: "Akpan Idara",
@@ -78,7 +44,7 @@ export default function Profile() {
             </button>
           </Link>
 
-          <button className="tab-red" onClick={handleLogout}>
+          <button className="tab-red">
             LOGOUT
           </button>
         </div>

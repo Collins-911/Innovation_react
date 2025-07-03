@@ -18,44 +18,49 @@ export default function Login() {
 
   useEffect(() => {
     if (isAuthenticated()) {
-      navigate("/general/dashboard");
+      navigate("/general/dashboard");  // if  user is already logged in, redirect to dashboard
     }
   }, [navigate]);
 
+  //  roles for log in
   const roles = ["staff", "student"];
 
+  // validation of the form
   const validateFields = () => {
     const newErrors = {};
 
-    if (!email.trim()) {
+    if (!email.trim()) {    // validates the email field
       newErrors.email = "Email is required.";
     } else if (!/^\S+@\S+\.\S+$/.test(email)) {
       newErrors.email = "Invalid email format.";
     }
 
-    if (!password.trim()) {
+    if (!password.trim()) {    // validates the password
       newErrors.password = "Password is required.";
-    } else if (password.length < 6) {
+    } else if (password.length < 6) {    // password must be a minimum of 6 characters
       newErrors.password = "Password must be at least 6 characters.";
     }
 
+    //  saves errors to state and returns true if there are no errors
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
   const handleLogin = async () => {
     if (!validateFields()) return;
-    setIsLoginState(true);
+    setIsLoginState(true);     // if  validation fails, exit, else show loading state
 
     try {
       const selectedRole = roles.includes(role) ? role : "admin";
-      const data = { email, password, role: selectedRole };
+      const data = { email, password, role: selectedRole };   // default to admin, if role isn't chosen
 
-      const response = await axios.post(`${BASE_URL}/auth/login`, data);
+      const response = await axios.post(`${BASE_URL}/auth/login`, data); // post api request with user data
 
+      //  check if login succeeded and token is returned
       if (response.data?.status && response.data?.token) {
-        const token = response.data.token;
+        const token = response.data.token;    //  store token
 
+        // normalize inconsistent API response
         const normalizeUser = (user) => {
           if (user?.rol && !user.role) {
             user.role = user.rol;
@@ -64,6 +69,7 @@ export default function Login() {
           return user;
         };
 
+        // extract user info based on role and normalise it
         let user = null;
         if (selectedRole === "staff") {
           user = normalizeUser({ ...response.data?.staff });
@@ -76,6 +82,7 @@ export default function Login() {
           user.role = "admin";
         }
 
+        // save user info to local storage and redirect to dashboard.
         localStorage.setItem("user", JSON.stringify({ token, user }));
         navigate("/general/dashboard");
       } else {
@@ -99,7 +106,7 @@ export default function Login() {
           placeholder="Enter email"
           className="input-field"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}   // React listens for any change in the input box
         />
         {errors.email && <div className="login-error">{errors.email}</div>}
 

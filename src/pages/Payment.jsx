@@ -120,13 +120,6 @@ export default function Payment(){
 				           				</tr>
 			           				</tbody>
 			           			</table>
-			           			<div className="list-btn">
-			           				<button style={{backgroundColor: "rgba(200, 200, 200, 0.7)"}}>Previous</button>
-			           				<button style={{backgroundColor: "rgba(15, 1, 122)", color: "white", width: "40px"}}>1</button>
-			           				<button style={{backgroundColor: "rgba(200, 200, 200, 0.7)", width: "40px"}}>2</button>
-			           				<button style={{backgroundColor: "rgba(200, 200, 200, 0.7)", width: "40px"}}>3</button>
-			           				<button style={{backgroundColor: "rgba(15, 1, 122)", color: "white"}}>Next</button>
-			           			</div>
 			           		</div>
 			           	</div>
 			        </section>

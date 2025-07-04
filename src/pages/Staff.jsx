@@ -28,7 +28,7 @@ export default function Staff() {
                 <thead>
                   <tr>
                     <th>Profile</th>
-                    <th>Student Name</th>
+                    <th>Staff Name</th>
                     <th>Course Name</th>
                     <th>Phone Number</th>
                     <th>Email Address</th>

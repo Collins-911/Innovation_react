@@ -2,7 +2,7 @@ import React from "react";
 import '../css/home.css';
 import '../css/student_payment.css';
 import '../css/home.css';
-// import Swal from 'sweetalert2'
+import Swal from 'sweetalert2'
 
 import Sidebar from '../components/Sidebar.jsx'
 import Topnav from '../components/Topnav.jsx';
@@ -12,12 +12,21 @@ import Topnav from '../components/Topnav.jsx';
 export default function Student_payment(){
 
 	const paid = () => {
-			Swal.fire({
-				title: "Good job!",
-				text: "Payment Successful",
-				icon: "success"
-			});
-		}
+		Swal.fire({
+			title: "Good job!",
+			text: "Payment Successful",
+			icon: "success"
+		});
+	}
+
+		
+	const unpaid = () => {
+		Swal.fire({
+			title: "Cancel!",
+			text: "Payment cancelled",
+			icon: "error"
+		});
+	}
 
 
 	return(
@@ -56,8 +65,8 @@ export default function Student_payment(){
 								</div>
 								<p>The account listed above, is for this transaction only</p>
 								<div className="transfer-buttons">
-									<button>Payment Done</button>
-									<button>Cancel Payment</button>
+									<button onClick={paid}>Payment Done</button>
+									<button onClick={unpaid}>Cancel Payment</button>
 								</div>
 			           		</div>
 			           	</div>

@@ -4,9 +4,30 @@ import '../css/student.css';
 import Sidebar from '../components/Sidebar.jsx';
 import Topnav from '../components/Topnav.jsx';
 import dummy from '../assets/dummy.webp';
+import axios from "axios";
+import { BASE_URL } from "../utils/constants";
+import { getToken } from "../utils/authService.js";
 
 export default function Student() {
- 
+  const [students, setStudents] = useState([]);
+
+  useEffect(() => {
+    const fetchStudents = async () => {
+      try {
+        const res = await axios.get(`${BASE_URL}/student`, {
+          headers: {
+            Authorization: `Bearer ${getToken()}`
+          }
+        });
+        setStudents(res.data);
+      } catch (err) {
+        console.error("Failed to fetch students", err);
+      }
+    };
+
+    fetchStudents();
+  }, []);
+
   return (
     <div className="home-content">
       <Sidebar />
@@ -37,96 +58,21 @@ export default function Student() {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td><img src={dummy} /></td>
-                    <td>person6</td>
-                    <td>course6</td>
-                    <td>1222222222</td>
-                    <td>email address</td>
-                    <td>04/10/2025</td>
-                    <td><button>Delete</button></td>
-                  </tr>
-                  <tr>
-                    <td><img src={dummy} /></td>
-                    <td>person6</td>
-                    <td>course6</td>
-                    <td>1222222222</td>
-                    <td>email address</td>
-                    <td>04/10/2025</td>
-                    <td><button>Delete</button></td>
-                  </tr>
-                  <tr>
-                    <td><img src={dummy} /></td>
-                    <td>person6</td>
-                    <td>course6</td>
-                    <td>1222222222</td>
-                    <td>email address</td>
-                    <td>04/10/2025</td>
-                    <td><button>Delete</button></td>
-                  </tr>
-                  <tr>
-                    <td><img src={dummy} /></td>
-                    <td>person6</td>
-                    <td>course6</td>
-                    <td>1222222222</td>
-                    <td>email address</td>
-                    <td>04/10/2025</td>
-                    <td><button>Delete</button></td>
-                  </tr>
-                   <tr>
-                    <td><img src={dummy} /></td>
-                    <td>person6</td>
-                    <td>course6</td>
-                    <td>1222222222</td>
-                    <td>email address</td>
-                    <td>04/10/2025</td>
-                    <td><button>Delete</button></td>
-                  </tr>
-                  <tr>
-                    <td><img src={dummy} /></td>
-                    <td>person6</td>
-                    <td>course6</td>
-                    <td>1222222222</td>
-                    <td>email address</td>
-                    <td>04/10/2025</td>
-                    <td><button>Delete</button></td>
-                  </tr>
-                  <tr>
-                    <td><img src={dummy} /></td>
-                    <td>person6</td>
-                    <td>course6</td>
-                    <td>1222222222</td>
-                    <td>email address</td>
-                    <td>04/10/2025</td>
-                    <td><button>Delete</button></td>
-                  </tr>
-                  <tr>
-                    <td><img src={dummy} /></td>
-                    <td>person6</td>
-                    <td>course6</td>
-                    <td>1222222222</td>
-                    <td>email address</td>
-                    <td>04/10/2025</td>
-                    <td><button>Delete</button></td>
-                  </tr>
-                  <tr>
-                    <td><img src={dummy} /></td>
-                    <td>person6</td>
-                    <td>course6</td>
-                    <td>1222222222</td>
-                    <td>email address</td>
-                    <td>04/10/2025</td>
-                    <td><button>Delete</button></td>
-                  </tr>
-                  <tr>
-                    <td><img src={dummy} /></td>
-                    <td>person6</td>
-                    <td>course6</td>
-                    <td>1222222222</td>
-                    <td>email address</td>
-                    <td>04/10/2025</td>
-                    <td><button>Delete</button></td>
-                  </tr>
+                  {students.length === 0 ? (
+                    <tr><td colSpan="7">No students found.</td></tr>
+                  ) : (
+                    students.map((student, index) => (
+                      <tr key={index}>
+                        <td><img src={dummy} alt="profile" /></td>
+                        <td>{student.fullname || student.name}</td>
+                        <td>{student.course || "N/A"}</td>
+                        <td>{student.phonenumber}</td>
+                        <td>{student.email}</td>
+                        <td>{student.admissionDate || student.date}</td>
+                        <td><button>Delete</button></td>
+                      </tr>
+                    ))
+                  )}
                 </tbody>
               </table>
             </div>

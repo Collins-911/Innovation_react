@@ -88,7 +88,7 @@ export default function TopNav() {
           </div>
 
           <Link to="/profile/profile">
-            <img src={icon7} alt="Profile" className="pfp" />
+            <img src={"https://i.ytimg.com/vi/DEGvXTJ5JPA/maxresdefault.jpg"} alt="Profile" className="pfp" />
           </Link>
         </div>
 

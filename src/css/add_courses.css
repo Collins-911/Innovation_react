@@ -45,8 +45,18 @@
     height: 100px;
 }
 
+/* Fix popup visibility */
 .popAdd {
-    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 999;
 }
 
 .popAddinner {
@@ -54,16 +64,18 @@
     flex-direction: column;
     gap: 1rem;
     width: 800px;
-    margin: 2rem auto;
+    margin: auto;
     padding: 2rem;
     border: 1px solid #ccc;
     border-radius: 10px;
     background-color: #f9f9f9;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
 
 .popAddinner h2 {
     text-align: center;
+    color: #333;
 }
 
 .popAdd input {
@@ -72,6 +84,7 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     outline: none;
+    width: 100%;
 }
 
 .submit-btn {
@@ -87,9 +100,11 @@
 .submit-btn:hover {
     background-color: darkblue;
 }
-body.dark .popAddinner{
+
+body.dark .popAddinner {
     background-color: #2a2a2a;
     border: none;
+    color: white;
 }
 
 @media (max-width: 1024px) {

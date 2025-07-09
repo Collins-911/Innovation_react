@@ -10,7 +10,7 @@ export default function Navigation() {
 
   const studentClick = () => {
     console.log('Navigating to Student');
-    navigate('/general/student');
+    navigate('/general/student'); 
   };
 
   const staffClick = () => {

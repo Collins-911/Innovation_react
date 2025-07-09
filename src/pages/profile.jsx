@@ -14,7 +14,7 @@ export default function Profile() {
   const userData = {
     name: "Akpan Idara",
     email: "excellencennamso@gmail.com",
-    role: "Student",
+    role: "Admin",
     contact: "09092631280",
     location: "Nigeria",
     status: "Active",
@@ -37,12 +37,12 @@ export default function Profile() {
             <span>Profile</span>
           </button>
 
-          <Link to="/change" className="clean-link">
+          {/* <Link to="/change" className="clean-link">
             <button className="tab">
               <FaRedoAlt className="icon" />
               <span>Reset Password</span>
             </button>
-          </Link>
+          </Link> */}
 
           <button className="tab-red">
             LOGOUT

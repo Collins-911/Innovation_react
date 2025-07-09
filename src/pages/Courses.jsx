@@ -8,11 +8,7 @@ import Dmarket from '../assets/Dmarket.jpg';
 import Dscience from '../assets/Dscience.jpg';
 import { MdMargin } from "react-icons/md";
 
-
-
-
-
-
+  
 export default function Courses() {
   return (
     <div className="home-content">

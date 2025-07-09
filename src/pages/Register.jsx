@@ -10,7 +10,7 @@ import Topnav from "../components/Topnav.jsx";
  const success = () => {
     Swal.fire({
     title: "Success!",
-    text: "Student registered successfully.",
+    text: "Student registration successfully.",
     icon: "success"
   });
 }

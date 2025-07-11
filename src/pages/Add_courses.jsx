@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Swal from 'sweetalert2'; // ✅ Import SweetAlert
 import Topnav from '../components/Topnav.jsx';
 import Sidebar from '../components/Sidebar.jsx';
 import BASE_URL from '../utils/constants.js';
@@ -9,7 +10,7 @@ export default function AddCourses() {
         name: '',
         lessons: '',
         description: '',
-        date: ''
+        duration: ''
     });
 
     const [showPopup, setShowPopup] = useState(false);
@@ -20,10 +21,15 @@ export default function AddCourses() {
     };
 
     const handleSubmit = async () => {
-        const token = localStorage.getItem('token'); // 👈 Get token from storage
+        const userData = JSON.parse(localStorage.getItem('user'));
+        const token = userData?.token;
 
         if (!token) {
-            alert('You must be logged in to add a course.');
+            Swal.fire({
+                icon: 'warning',
+                title: 'Unauthorized',
+                text: 'You must be logged in to add a course.',
+            });
             return;
         }
 
@@ -32,7 +38,7 @@ export default function AddCourses() {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`, // 👈 Pass token in header
+                    'Authorization': `Bearer ${token}`,
                 },
                 body: JSON.stringify(formData),
             });
@@ -40,15 +46,28 @@ export default function AddCourses() {
             const data = await response.json();
 
             if (response.ok) {
-                alert('Course added successfully!');
-                setFormData({ name: '', lessons: '', description: '', date: '' });
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success!',
+                    text: 'Course added successfully!',
+                });
+                setFormData({ name: '', lessons: '', description: '', duration: '' });
                 setShowPopup(false);
             } else {
-                alert(`Error: ${data.message || 'Failed to add course.'}`);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Failed!',
+                    text: data.message || 'Failed to add course.',
+                });
+                console.log(response);
             }
         } catch (err) {
             console.error('Error adding course:', err);
-            alert('Something went wrong while submitting the course.');
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Something went wrong while submitting the course.',
+            });
         }
     };
 
@@ -75,7 +94,7 @@ export default function AddCourses() {
                                     placeholder="Course Name"
                                 />
                                 <input
-                                    type="text"
+                                    type="number"
                                     name="lessons"
                                     value={formData.lessons}
                                     onChange={handleChange}
@@ -83,17 +102,17 @@ export default function AddCourses() {
                                 />
                                 <input
                                     type="text"
+                                    name="duration"
+                                    value={formData.duration}
+                                    onChange={handleChange}
+                                    placeholder="Duration"
+                                />
+                                <input
+                                    type="text"
                                     name="description"
                                     value={formData.description}
                                     onChange={handleChange}
                                     placeholder="Description"
-                                />
-                                <input
-                                    type="date"
-                                    name="date"
-                                    value={formData.date}
-                                    onChange={handleChange}
-                                    placeholder="Duration"
                                 />
                                 <button className="submit-btn" onClick={handleSubmit}>
                                     Submit
@@ -106,5 +125,3 @@ export default function AddCourses() {
         </div>
     );
 }
-
-// CHECK

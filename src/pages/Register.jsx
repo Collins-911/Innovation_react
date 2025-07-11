@@ -31,7 +31,6 @@ export default function Register() {
     phonenumber: "",
     password: "",
     address: "",
-    date: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -100,7 +99,6 @@ export default function Register() {
           phonenumber: "",
           password: "",
           address: "",
-          date: "",
         });
         setErrors({});
       } else {
@@ -138,7 +136,6 @@ export default function Register() {
                   { label: "Phone Number", id: "phonenumber", type: "text" },
                   { label: "Password", id: "password", type: "password" },
                   { label: "Address", id: "address", type: "text" },
-                  { label: "Registration Date", id: "date", type: "date" },
                 ].map(({ label, id, type }) => (
                   <div key={id} className="form-group">
                     <label htmlFor={id}>{label}:</label>

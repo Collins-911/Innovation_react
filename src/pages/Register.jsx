@@ -1,22 +1,119 @@
-
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import "../css/home.css";
 import "../css/register.css";
 import Sidebar from "../components/Sidebar.jsx";
 import Topnav from "../components/Topnav.jsx";
-
-
- const success = () => {
-    Swal.fire({
-    title: "Success!",
-    text: "Student registration successfully.",
-    icon: "success"
-  });
-}
+import axios from "axios";
+import BASE_URL from "../utils/constants";
+import { getToken, getUser } from "../utils/authService";
+import { useNavigate } from "react-router-dom";
 
 export default function Register() {
- 
+  const navigate = useNavigate();
+
+  // Redirect non-admin users
+  useEffect(() => {
+    const user = getUser();
+    const token = getToken();
+
+    console.log("🧾 User from localStorage:", user);
+
+    if (!token || user?.role !== "admin") {
+      Swal.fire("Access Denied", "Only admins can access this page", "warning");
+      navigate("/general/dashboard");
+    }
+  }, [navigate]);
+
+  const [formData, setFormData] = useState({
+    fullname: "",
+    email: "",
+    phonenumber: "",
+    password: "",
+    address: "",
+    date: "",
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState({});
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const validateFields = () => {
+    const newErrors = {};
+
+    if (!formData.fullname.trim()) newErrors.fullname = "Full name is required.";
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required.";
+    } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+      newErrors.email = "Invalid email format.";
+    }
+
+    if (!formData.phonenumber.trim()) newErrors.phonenumber = "Phone number is required.";
+
+    if (!formData.password.trim()) {
+      newErrors.password = "Password is required.";
+    } else if (formData.password.length < 6) {
+      newErrors.password = "Password must be at least 6 characters.";
+    }
+
+    if (!formData.address.trim()) newErrors.address = "Address is required.";
+    if (!formData.date) newErrors.date = "Registration date is required.";
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!validateFields()) return;
+    setIsSubmitting(true);
+
+    try {
+      const token = getToken();
+
+      if (!token) {
+        Swal.fire("Unauthorized", "Please log in again.", "warning");
+        setIsSubmitting(false);
+        return;
+      }
+
+      const response = await axios.post(
+        `${BASE_URL}/students/register`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (response.data?.status) {
+        Swal.fire("Success!", "Student registration successful.", "success");
+        setFormData({
+          fullname: "",
+          email: "",
+          phonenumber: "",
+          password: "",
+          address: "",
+          date: "",
+        });
+        setErrors({});
+      } else {
+        Swal.fire("Registration Failed", response.data?.message || "Unknown error", "error");
+      }
+    } catch (error) {
+      console.error("Registration error:", error);
+      Swal.fire("Error", error.response?.data?.message || "An error occurred", "error");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="home-content">
       <Sidebar />
@@ -34,63 +131,33 @@ export default function Register() {
             </div>
 
             <div className="r-form">
-              <form>
-                <div className="form-group">
-                  <label htmlFor="fullname">Full Name:</label>
-                  <input
-                    className="form-input"
-                    type="text"
-                    id="fullname"
-                    name="fullname"
-                    required
-                  />
-                </div>
+              <form onSubmit={handleSubmit}>
+                {[
+                  { label: "Full Name", id: "fullname", type: "text" },
+                  { label: "Email Address", id: "email", type: "email" },
+                  { label: "Phone Number", id: "phonenumber", type: "text" },
+                  { label: "Password", id: "password", type: "password" },
+                  { label: "Address", id: "address", type: "text" },
+                  { label: "Registration Date", id: "date", type: "date" },
+                ].map(({ label, id, type }) => (
+                  <div key={id} className="form-group">
+                    <label htmlFor={id}>{label}:</label>
+                    <input
+                      className="form-input"
+                      type={type}
+                      id={id}
+                      name={id}
+                      value={formData[id]}
+                      onChange={handleChange}
+                      required
+                    />
+                    {errors[id] && <div className="login-error">{errors[id]}</div>}
+                  </div>
+                ))}
 
-                <div className="form-group">
-                  <label htmlFor="email">Email Address:</label>
-                  <input
-                    className="form-input"
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="phonenumber">Phone Number:</label>
-                  <input
-                    className="form-input"
-                    type="text"
-                    id="phonenumber"
-                    name="phonenumber"
-                    required
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="address">Address:</label>
-                  <input
-                    className="form-input"
-                    type="text"
-                    id="address"
-                    name="address"
-                    required
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="date">Registration Date:</label>
-                  <input
-                    className="form-input"
-                    type="date"
-                    id="date"
-                    name="date"
-                    required
-                  />
-                </div>
-
-                <button onClick={success} type="submit" className="submit-btn">Submit</button>
+                <button type="submit" className="submit-btn" disabled={isSubmitting}>
+                  {isSubmitting ? "Submitting..." : "Submit"}
+                </button>
               </form>
             </div>
           </div>

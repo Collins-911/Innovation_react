@@ -28,10 +28,9 @@ export default function Register() {
   const [formData, setFormData] = useState({
     fullname: "",
     email: "",
-    phonenumber: "",
+    phone: "",
     password: "",
     address: "",
-    date: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -52,7 +51,7 @@ export default function Register() {
       newErrors.email = "Invalid email format.";
     }
 
-    if (!formData.phonenumber.trim()) newErrors.phonenumber = "Phone number is required.";
+    if (!formData.phone.trim()) newErrors.phone = "Phone number is required.";
 
     if (!formData.password.trim()) {
       newErrors.password = "Password is required.";
@@ -61,7 +60,6 @@ export default function Register() {
     }
 
     if (!formData.address.trim()) newErrors.address = "Address is required.";
-    if (!formData.date) newErrors.date = "Registration date is required.";
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -97,10 +95,9 @@ export default function Register() {
         setFormData({
           fullname: "",
           email: "",
-          phonenumber: "",
+          phone: "",
           password: "",
           address: "",
-          date: "",
         });
         setErrors({});
       } else {
@@ -135,10 +132,9 @@ export default function Register() {
                 {[
                   { label: "Full Name", id: "fullname", type: "text" },
                   { label: "Email Address", id: "email", type: "email" },
-                  { label: "Phone Number", id: "phonenumber", type: "text" },
+                  { label: "Phone", id: "phone", type: "text" },
                   { label: "Password", id: "password", type: "password" },
                   { label: "Address", id: "address", type: "text" },
-                  { label: "Registration Date", id: "date", type: "date" },
                 ].map(({ label, id, type }) => (
                   <div key={id} className="form-group">
                     <label htmlFor={id}>{label}:</label>

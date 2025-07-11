@@ -1,130 +1,81 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import '../css/course.css';
 import Sidebar from '../components/Sidebar.jsx';
 import Topnav from '../components/Topnav.jsx';
-import cybersecurity from '../assets/cybersecurity.jpg';
-import Dbase from '../assets/Dbase.jpg';
-import Dmarket from '../assets/Dmarket.jpg';
-import Dscience from '../assets/Dscience.jpg';
-import { MdMargin } from "react-icons/md";
+import BASE_URL from "../utils/constants.js";
 
-  
 export default function Courses() {
+  const [courses, setCourses] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const userData = JSON.parse(localStorage.getItem("user"));
+        const token = userData?.token;
+
+        if (!token) {
+          console.error("No token found. Please login.");
+          setLoading(false);
+          return;
+        }
+
+        const response = await axios.get(`${BASE_URL}/courses/68593873e6ffbdaf335ead02/getCourse`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        setCourses(response.data.courses || []);
+        console.log("Fetched courses:", response.data.courses);
+      } catch (err) {
+        console.error("Error fetching courses:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCourses();
+  }, []);
+
   return (
     <div className="home-content">
-            <Sidebar />
-              <div className="top-content">
-                 <Topnav/>
-                <section className="content">
-                    <div className="courses-title">
-                      <h4>All Courses</h4>
-                      <p>Courses / <span>All courses</span></p>
-                    </div>
+      <Sidebar />
+      <div className="top-content">
+        <Topnav />
+        <section className="content">
+          <div className="courses-title">
+            <h4>All Courses</h4>
+            <p>Courses / <span>All courses</span></p>
+          </div>
 
+          {loading ? (
+            <p style={{ textAlign: "center", marginTop: "2rem" }}>Loading courses...</p>
+          ) : courses.length === 0 ? (
+            <p style={{ textAlign: "center", marginTop: "2rem" }}>No courses available.</p>
+          ) : (
             <div className="courses-grid">
-            <div className="course-contain">
-              <div className="course-item" >
-                <div className="course-content">
-                  <h4>Front-end web development</h4>
-                  <p>Lessons: 163</p>
-                  <p>Duration: 2 months</p>
-                </div>
-                <img src="https://i.pinimg.com/736x/b9/1a/50/b91a501d1e7745e2d6301bed895bd272.jpg" alt="Front-end Development" className="course-image" />
-              </div>
-
-              <div className="course-item">
-                < div className="course-content">
-                  <h4>Back-end web development</h4>
-                  <p>Lessons: 41</p>
-                  <p>Duration: 4 months</p>
-                </div>
-                <img src="https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Back-end Development" className="course-image" />
-              </div>
-
-              <div className="course-item">
-                <div className="course-content">
-                  <h4>Product Management</h4>
-                  <p>Lessons: 25</p>
-                  <p>Duration: 1.5 months</p>
-                </div>
-                <img src="https://images.pexels.com/photos/416405/pexels-photo-416405.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Product Management" className="course-image" />
-              </div>
-
-              <div className="course-item">
-                <div className="course-content">
-                  <h4>Product Design</h4>
-                  <p>Lessons: 30</p>
-                  <p>Duration: 2 months</p>
-                </div>
-                <img src="https://i.pinimg.com/736x/1f/f7/3c/1ff73c0e87d459565017d07fdfa3725c.jpg" alt="Product Design" className="course-image" />
-              </div>
-
-              <div className="course-item">
-                <div className="course-content">
-                  <h4>Mobile App Development</h4>
-                  <p>Lessons: 50</p>
-                  <p>Duration: 3 months</p>
-                </div>
-                <img src={Dscience} alt="Mobile App Development" className="course-image" />
-              </div>
-
-              <div className="course-item">
-                <div className="course-content">
-                  <h4>Data Science</h4>
-                  <p>Lessons: 60</p>
-                  <p>Duration: 3 months</p>
-                </div>
-                <img src={Dmarket} alt="Data Science" className="course-image" />
-              </div>
-
-              <div className="course-item">
-                <div className="course-content">
-                  <h4>Digital Marketing</h4>
-                  <p>Lessons: 40</p>
-                  <p>Duration: 1.5 months</p>
-                </div>
-                <img src="https://images.pexels.com/photos/186461/pexels-photo-186461.jpeg" alt="Digital Marketing" className="course-image" />
-              </div>
-
-              <div className="course-item">
-                <div className="course-content">
-                  <h4>DevOps Engineering</h4>
-                  <p>Lessons: 35</p>
-                  <p>Duration: 2 months</p>
-                </div>
-                <img src="https://i.pinimg.com/736x/f7/73/19/f7731997b5af048b484277ed8c0b3493.jpg" alt="DevOps Engineering" className="course-image" />
-              </div>
-
-              <div className="course-item">
-                <div className="course-content">
-                  <h4>Database Administration</h4>
-                  <p>Lessons: 28</p>
-                  <p>Duration: 1.5 months</p>
-                </div>
-                <img src={Dbase} alt="Database Administration" className="course-image" />
-              </div>
-
-              <div className="course-item">
-                <div className="course-content">
-                  <h4>Surveillance Systems</h4>
-                  <p>Lessons: 30</p>
-                  <p>Duration: 2 months</p>
-                </div>
-                <img src="https://images.pexels.com/photos/7534101/pexels-photo-7534101.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Surveillance Systems" className="course-image" />
-              </div>
-
-              <div className="course-item last-course-item">
-                <div className="course-content">
-                  <h4>Cybersecurity</h4>
-                  <p>Lessons: 10</p>
-                  <p>Duration: 1 month</p>
-                </div>
-                <img src={cybersecurity} alt="Cybersecurity" className="course-image" />
+              <div className="course-contain">
+                {courses.map((course, index) => (
+                  <div key={index} className="course-item">
+                    <div className="course-content">
+                      <h4>{course.name}</h4>
+                      <p>Lessons: {course.lessons}</p>
+                      <p>Duration: {course.duration}</p>
+                      <p>{course.description}</p>
+                    </div>
+                    <img
+                      src={course.image || "https://via.placeholder.com/300x160.png?text=No+Image"}
+                      alt={course.name}
+                      className="course-image"
+                    />
+                  </div>
+                ))}
               </div>
             </div>
-          </div>
+          )}
         </section>
-          
       </div>
     </div>
   );

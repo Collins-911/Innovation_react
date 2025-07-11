@@ -20,24 +20,35 @@ export default function AddCourses() {
     };
 
     const handleSubmit = async () => {
+        const token = localStorage.getItem('token'); // 👈 Get token from storage
+
+        if (!token) {
+            alert('You must be logged in to add a course.');
+            return;
+        }
+
         try {
-            const response = await fetch(`${BASE_URL}/api/courses`, {
+            const response = await fetch(`${BASE_URL}/courses/createCourse`, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`, // 👈 Pass token in header
+                },
                 body: JSON.stringify(formData),
             });
 
             const data = await response.json();
+
             if (response.ok) {
                 alert('Course added successfully!');
                 setFormData({ name: '', lessons: '', description: '', date: '' });
                 setShowPopup(false);
             } else {
-                alert(`Error: ${data.message}`);
+                alert(`Error: ${data.message || 'Failed to add course.'}`);
             }
         } catch (err) {
             console.error('Error adding course:', err);
-            alert('Something went wrong.');
+            alert('Something went wrong while submitting the course.');
         }
     };
 
@@ -95,3 +106,5 @@ export default function AddCourses() {
         </div>
     );
 }
+
+// CHECK

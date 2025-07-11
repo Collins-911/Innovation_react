@@ -12,12 +12,9 @@ import { useNavigate } from "react-router-dom";
 export default function RegisterStaff() {
   const navigate = useNavigate();
 
-  // Redirect non-admin users
   useEffect(() => {
     const user = getUser();
     const token = getToken();
-
-    console.log("🧾 User from localStorage:", user);
 
     if (!token || user?.role !== "admin") {
       Swal.fire("Access Denied", "Only admins can access this page", "warning");
@@ -99,12 +96,12 @@ export default function RegisterStaff() {
           password: "",
           role: "",
         });
+        navigate("/general/staff");
         setErrors({});
       } else {
         Swal.fire("Registration Failed", response.data?.message || "Unknown error", "error");
       }
     } catch (error) {
-      console.error("Registration error:", error);
       Swal.fire("Error", error.response?.data?.message || "An error occurred", "error");
     } finally {
       setIsSubmitting(false);

@@ -1,115 +1,73 @@
 import React, { useEffect, useState } from "react";
-import Swal from "sweetalert2";
 import "../css/home.css";
-import "../css/register.css";
+import "../css/student.css";
 import Sidebar from "../components/Sidebar.jsx";
 import Topnav from "../components/Topnav.jsx";
+import dummy from "../assets/dummy.webp";
 import axios from "axios";
 import BASE_URL from "../utils/constants";
-import { getToken, getUser } from "../utils/authService";
-import { useNavigate } from "react-router-dom";
+import { getToken } from "../utils/authService";
+import Swal from "sweetalert2";
 
-export default function RegisterStaff() {
-  const navigate = useNavigate();
+export default function Staff() {
+  const [staffs, setStaffs] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  // Redirect non-admin users
-  useEffect(() => {
-    const user = getUser();
-    const token = getToken();
-
-    console.log("🧾 User from localStorage:", user);
-
-    if (!token || user?.role !== "admin") {
-      Swal.fire("Access Denied", "Only admins can access this page", "warning");
-      navigate("/general/dashboard");
-    }
-  }, [navigate]);
-
-  const [formData, setFormData] = useState({
-    fullname: "",
-    email: "",
-    phone: "",
-    password: "",
-    role: "",
-  });
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [errors, setErrors] = useState({});
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const validateFields = () => {
-    const newErrors = {};
-
-    if (!formData.fullname.trim()) newErrors.fullname = "Full name is required.";
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required.";
-    } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
-      newErrors.email = "Invalid email format.";
-    }
-
-    if (!formData.phone.trim()) newErrors.phone = "Phone number is required.";
-
-    if (!formData.password.trim()) {
-      newErrors.password = "Password is required.";
-    } else if (formData.password.length < 6) {
-      newErrors.password = "Password must be at least 6 characters.";
-    }
-
-    if (!formData.role.trim()) newErrors.role = "Role is required.";
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!validateFields()) return;
-    setIsSubmitting(true);
-
+  // Fetch all staff
+  const fetchStaffs = async () => {
     try {
       const token = getToken();
+      const response = await axios.get(`${BASE_URL}/staff`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
-      if (!token) {
-        Swal.fire("Unauthorized", "Please log in again.", "warning");
-        setIsSubmitting(false);
-        return;
-      }
+      console.log("STAFF API RESPONSE:", response.data);
 
-      const response = await axios.post(
-        `${BASE_URL}/staff/register`,
-        formData,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-
-      if (response.data?.status) {
-        Swal.fire("Success!", "Staff registration successful.", "success");
-        setFormData({
-          fullname: "",
-          email: "",
-          phone: "",
-          password: "",
-          role: "",
-        });
-        setErrors({});
+      if (response.data?.status && Array.isArray(response.data.staff)) {
+        setStaffs(response.data.staff);
       } else {
-        Swal.fire("Registration Failed", response.data?.message || "Unknown error", "error");
+        Swal.fire("Error", response.data?.message || "Failed to load staff", "error");
       }
-    } catch (error) {
-      console.error("Registration error:", error);
-      Swal.fire("Error", error.response?.data?.message || "An error occurred", "error");
+    } catch (err) {
+      console.error("Fetch staff error:", err);
+      Swal.fire("Error", err.response?.data?.message || "Could not fetch staff", "error");
     } finally {
-      setIsSubmitting(false);
+      setLoading(false);
     }
   };
+
+  // Delete staff
+  const handleDelete = async (id) => {
+    const confirm = await Swal.fire({
+      title: "Are you sure?",
+      text: "This staff will be permanently deleted.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes, delete",
+    });
+
+    if (confirm.isConfirmed) {
+      try {
+        const token = getToken();
+        await axios.delete(`${BASE_URL}/staff/deletestaff/${id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        Swal.fire("Deleted", "Staff has been deleted.", "success");
+        setStaffs((prev) => prev.filter((staff) => staff._id !== id));
+      } catch (err) {
+        Swal.fire("Error", err.response?.data?.message || "Failed to delete staff.", "error");
+      }
+    }
+  };
+
+  useEffect(() => {
+    fetchStaffs();
+  }, []);
 
   return (
     <div className="home-content">
@@ -117,45 +75,81 @@ export default function RegisterStaff() {
       <div className="top-content">
         <Topnav />
         <section className="content" style={{ padding: "1rem" }}>
-          <div className="register-title" style={{ marginTop: "4rem" }}>
-            <h4>Register Staff</h4>
-            <p>Staffs / <span>Register staff</span></p>
+          <div className="student-title" style={{ marginTop: "4rem" }}>
+            <h4>All Staffs</h4>
+            <p>
+              Staffs / <span>All staffs</span>
+            </p>
           </div>
 
-          <div className="register-form">
+          <div className="student-list">
             <div className="list-title">
-              <h3>Basic Info</h3>
+              <h3>All staff list</h3>
             </div>
 
-            <div className="r-form">
-              <form onSubmit={handleSubmit}>
-                {[
-                  { label: "Full Name", id: "fullname", type: "text" },
-                  { label: "Email Address", id: "email", type: "email" },
-                  { label: "Phone", id: "phone", type: "text" },
-                  { label: "Password", id: "password", type: "password" },
-                  { label: "Role", id: "role", type: "text" },
-                ].map(({ label, id, type }) => (
-                  <div key={id} className="form-group">
-                    <label htmlFor={id}>{label}:</label>
-                    <input
-                      className="form-input"
-                      type={type}
-                      id={id}
-                      name={id}
-                      value={formData[id]}
-                      onChange={handleChange}
-                      required
-                    />
-                    {errors[id] && <div className="login-error">{errors[id]}</div>}
-                  </div>
-                ))}
-
-                <button type="submit" className="submit-btn" disabled={isSubmitting}>
-                  {isSubmitting ? "Submitting..." : "Submit"}
-                </button>
-              </form>
-            </div>
+            {loading ? (
+              <p>Loading staff...</p>
+            ) : (
+              <div className="student-table">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Profile</th>
+                      <th>Staff Name</th>
+                      <th>Course Name</th>
+                      <th>Phone Number</th>
+                      <th>Email Address</th>
+                      <th>Registration</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {staffs.length === 0 ? (
+                      <tr>
+                        <td colSpan="7" style={{ textAlign: "center" }}>
+                          No staff found.
+                        </td>
+                      </tr>
+                    ) : (
+                      staffs.map((staff) => (
+                        <tr key={staff._id}>
+                          <td>
+                            <img
+                              src={dummy}
+                              alt="profile"
+                              style={{ width: "40px", borderRadius: "50%" }}
+                            />
+                          </td>
+                          <td>{staff.fullname}</td>
+                          <td>{staff.course || "N/A"}</td>
+                          <td>{staff.phone}</td>
+                          <td>{staff.email}</td>
+                          <td>
+                            {staff.createdAt
+                              ? new Date(staff.createdAt).toLocaleDateString("en-GB")
+                              : "N/A"}
+                          </td>
+                          <td>
+                            <button
+                              onClick={() => handleDelete(staff._id)}
+                              style={{
+                                background: "red",
+                                color: "#fff",
+                                border: "none",
+                                padding: "5px 10px",
+                                cursor: "pointer",
+                              }}
+                            >
+                              Delete
+                            </button>
+                          </td>
+                        </tr>
+                      ))
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            )}
           </div>
         </section>
       </div>

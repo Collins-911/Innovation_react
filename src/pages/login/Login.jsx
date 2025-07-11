@@ -52,7 +52,7 @@ export default function Login() {
       const selectedRole = roles.includes(role) ? role : "admin";
       const data = { email, password, role: selectedRole };   // default to admin, if role isn't chosen
 
-      const response = await axios.post(`${BASE_URL}/auth/login`, data); // post api request with user data
+      const response = await axios.post(`${BASE_URL}/auth/login`, data, { withCredentials: true }); // post api request with user data
 
       //  check if login succeeded and token is returned
       if (response.data?.status && response.data?.token) {
@@ -82,6 +82,7 @@ export default function Login() {
 
         // save user info to local storage and redirect to dashboard.
         localStorage.setItem("user", JSON.stringify({ token, user }));
+        axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
         navigate("/general/dashboard");
       } else {
         Swal.fire("Login Failed", "Invalid credentials", "error");

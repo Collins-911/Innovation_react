@@ -1,79 +1,143 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import '../css/course.css';
-import Sidebar from '../components/Sidebar.jsx';
-import Topnav from '../components/Topnav.jsx';
+import Swal from "sweetalert2";
+import "../css/course.css";
+import Sidebar from "../components/Sidebar.jsx";
+import Topnav from "../components/Topnav.jsx";
 import BASE_URL from "../utils/constants.js";
 
 export default function Courses() {
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const getToken = () => {
+    const data = JSON.parse(localStorage.getItem("user"));
+    return data?.token || data?.user?.token || null;
+  };
+
+  const fetchCourses = async () => {
+    const token = getToken();
+
+    if (!token) {
+      setLoading(false);
+      return;
+    }
+
+    try {
+      const response = await axios.get(`${BASE_URL}/courses/getCourse`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (Array.isArray(response.data)) {
+        setCourses(response.data);
+      } else {
+        setCourses([]);
+      }
+    } catch {
+      setCourses([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    const fetchCourses = async () => {
+    fetchCourses();
+  }, []);
+
+  const handleDelete = async (id) => {
+    const token = getToken();
+
+    if (!token) return;
+
+    const confirm = await Swal.fire({
+      title: "Are you sure?",
+      text: "This will permanently delete the course.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes, delete it!",
+    });
+
+    if (confirm.isConfirmed) {
       try {
-        const userData = JSON.parse(localStorage.getItem("user"));
-        const token = userData?.token;
-
-        if (!token) {
-          console.error("No token found. Please login.");
-          setLoading(false);
-          return;
-        }
-
-        const response = await axios.get(`${BASE_URL}/courses/68593873e6ffbdaf335ead02/getCourse`, {
+        const response = await axios.delete(`${BASE_URL}/courses/${id}/delete`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
 
-        setCourses(response.data.courses || []);
-        console.log("Fetched courses:", response.data.courses);
-      } catch (err) {
-        console.error("Error fetching courses:", err);
-      } finally {
-        setLoading(false);
+        if (response.status === 200 || response.status === 204) {
+          Swal.fire("Deleted!", "Course deleted successfully.", "success");
+          fetchCourses();
+        } else {
+          Swal.fire("Error", "Failed to delete the course.", "error");
+        }
+      } catch {
+        Swal.fire("Error", "Something went wrong.", "error");
       }
-    };
-
-    fetchCourses();
-  }, []);
+    }
+  };
 
   return (
     <div className="home-content">
       <Sidebar />
       <div className="top-content">
         <Topnav />
-        <section className="content">
+        <section className="content" style={{ padding: "2rem" }}>
           <div className="courses-title">
             <h4>All Courses</h4>
-            <p>Courses / <span>All courses</span></p>
+            <p>
+              Courses / <span>All courses</span>
+            </p>
           </div>
 
           {loading ? (
-            <p style={{ textAlign: "center", marginTop: "2rem" }}>Loading courses...</p>
+            <p style={{ textAlign: "center", marginTop: "2rem" }}>
+              Loading courses...
+            </p>
           ) : courses.length === 0 ? (
-            <p style={{ textAlign: "center", marginTop: "2rem" }}>No courses available.</p>
+            <p style={{ textAlign: "center", marginTop: "2rem" }}>
+              No courses available.
+            </p>
           ) : (
-            <div className="courses-grid">
-              <div className="course-contain">
+            <table className="courses-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Lessons</th>
+                  <th>Duration</th>
+                  <th>Description</th>
+                  <th>Created</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
                 {courses.map((course, index) => (
-                  <div key={index} className="course-item">
-                    <div className="course-content">
-                      <h4>{course.name}</h4>
-                      <p>Lessons: {course.lessons}</p>
-                      <p>Duration: {course.duration}</p>
-                      <p>{course.description}</p>
-                    </div>
-                    <img
-                      src={course.image || "https://via.placeholder.com/300x160.png?text=No+Image"}
-                      alt={course.name}
-                      className="course-image"
-                    />
-                  </div>
+                  <tr key={course._id}>
+                    <td>{index + 1}</td>
+                    <td>{course.name}</td>
+                    <td>{course.lessons}</td>
+                    <td>{course.duration}</td>
+                    <td>{course.description}</td>
+                    <td>
+                      {course.createdAt
+                        ? new Date(course.createdAt).toLocaleDateString("en-GB")
+                        : "N/A"}
+                    </td>
+                    <td>
+                      <button
+                        className="delete-btn"
+                        onClick={() => handleDelete(course._id)}
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
                 ))}
-              </div>
-            </div>
+              </tbody>
+            </table>
           )}
         </section>
       </div>

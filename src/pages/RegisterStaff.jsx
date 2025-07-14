@@ -12,16 +12,6 @@ import { useNavigate } from "react-router-dom";
 export default function RegisterStaff() {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const user = getUser();
-    const token = getToken();
-
-    if (!token || user?.role !== "admin") {
-      Swal.fire("Access Denied", "Only admins can access this page", "warning");
-      navigate("/general/dashboard");
-    }
-  }, [navigate]);
-
   const [formData, setFormData] = useState({
     fullname: "",
     email: "",
@@ -32,6 +22,20 @@ export default function RegisterStaff() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState({});
+  const [authorized, setAuthorized] = useState(false);
+
+  useEffect(() => {
+    const token = getToken();
+    const user = getUser();
+
+    if (!token || !user || user.role !== "admin") {
+      Swal.fire("Access Denied", "Only admins can access this page", "warning").then(() => {
+        navigate("/general/dashboard");
+      });
+    } else {
+      setAuthorized(true);
+    }
+  }, [navigate]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -47,15 +51,12 @@ export default function RegisterStaff() {
     } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
       newErrors.email = "Invalid email format.";
     }
-
     if (!formData.phone.trim()) newErrors.phone = "Phone number is required.";
-
     if (!formData.password.trim()) {
       newErrors.password = "Password is required.";
     } else if (formData.password.length < 6) {
       newErrors.password = "Password must be at least 6 characters.";
     }
-
     if (!formData.role.trim()) newErrors.role = "Role is required.";
 
     setErrors(newErrors);
@@ -76,16 +77,12 @@ export default function RegisterStaff() {
         return;
       }
 
-      const response = await axios.post(
-        `${BASE_URL}/staff/register`,
-        formData,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await axios.post(`${BASE_URL}/staff/register`, formData, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
       if (response.data?.status) {
         Swal.fire("Success!", "Staff registration successful.", "success");
@@ -96,8 +93,8 @@ export default function RegisterStaff() {
           password: "",
           role: "",
         });
-        navigate("/general/staff");
         setErrors({});
+        navigate("/general/staff");
       } else {
         Swal.fire("Registration Failed", response.data?.message || "Unknown error", "error");
       }
@@ -107,6 +104,8 @@ export default function RegisterStaff() {
       setIsSubmitting(false);
     }
   };
+
+  if (!authorized) return null;
 
   return (
     <div className="home-content">
@@ -126,27 +125,74 @@ export default function RegisterStaff() {
 
             <div className="r-form">
               <form onSubmit={handleSubmit}>
-                {[
-                  { label: "Full Name", id: "fullname", type: "text" },
-                  { label: "Email Address", id: "email", type: "email" },
-                  { label: "Phone", id: "phone", type: "text" },
-                  { label: "Password", id: "password", type: "password" },
-                  { label: "Role", id: "role", type: "text" },
-                ].map(({ label, id, type }) => (
-                  <div key={id} className="form-group">
-                    <label htmlFor={id}>{label}:</label>
-                    <input
-                      className="form-input"
-                      type={type}
-                      id={id}
-                      name={id}
-                      value={formData[id]}
-                      onChange={handleChange}
-                      required
-                    />
-                    {errors[id] && <div className="login-error">{errors[id]}</div>}
-                  </div>
-                ))}
+                <div className="form-group">
+                  <label htmlFor="fullname">Full Name:</label>
+                  <input
+                    className="form-input"
+                    type="text"
+                    id="fullname"
+                    name="fullname"
+                    value={formData.fullname}
+                    onChange={handleChange}
+                  />
+                  {errors.fullname && <div className="login-error">{errors.fullname}</div>}
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="email">Email Address:</label>
+                  <input
+                    className="form-input"
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                  />
+                  {errors.email && <div className="login-error">{errors.email}</div>}
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="phone">Phone:</label>
+                  <input
+                    className="form-input"
+                    type="text"
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                  />
+                  {errors.phone && <div className="login-error">{errors.phone}</div>}
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="password">Password:</label>
+                  <input
+                    className="form-input"
+                    type="password"
+                    id="password"
+                    name="password"
+                    value={formData.password}
+                    onChange={handleChange}
+                  />
+                  {errors.password && <div className="login-error">{errors.password}</div>}
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="role">Role:</label>
+                  <select
+                    className="form-input"
+                    id="role"
+                    name="role"
+                    value={formData.role}
+                    onChange={handleChange}
+                  >
+                    <option value="">Select role</option>
+                    <option value="admin">Admin</option>
+                    <option value="staff">Staff</option>
+                    <option value="manager">Manager</option>
+                  </select>
+                  {errors.role && <div className="login-error">{errors.role}</div>}
+                </div>
 
                 <button type="submit" className="submit-btn" disabled={isSubmitting}>
                   {isSubmitting ? "Submitting..." : "Submit"}

@@ -16,7 +16,6 @@ export default function Staff() {
   const [deletingId, setDeletingId] = useState(null);
   const navigate = useNavigate();
 
-  // Authorization: Only admins allowed
   useEffect(() => {
     const token = getToken();
     const user = getUser();
@@ -30,35 +29,34 @@ export default function Staff() {
     }
   }, [navigate]);
 
-const fetchStaffs = async () => {
-  try {
-    setLoading(true);
-    const token = getToken();
-    const response = await axios.get(`${BASE_URL}/staff`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+  const fetchStaffs = async () => {
+    try {
+      setLoading(true);
+      const token = getToken();
+      const response = await axios.get(`${BASE_URL}/staff/getstaffs`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
-    console.log("STAFF API RESPONSE:", response.data);
-    const staffList = response.data?.staffs || response.data?.data;
+      console.log("Raw API Response:", response.data);
 
-    if (Array.isArray(staffList)) {
-      setStaffs(staffList);
-    } else {
-      Swal.fire("Error", "Unexpected data format", "error");
+      const staffList = Array.isArray(response.data)
+        ? response.data
+        : response.data?.staffs || response.data?.data || [];
+
+      if (Array.isArray(staffList)) {
+        setStaffs(staffList);
+      } else {
+        Swal.fire("Error", "Unexpected data format from server", "error");
+      }
+    } catch (err) {
+      Swal.fire("Error", err.response?.data?.message || "Could not fetch staff", "error");
+    } finally {
+      setLoading(false);
     }
-  } catch (err) {
-    console.error("Fetch staff error:", err);
-    Swal.fire("Error", err.response?.data?.message || "Could not fetch staff", "error");
-  } finally {
-    setLoading(false);
-  }
-};
+  };
 
-
-
-  // Delete staff
   const handleDelete = async (id) => {
     const confirm = await Swal.fire({
       title: "Are you sure?",
@@ -111,65 +109,60 @@ const fetchStaffs = async () => {
               <div style={{ textAlign: "center", padding: "2rem" }}>
                 <p>Loading staff list...</p>
               </div>
+            ) : staffs.length === 0 ? (
+              <div style={{ textAlign: "center", padding: "2rem" }}>
+                <p>No staff found.</p>
+              </div>
             ) : (
-              <div className="student-table">
-                <table>
+              <div className="student-table" style={{ overflowX: "auto" }}>
+                <table className="styled-table">
                   <thead>
                     <tr>
                       <th>Profile</th>
-                      <th>Staff Name</th>
-                      <th>Course Name</th>
-                      <th>Phone Number</th>
-                      <th>Email Address</th>
+                      <th>Full Name</th>
+                      <th>Course</th>
+                      <th>Phone</th>
+                      <th>Email</th>
                       <th>Registration</th>
-                      <th>Action</th>
+                      <th>Actions</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {staffs.length === 0 ? (
-                      <tr>
-                        <td colSpan="7" style={{ textAlign: "center" }}>
-                          No staff found.
+                    {staffs.map((staff) => (
+                      <tr key={staff._id}>
+                        <td>
+                          <img
+                            src={dummy}
+                            alt="Profile"
+                            style={{ width: "40px", borderRadius: "50%" }}
+                          />
+                        </td>
+                        <td>{staff.fullname}</td>
+                        <td>{staff.course || "N/A"}</td>
+                        <td>{staff.phone}</td>
+                        <td>{staff.email}</td>
+                        <td>
+                          {staff.createdAt
+                            ? new Date(staff.createdAt).toLocaleDateString("en-GB")
+                            : "N/A"}
+                        </td>
+                        <td>
+                          <button
+                            onClick={() => navigate(`/staff/${staff._id}/update`)}
+                            className="btn btn-view"
+                          >
+                            View
+                          </button>
+                          <button
+                            onClick={() => handleDelete(staff._id)}
+                            disabled={deletingId === staff._id}
+                            className="btn btn-delete"
+                          >
+                            {deletingId === staff._id ? "Deleting..." : "Delete"}
+                          </button>
                         </td>
                       </tr>
-                    ) : (
-                      staffs.map((staff) => (
-                        <tr key={staff._id}>
-                          <td>
-                            <img
-                              src={dummy}
-                              alt="profile"
-                              style={{ width: "40px", borderRadius: "50%" }}
-                            />
-                          </td>
-                          <td>{staff.fullname || "N/A"}</td>
-                          <td>{staff.course || "N/A"}</td>
-                          <td>{staff.phone || "N/A"}</td>
-                          <td>{staff.email || "N/A"}</td>
-                          <td>
-                            {staff.createdAt
-                              ? new Date(staff.createdAt).toLocaleDateString("en-GB")
-                              : "N/A"}
-                          </td>
-                          <td>
-                            <button
-                              onClick={() => handleDelete(staff._id)}
-                              disabled={deletingId === staff._id}
-                              style={{
-                                background: "red",
-                                color: "#fff",
-                                border: "none",
-                                padding: "5px 10px",
-                                cursor: "pointer",
-                                opacity: deletingId === staff._id ? 0.6 : 1,
-                              }}
-                            >
-                              {deletingId === staff._id ? "Deleting..." : "Delete"}
-                            </button>
-                          </td>
-                        </tr>
-                      ))
-                    )}
+                    ))}
                   </tbody>
                 </table>
               </div>

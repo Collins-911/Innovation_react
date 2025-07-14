@@ -28,55 +28,55 @@ export default function Profile() {
   };
 
   const handleBack = () => {
-    navigate(-1); 
+    navigate(-1);
   };
 
   return (
-    <div className="profile-wrapper">
-      <button className="back-btn" onClick={handleBack}>
+    <div className="profileWrapper">
+      <button className="backBtn" onClick={handleBack}>
         <FaArrowLeft /> Back
       </button>
 
-      <div className="profile-header">
+      <div className="profileHeader">
         <h2>My Profile</h2>
-        <button className="logout-btn" onClick={handleLogout}>
+        <button className="logoutBtn" onClick={handleLogout}>
           <FaSignOutAlt /> Logout
         </button>
       </div>
 
-      <div className="card profile-summary">
-        <img src={userData.avatar} alt="Profile" className="profile-avatar" />
-        <div className="profile-info">
+      <div className="card profileSummary">
+        <img src={userData.avatar} alt="Profile" className="profileAvatar" />
+        <div className="profileInfo">
           <h3>{userData.firstName} {userData.lastName}</h3>
           <p className="role">{userData.role}</p>
           <p className="location">{userData.location}</p>
         </div>
       </div>
 
-      <div className="card section-card">
-        <div className="section-header">
+      <div className="card sectionCard">
+        <div className="sectionHeader">
           <h4>Personal Information</h4>
-          <button className="edit-btn"><FaEdit /> Edit</button>
+          <button className="editBtn"><FaEdit /> Edit</button>
         </div>
-        <div className="info-grid">
-          <div className="info-block"><label>First Name</label><span>{userData.firstName}</span></div>
-          <div className="info-block"><label>Last Name</label><span>{userData.lastName}</span></div>
-          <div className="info-block"><label>Date of Birth</label><span>{userData.dob}</span></div>
-          <div className="info-block"><label>Email Address</label><span>{userData.email}</span></div>
-          <div className="info-block"><label>Phone Number</label><span>{userData.phone}</span></div>
-          <div className="info-block"><label>User Role</label><span>{userData.role}</span></div>
+        <div className="infoGrid">
+          <div className="infoBlock"><label>First Name</label><span>{userData.firstName}</span></div>
+          <div className="infoBlock"><label>Last Name</label><span>{userData.lastName}</span></div>
+          <div className="infoBlock"><label>Date of Birth</label><span>{userData.dob}</span></div>
+          <div className="infoBlock"><label>Email Address</label><span>{userData.email}</span></div>
+          <div className="infoBlock"><label>Phone Number</label><span>{userData.phone}</span></div>
+          <div className="infoBlock"><label>User Role</label><span>{userData.role}</span></div>
         </div>
       </div>
 
-      <div className="card section-card">
-        <div className="section-header">
+      <div className="card sectionCard">
+        <div className="sectionHeader">
           <h4>Address</h4>
-          <button className="edit-btn"><FaEdit /> Edit</button>
+          <button className="editBtn"><FaEdit /> Edit</button>
         </div>
-        <div className="info-grid">
-          <div className="info-block"><label>Country</label><span>{userData.country}</span></div>
-          <div className="info-block"><label>City</label><span>{userData.city}</span></div>
-  <div className="info-block"><label>House Address</label><span>{userData. HouseAddress}</span></div>
+        <div className="infoGrid">
+          <div className="infoBlock"><label>Country</label><span>{userData.country}</span></div>
+          <div className="infoBlock"><label>City</label><span>{userData.city}</span></div>
+          <div className="infoBlock"><label>House Address</label><span>{userData.HouseAddress}</span></div>
         </div>
       </div>
     </div>

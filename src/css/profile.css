@@ -5,26 +5,25 @@ body {
   color: #1f1f1f;
 }
 
-.profile-wrapper {
+.profileWrapper {
   max-width: 1000px;
   margin: 2rem auto;
   padding: 0 1.5rem;
 }
 
-.profile-header {
+.profileHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 2rem;
 }
 
-.profile-header h2 {
+.profileHeader h2 {
   font-size: 1.8rem;
   font-weight: 600;
 }
 
-/* Back Button */
-.back-btn {
+.backBtn {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -39,13 +38,12 @@ body {
   transition: all 0.3s ease;
 }
 
-.back-btn:hover {
+.backBtn:hover {
   background-color: #f3f4f6;
   border-color: #999;
 }
 
-/* Logout */
-.logout-btn {
+.logoutBtn {
   background-color: #ef4444;
   color: white;
   border: none;
@@ -59,11 +57,10 @@ body {
   transition: background 0.3s ease;
 }
 
-.logout-btn:hover {
+.logoutBtn:hover {
   background-color: #dc2626;
 }
 
-/* Cards */
 .card {
   background: #ffffff;
   border-radius: 12px;
@@ -72,14 +69,13 @@ body {
   margin-bottom: 2rem;
 }
 
-/* Profile Summary */
-.profile-summary {
+.profileSummary {
   display: flex;
   align-items: center;
   gap: 1.5rem;
 }
 
-.profile-avatar {
+.profileAvatar {
   width: 90px;
   height: 90px;
   border-radius: 50%;
@@ -87,40 +83,39 @@ body {
   border: 3px solid #007bff;
 }
 
-.profile-info h3 {
+.profileInfo h3 {
   font-size: 1.3rem;
   margin: 0 0 0.3rem;
 }
 
-.profile-info p {
+.profileInfo p {
   margin: 0.25rem 0;
   color: #555;
 }
 
-.profile-info .role {
+.profileInfo .role {
   font-weight: 500;
   color: #007bff;
 }
 
-.profile-info .location {
+.profileInfo .location {
   font-size: 0.95rem;
   color: #888;
 }
 
-/* Section Header */
-.section-header {
+.sectionHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1.5rem;
 }
 
-.section-header h4 {
+.sectionHeader h4 {
   font-size: 1.1rem;
   font-weight: 600;
 }
 
-.edit-btn {
+.editBtn {
   background: #f59e0b;
   color: white;
   border: none;
@@ -133,44 +128,42 @@ body {
   cursor: pointer;
 }
 
-.edit-btn:hover {
+.editBtn:hover {
   background: #d97706;
 }
 
-/* Grid Info Blocks */
-.info-grid {
+.infoGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.5rem;
 }
 
-.info-block label {
+.infoBlock label {
   font-size: 0.85rem;
   color: #888;
   margin-bottom: 0.3rem;
   display: block;
 }
 
-.info-block span {
+.infoBlock span {
   font-size: 1rem;
   font-weight: 500;
   color: #222;
 }
 
-/* Mobile Responsive */
 @media (max-width: 600px) {
-  .profile-summary {
+  .profileSummary {
     flex-direction: column;
     align-items: flex-start;
   }
 
-  .profile-header {
+  .profileHeader {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
   }
 
-  .logout-btn {
+  .logoutBtn {
     align-self: flex-start;
   }
 }

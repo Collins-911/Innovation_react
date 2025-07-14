@@ -119,8 +119,8 @@ body.dark .transfer-amount input{
 
 @media only screen and (max-width: 768px){
 	.transfer-buttons button{
-		width: 150px;
-		font-size: 12px;
+		width: 120px;
+		font-size: 10px;
 	}
 	.reciept-title{
 		padding-left: 1rem !important;

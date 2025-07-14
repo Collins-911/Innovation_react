@@ -12,19 +12,6 @@ import { useNavigate } from "react-router-dom";
 export default function Register() {
   const navigate = useNavigate();
 
-  // Redirect non-admin users
-  useEffect(() => {
-    const user = getUser();
-    const token = getToken();
-
-    console.log("🧾 User from localStorage:", user);
-
-    if (!token || user?.role !== "admin") {
-      Swal.fire("Access Denied", "Only admins can access this page", "warning");
-      navigate("/general/dashboard");
-    }
-  }, [navigate]);
-
   const [formData, setFormData] = useState({
     fullname: "",
     email: "",
@@ -35,6 +22,20 @@ export default function Register() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState({});
+  const [authorized, setAuthorized] = useState(false);
+  
+  useEffect(() => {
+    const token = getToken();
+    const user = getUser();
+
+    if (!token || !user || user.role !== "admin") {
+      Swal.fire("Access Denied", "Only admins can access this page", "warning").then(() => {
+        navigate("/general/dashboard");
+      });
+    } else {
+      setAuthorized(true);
+    }
+  }, [navigate]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -50,15 +51,12 @@ export default function Register() {
     } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
       newErrors.email = "Invalid email format.";
     }
-
     if (!formData.phone.trim()) newErrors.phone = "Phone number is required.";
-
     if (!formData.password.trim()) {
       newErrors.password = "Password is required.";
     } else if (formData.password.length < 6) {
       newErrors.password = "Password must be at least 6 characters.";
     }
-
     if (!formData.address.trim()) newErrors.address = "Address is required.";
 
     setErrors(newErrors);
@@ -68,16 +66,11 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateFields()) return;
+
     setIsSubmitting(true);
 
     try {
       const token = getToken();
-
-      if (!token) {
-        Swal.fire("Unauthorized", "Please log in again.", "warning");
-        setIsSubmitting(false);
-        return;
-      }
 
       const response = await axios.post(
         `${BASE_URL}/students/register`,
@@ -91,7 +84,10 @@ export default function Register() {
       );
 
       if (response.data?.status) {
-        Swal.fire("Success!", "Student registration successful.", "success");
+        Swal.fire("Success!", "Student registration successful.", "success").then(() => {
+          navigate("/general/student");
+        });
+
         setFormData({
           fullname: "",
           email: "",
@@ -110,6 +106,8 @@ export default function Register() {
       setIsSubmitting(false);
     }
   };
+
+  if (!authorized) return null;
 
   return (
     <div className="home-content">
@@ -145,7 +143,6 @@ export default function Register() {
                       name={id}
                       value={formData[id]}
                       onChange={handleChange}
-                      required
                     />
                     {errors[id] && <div className="login-error">{errors[id]}</div>}
                   </div>

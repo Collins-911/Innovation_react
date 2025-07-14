@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import "../css/home.css";
 import "../css/student.css";
@@ -7,12 +6,28 @@ import Topnav from "../components/Topnav.jsx";
 import dummy from "../assets/dummy.webp";
 import axios from "axios";
 import BASE_URL from "../utils/constants";
-import { getToken } from "../utils/authService";
+import { getToken, getUser } from "../utils/authService";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 export default function Student() {
   const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+
+  // Admin access check
+  useEffect(() => {
+    const token = getToken();
+    const user = getUser();
+
+    if (!token || !user || user.role !== "admin") {
+      Swal.fire("Access Denied", "Only admins can access this page", "warning").then(() => {
+        navigate("/general/dashboard");
+      });
+    } else {
+      fetchStudents();
+    }
+  }, [navigate]);
 
   const fetchStudents = async () => {
     try {
@@ -22,11 +37,11 @@ export default function Student() {
           Authorization: `Bearer ${token}`,
         },
       });
-  
+
       console.log("STUDENT API RESPONSE:", response.data);
-  
+
       if (response.data?.status && Array.isArray(response.data.students)) {
-        setStudents(response.data.students); 
+        setStudents(response.data.students);
       } else {
         Swal.fire("Error", response.data?.message || "Failed to load students", "error");
       }
@@ -63,80 +78,89 @@ export default function Student() {
     }
   };
 
-  useEffect(() => {
-    fetchStudents();
-  }, []);
-
   return (
     <div className="home-content">
       <Sidebar />
       <div className="top-content">
         <Topnav />
-        <div style={{ padding: "2rem" }}>
-          <h2>All Students</h2>
+        <section className="content" style={{ padding: "1rem" }}>
+          <div className="student-title">
+            <h4>All Students</h4>
+            <p>
+              Students / <span>All students</span>
+            </p>
+          </div>
 
-          {loading ? (
-            <p>Loading students...</p>
-          ) : (
-            <table
-              border="1"
-              cellPadding="10"
-              style={{ width: "100%", marginTop: "1rem", borderCollapse: "collapse" }}
-            >
-              <thead>
-                <tr>
-                  <th>Profile</th>
-                  <th>Fullname</th>
-                  <th>Email</th>
-                  <th>Phone</th>
-                  <th>Address</th>
-                  <th>Date</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {Array.isArray(students) && students.length === 0 ? (
-                  <tr>
-                    <td colSpan="7" style={{ textAlign: "center" }}>
-                      No students found.
-                    </td>
-                  </tr>
-                ) : (
-                  students.map((student) => (
-                    <tr key={student._id}>
-                      <td>
-                        <img
-                          src={dummy}
-                          alt="profile"
-                          style={{ width: "40px", borderRadius: "50%" }}
-                        />
-                      </td>
-                      <td>{student.fullname}</td>
-                      <td>{student.email}</td>
-                      <td>{student.phonenumber}</td>
-                      <td>{student.address}</td>
-                      <td>{new Date(student.date).toLocaleDateString()}</td>
-                      <td>
-                        <button
-                          onClick={() => handleDelete(student._id)}
-                          style={{
-                            background: "red",
-                            color: "#fff",
-                            border: "none",
-                            padding: "5px 10px",
-                            cursor: "pointer",
-                          }}
-                        >
-                          Delete
-                        </button>
-                      </td>
+          <div className="student-list">
+            <div className="list-title">
+              <h3>Student List</h3>
+            </div>
+
+            <div className="student-table">
+              {loading ? (
+                <p>Loading students...</p>
+              ) : (
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Profile</th>
+                      <th>Full Name</th>
+                      <th>Email</th>
+                      <th>Phone</th>
+                      <th>Address</th>
+                      <th>Date</th>
+                      <th>Action</th>
                     </tr>
-                  ))
-                )}
-              </tbody>
-            </table>
-          )}
-        </div>
+                  </thead>
+                  <tbody>
+                    {Array.isArray(students) && students.length === 0 ? (
+                      <tr>
+                        <td colSpan="7" style={{ textAlign: "center" }}>
+                          No students found.
+                        </td>
+                      </tr>
+                    ) : (
+                      students.map((student) => (
+                        <tr key={student._id}>
+                          <td>
+                            <img
+                              src={dummy}
+                              alt="profile"
+                              style={{ width: "40px", borderRadius: "50%" }}
+                            />
+                          </td>
+                          <td>{student.fullname || "N/A"}</td>
+                          <td>{student.email || "N/A"}</td>
+                          <td>{student.phonenumber || "N/A"}</td>
+                          <td>{student.address || "N/A"}</td>
+                          <td>
+                            {student.date
+                              ? new Date(student.date).toLocaleDateString("en-GB")
+                              : "N/A"}
+                          </td>
+                          <td>
+                            <button
+                              onClick={() => handleDelete(student._id)}
+                              style={{
+                                background: "red",
+                                color: "#fff",
+                                border: "none",
+                                padding: "5px 10px",
+                                cursor: "pointer",
+                              }}
+                            >
+                              Delete
+                            </button>
+                          </td>
+                        </tr>
+                      ))
+                    )}
+                  </tbody>
+                </table>
+              )}
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   );

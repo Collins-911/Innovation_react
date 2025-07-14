@@ -278,8 +278,6 @@ footer a:hover {
   color: #e0e0e0;
 }
 
-
-/* === Responsive === */
 @media screen and (max-width: 1024px) {
   .sidebar {
     transform: translateX(-100%);
@@ -320,6 +318,15 @@ footer a:hover {
   .quick-actions button {
     width: 100%;
   }
+
+  table {
+    font-size: 0.9rem;
+  }
+
+  th,
+  td {
+    padding: 10px;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -347,5 +354,13 @@ footer a:hover {
 
   .logo img {
     max-height: 40px;
+  }
+
+  header {
+    top: 60px;
+  }
+
+  .sidebar {
+    top: 60px;
   }
 }

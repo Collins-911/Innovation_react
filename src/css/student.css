@@ -65,7 +65,7 @@ table th {
 table td {
   padding: 10px;
   border-bottom: 1px solid grey;
-  color: grey;
+  color: black;
   font-size: 14px;
   white-space: nowrap;
 }

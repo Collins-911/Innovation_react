@@ -1,96 +1,82 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { FaEdit, FaSignOutAlt, FaArrowLeft } from 'react-icons/fa';
 import '../css/profile.css';
-import {
-  FaUser,
-  FaRedoAlt,
-  FaArrowLeft
-} from 'react-icons/fa';
-
 
 export default function Profile() {
- 
+  const navigate = useNavigate();
 
   const userData = {
-    name: "Akpan Idara",
+    firstName: "Akpan",
+    lastName: "Idara",
     email: "excellencennamso@gmail.com",
+    phone: "09092631280",
+    dob: "12-10-1990",
     role: "Admin",
-    contact: "09092631280",
-    location: "Nigeria",
-    status: "Active",
-    verified: true
+    location: "Lagos, Nigeria",
+    country: "Nigeria",
+    city: "Lagos",
+    HouseAddress: "-",
+    avatar: "https://i.ytimg.com/vi/DEGvXTJ5JPA/maxresdefault.jpg"
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("authToken");
+    localStorage.removeItem("user");
+    localStorage.removeItem("userRole");
+    navigate("/");
+  };
+
+  const handleBack = () => {
+    navigate(-1); 
   };
 
   return (
-    <div className="profile-container">
-      <div className="profile-card">
-        <div className="profile-tabs">
-          <Link to="/general/dashboard" className="clean-link">
-            <button className="tab">
-              <FaArrowLeft className="icon" />
-              <span>Go back</span>
-            </button>
-          </Link>
+    <div className="profile-wrapper">
+      <button className="back-btn" onClick={handleBack}>
+        <FaArrowLeft /> Back
+      </button>
 
-          <button className="tab active">
-            <FaUser className="icon" />
-            <span>Profile</span>
-          </button>
+      <div className="profile-header">
+        <h2>My Profile</h2>
+        <button className="logout-btn" onClick={handleLogout}>
+          <FaSignOutAlt /> Logout
+        </button>
+      </div>
 
-          {/* <Link to="/change" className="clean-link">
-            <button className="tab">
-              <FaRedoAlt className="icon" />
-              <span>Reset Password</span>
-            </button>
-          </Link> */}
-
-          <button className="tab-red">
-            LOGOUT
-          </button>
+      <div className="card profile-summary">
+        <img src={userData.avatar} alt="Profile" className="profile-avatar" />
+        <div className="profile-info">
+          <h3>{userData.firstName} {userData.lastName}</h3>
+          <p className="role">{userData.role}</p>
+          <p className="location">{userData.location}</p>
         </div>
+      </div>
 
-        <div className="profile-content">
-          <div className="profile-info">
-            <div className="avatar-section">
-              <img
-                src="https://i.ytimg.com/vi/DEGvXTJ5JPA/maxresdefault.jpg"
-                alt="Profile"
-                className="avatar"
-              />
-              <h2>{userData.name}</h2>
-              <p>{userData.email}</p>
-              <p>{userData.location}</p>
-            </div>
+      <div className="card section-card">
+        <div className="section-header">
+          <h4>Personal Information</h4>
+          <button className="edit-btn"><FaEdit /> Edit</button>
+        </div>
+        <div className="info-grid">
+          <div className="info-block"><label>First Name</label><span>{userData.firstName}</span></div>
+          <div className="info-block"><label>Last Name</label><span>{userData.lastName}</span></div>
+          <div className="info-block"><label>Date of Birth</label><span>{userData.dob}</span></div>
+          <div className="info-block"><label>Email Address</label><span>{userData.email}</span></div>
+          <div className="info-block"><label>Phone Number</label><span>{userData.phone}</span></div>
+          <div className="info-block"><label>User Role</label><span>{userData.role}</span></div>
+        </div>
+      </div>
 
-            <div className="details-section">
-              <div className="detail-row">
-                <span>Name:</span>
-                <strong>{userData.name}</strong>
-              </div>
-              <div className="detail-row">
-                <span>Role:</span>
-                <strong>{userData.role}</strong>
-              </div>
-              <div className="detail-row">
-                <span>Email:</span>
-                <strong>{userData.email}</strong>
-              </div>
-              <div className="detail-row">
-                <span>Email Verification:</span>
-                <strong className="verified">
-                  {userData.verified ? "Verified" : "Not Verified"}
-                </strong>
-              </div>
-              <div className="detail-row">
-                <span>Contact:</span>
-                <strong>{userData.contact}</strong>
-              </div>
-              <div className="detail-row">
-                <span>Status:</span>
-                <strong className="active">{userData.status}</strong>
-              </div>
-            </div>
-          </div>
+      <div className="card section-card">
+        <div className="section-header">
+          <h4>Address</h4>
+          <button className="edit-btn"><FaEdit /> Edit</button>
+        </div>
+        <div className="info-grid">
+          <div className="info-block"><label>Country</label><span>{userData.country}</span></div>
+          <div className="info-block"><label>City</label><span>{userData.city}</span></div>
+  <div className="info-block"><label>House Address</label><span>{userData. HouseAddress}</span></div>
         </div>
       </div>
     </div>

@@ -69,7 +69,7 @@ export default function Staff() {
         setDeletingId(id);
         const token = getToken();
 
-        await axios.delete(`${BASE_URL}/staff/deletestaff/${id}`, {
+        await axios.delete(`${BASE_URL}/staff/${id}/delete`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

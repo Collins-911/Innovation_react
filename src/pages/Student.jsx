@@ -65,7 +65,7 @@ export default function Student() {
     if (confirm.isConfirmed) {
       try {
         const token = getToken();
-        await axios.delete(`${BASE_URL}/students/${id}`, {
+        await axios.delete(`${BASE_URL}/students/${id}/delete`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

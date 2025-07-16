@@ -148,12 +148,6 @@ export default function Staff() {
                         </td>
                         <td>
                           <button
-                            onClick={() => navigate(`/staff/${staff._id}/update`)}
-                            className="btn btn-view"
-                          >
-                            View
-                          </button>
-                          <button
                             onClick={() => handleDelete(staff._id)}
                             disabled={deletingId === staff._id}
                             className="btn btn-delete"

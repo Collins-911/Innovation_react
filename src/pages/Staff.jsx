@@ -39,8 +39,6 @@ export default function Staff() {
         },
       });
 
-      console.log("Raw API Response:", response.data);
-
       const staffList = Array.isArray(response.data)
         ? response.data
         : response.data?.staffs || response.data?.data || [];
@@ -102,7 +100,7 @@ export default function Staff() {
 
           <div className="student-list">
             <div className="list-title">
-              <h3>All Staff List</h3>
+              <h3>Staff List</h3>
             </div>
 
             {loading ? (
@@ -115,7 +113,7 @@ export default function Staff() {
               </div>
             ) : (
               <div className="student-table" style={{ overflowX: "auto" }}>
-                <table className="styled-table">
+                <table>
                   <thead>
                     <tr>
                       <th>Profile</th>
@@ -148,9 +146,17 @@ export default function Staff() {
                         </td>
                         <td>
                           <button
+
                             onClick={() => handleDelete(staff._id)}
                             disabled={deletingId === staff._id}
-                            className="btn btn-delete"
+                            style={{
+                              background: "red",
+                              color: "#fff",
+                              border: "none",
+                              padding: "5px 10px",
+                              borderRadius: "4px",
+                              cursor: deletingId === staff._id ? "not-allowed" : "pointer",
+                            }}
                           >
                             {deletingId === staff._id ? "Deleting..." : "Delete"}
                           </button>

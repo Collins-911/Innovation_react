@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-import "../css/course.css";
+import "../css/course.css"; // Still using the same CSS file for consistency
 import Sidebar from "../components/Sidebar.jsx";
 import Topnav from "../components/Topnav.jsx";
 import BASE_URL from "../utils/constants.js";
@@ -84,61 +84,72 @@ export default function Courses() {
       <Sidebar />
       <div className="top-content">
         <Topnav />
-        <section className="content" style={{ padding: "2rem" }}>
-          <div className="courses-title">
+        <section className="content" style={{ padding: "1rem" }}>
+          <div className="student-title">
             <h4>All Courses</h4>
             <p>
               Courses / <span>All courses</span>
             </p>
           </div>
 
-          {loading ? (
-            <p style={{ textAlign: "center", marginTop: "2rem" }}>
-              Loading courses...
-            </p>
-          ) : courses.length === 0 ? (
-            <p style={{ textAlign: "center", marginTop: "2rem" }}>
-              No courses available.
-            </p>
-          ) : (
-            <table className="courses-table">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Name</th>
-                  <th>Lessons</th>
-                  <th>Duration</th>
-                  <th>Description</th>
-                  <th>Created</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {courses.map((course, index) => (
-                  <tr key={course._id}>
-                    <td>{index + 1}</td>
-                    <td>{course.name}</td>
-                    <td>{course.lessons}</td>
-                    <td>{course.duration}</td>
-                    <td>{course.description}</td>
-                    <td>
-                      {course.createdAt
-                        ? new Date(course.createdAt).toLocaleDateString("en-GB")
-                        : "N/A"}
-                    </td>
-                    <td>
-                      <button
-                        className="delete-btn"
-                        onClick={() => handleDelete(course._id)}
-                      >
-                        Delete
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          )}
+          <div className="student-list">
+            <div className="list-title">
+              <h3>Course List</h3>
+            </div>
+
+            <div className="student-table">
+              {loading ? (
+                <p>Loading courses...</p>
+              ) : courses.length === 0 ? (
+                <p style={{ textAlign: "center" }}>No courses available.</p>
+              ) : (
+                <table>
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Name</th>
+                      <th>Lessons</th>
+                      <th>Duration</th>
+                      <th>Description</th>
+                      <th>Created</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {courses.map((course, index) => (
+                      <tr key={course._id}>
+                        <td>{index + 1}</td>
+                        <td>{course.name || "N/A"}</td>
+                        <td>{course.lessons || "N/A"}</td>
+                        <td>{course.duration || "N/A"}</td>
+                        <td>{course.description || "N/A"}</td>
+                        <td>
+                          {course.createdAt
+                            ? new Date(course.createdAt).toLocaleDateString("en-GB")
+                            : "N/A"}
+                        </td>
+                        <td>
+                          <button
+                            onClick={() => handleDelete(course._id)}
+                            style={{
+                              background: "red",
+                              color: "#fff",
+                              border: "none",
+                              padding: "5px 10px",
+                              cursor: "pointer",
+                              borderRadius: "4px",
+                            }}
+                          >
+                            Delete
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              )}
+            </div>
+          </div>
         </section>
       </div>
     </div>

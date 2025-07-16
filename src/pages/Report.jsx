@@ -1,6 +1,7 @@
 import '../css/report.css';
 import Sidebar from '../components/Sidebar.jsx';
 import TopNav from "../components/Topnav";
+import { color } from 'framer-motion';
 
 const EmailReports = () => {
   return (
@@ -22,7 +23,7 @@ const EmailReports = () => {
               <h4>Compose Email</h4>
               <form id="emailForm" className="email-form">
                 <label htmlFor="to">To:</label>
-                <input type="text" id="to" name="to" placeholder="recipient@example.com" required />
+                <input type="text" id="to" name="to" placeholder="traning@nugiinnovation.com" readOnly />
 
                 <label htmlFor="subject">Subject:</label>
                 <input type="text" id="subject" name="subject" placeholder="Email Subject" required />
@@ -40,7 +41,7 @@ const EmailReports = () => {
 
             {/* Right Side - Inbox (Static) */}
             <div className="inbox-section">
-              <h4>Inbox/Outbox</h4>
+              <h4 style={{color : 'blue'}}>Inbox/Outbox</h4>
               <div className="email-box">
                 <div className="email-item">
                   <h4>Welcome!</h4>

@@ -146,20 +146,7 @@ export default function Staff() {
                         </td>
                         <td>
                           <button
-                            onClick={() => navigate(`/staff/${staff._id}/update`)}
-                            style={{
-                              background: "#007bff",
-                              color: "#fff",
-                              border: "none",
-                              padding: "5px 10px",
-                              borderRadius: "4px",
-                              marginRight: "5px",
-                              cursor: "pointer",
-                            }}
-                          >
-                            View
-                          </button>
-                          <button
+
                             onClick={() => handleDelete(staff._id)}
                             disabled={deletingId === staff._id}
                             style={{

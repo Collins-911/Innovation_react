@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../css/createAssignment.css';
+import '../css/addassignment.css';
 import '../css/course.css';
 import '../css/home.css';
 import Sidebar from '../components/Sidebar.jsx';

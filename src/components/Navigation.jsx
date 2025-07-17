@@ -44,9 +44,9 @@ export default function Navigation() {
     navigate('/tools/report');
   };
 
-  const assignmentClick = () => {
-    console.log('Navigating to Assignment');
-    navigate('/tools/assignment');
+  const addassignmentClick = () => {
+    console.log('Navigating to AddAssignment');
+    navigate('/tools/addassignment');
   };
 
   const addcoursesClick = () => {
@@ -152,7 +152,7 @@ export default function Navigation() {
     registerClick,
     paymentClick,
     reportClick,
-    assignmentClick,
+    addassignmentClick,
     addcoursesClick,
     studentPayment,
     registerstaffClick,

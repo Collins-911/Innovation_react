@@ -14,7 +14,7 @@ import Courses from './pages/Courses.jsx';
 import Report from './pages/Report.jsx';
 import Profile from './pages/profile.jsx';
 import RegisterStaff from './pages/RegisterStaff.jsx';
-import Assignment from './pages/Assignment.jsx';
+import AddAssignment from './pages/AddAssignment.jsx';
 import Curriculum from './pages/Curriculum.jsx';
 import Add_courses from './pages/Add_courses.jsx';
 import CreateAssignment from './pages/CreateAssignment.jsx';
@@ -53,7 +53,7 @@ createRoot(document.getElementById('root')).render(
         <Route path='/general/courses' element={<Courses />} />
         <Route path='/tools/report' element={<Report />} />
         <Route path='/profile/profile' element={<Profile />} />
-        <Route path='/tools/assignment' element={<Assignment />} />
+        <Route path='/tools/addassignment' element={<AddAssignment />} />
         <Route path='/general/curriculum' element={<Curriculum />} />
         <Route path='/tools/add_courses' element={<Add_courses />} />
         <Route path="/create-assignment" element={<CreateAssignment />} />

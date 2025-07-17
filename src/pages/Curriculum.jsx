@@ -63,7 +63,9 @@ export default function Curriculum() {
               </div>
               <div className="row1-title">
                 <h3>Product Management</h3>
-                 <p>Product management is the process of planning, developing, and managing a product throughout its lifecycle. Product managers ensure the product meets user needs and aligns with business goals by coordinating with design, development, and marketing teams.</p> 
+                 <p>Product management involves planning, developing, and guiding a product from idea to launch. Product managers coordinate with teams to ensure the product meets user needs and business goals.
+
+</p> 
               </div>
             </div>
             <div onClick={pdesignClick} className="row2">
@@ -165,7 +167,9 @@ export default function Curriculum() {
               </div>
               <div className="row7-title">
                  <h3>A.I Development</h3>
-                 <p>Artificial Intelligence refers to the simulation of human intelligence in machines. AI systems can learn, reason, and make decisions. Applications include chatbots, facial recognition, recommendation systems, self-driving cars, and tools like machine learning, deep learning, and natural language processing (NLP).</p>
+                 <p>AI is the development of computer systems that can perform tasks that usually require human intelligence—like learning, reasoning, recognizing patterns, and making decisions. Examples include chatbots, facial recognition, and recommendation systems.
+
+</p>
               </div>
             </div>
             <div onClick={surveyClick} className="row8">
